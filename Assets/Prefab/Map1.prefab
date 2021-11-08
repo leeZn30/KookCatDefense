@@ -1456,8 +1456,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileMap: {fileID: 1482456978562849967}
   pointTiles: {fileID: 1482456979963454195}
+  startCoin: 0
   enemy:
   - {fileID: 1456442249226602773, guid: 8ed1780bc0b204043a92d97e9ee85e27, type: 3}
+  enemies: []
 --- !u!1001 &1482456978729501078
 PrefabInstance:
   m_ObjectHideFlags: 0

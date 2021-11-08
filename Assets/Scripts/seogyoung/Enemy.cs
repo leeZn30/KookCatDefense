@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Enemy : MonoBehaviour
 {
     public int id;
@@ -11,10 +12,14 @@ public class Enemy : MonoBehaviour
 
     public Transform affection_bar;
 
+    private bool isSurvive=false;
     private float curAffection = 0;
     private Transform[] wayPoints;
     private int currentWayPointIdx=1;
     private Rigidbody2D rigidbody2D;
+
+    public event System.Action OnDeath;
+    public event System.Action OnSurvive;
 
     void Start()
     {
@@ -25,7 +30,7 @@ public class Enemy : MonoBehaviour
     {
         wayPoints = new Transform[wps.Length];
         wayPoints = wps;
-
+        Debug.Log(currentWayPointIdx);
         transform.position = wayPoints[currentWayPointIdx++].position;
         StartCoroutine(Move());
     }
@@ -48,8 +53,7 @@ public class Enemy : MonoBehaviour
         affection_bar.localScale = new Vector3(perValue, 1.0f, 1.0f);
         if (curAffection >= affection)
         {
-            //남은 고양이수 나중에 여기서 처리
-            Destroy(gameObject);
+            Die();
         }
     }
     void OnTriggerEnter2D(Collider2D coll)
@@ -71,7 +75,8 @@ public class Enemy : MonoBehaviour
             {
                 if (currentWayPointIdx == wayPoints.Length - 1)
                 {
-                    Destroy(gameObject);
+                    isSurvive = true;
+                    Die();
                     break;
                 }
                 transform.position = wayPoints[currentWayPointIdx].position;
@@ -82,6 +87,20 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
     }
 
+    private void Die()
+    {
+        if (OnDeath != null)
+        {
+            OnDeath();
+        }
+        /*
+        if (isSurvive == true && OnSurvive != null)
+        {
+            OnSurvive();
+        }
+        */
+        Destroy(gameObject);
+    }
 
     // Update is called once per frame
     void Update()
