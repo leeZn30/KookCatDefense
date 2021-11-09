@@ -10,9 +10,10 @@ public class GameManager : Singleton<GameManager>
     public StageManager[] maps;
     public int mapIdx = 0;
     private StageManager stage;
+    public int coin;
 
-    [SerializeField]
-    private int coin;
+    private bool isTowerSettingMode=false;
+
     [SerializeField]
     private int waveNum = -1;
     [SerializeField]
