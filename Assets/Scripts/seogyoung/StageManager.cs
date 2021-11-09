@@ -11,13 +11,32 @@ public class StageManager : MonoBehaviour
     public GameObject pointTiles;
     public int startCoin;
 
-    public GameObject[] enemy;
+    public float waveTIme;
+    public List<Wave> waves;
+    public Wave currentWave;
 
     public  List<Enemy> enemies=new List<Enemy>();//생성한 적들
-    // Start is called before the first frame update
+
+
+    public event System.Action OnWaveFinish;
     void Start()
     {
         
+    }
+ 
+    public void StartWave(int idx)
+    {
+        currentWave = waves[idx];
+        for(int i=0; i<currentWave.enemyPrefabs.Length; i++)
+        {
+            currentWave.enemyCnt += currentWave.enemyPrefabs[i].amount;
+        }
+        StartCoroutine(WaitNextWave());
+    }
+    private IEnumerator WaitNextWave()
+    {
+        yield return new WaitForSeconds(waveTIme);
+        StartCoroutine(SpawnEnemy());
     }
     public void LoadMap()
     {
@@ -27,10 +46,44 @@ public class StageManager : MonoBehaviour
     {
         return wayPoints;
     }
-    public void CreateEnemy()
+    private IEnumerator SpawnEnemy()
+    {
+        List<GameObject> enemyObjects = new List<GameObject>();
+        for (int i = 0; i < currentWave.enemyPrefabs.Length; i++)
+        {
+            for (int j = 0; j < currentWave.enemyPrefabs[i].amount; j++)
+                enemyObjects.Add(currentWave.enemyPrefabs[i].type);
+        }
+
+        int spawnEnemyCount = 0;
+        while (spawnEnemyCount<currentWave.enemyCnt)
+        {   
+            //spawntime 간격으로
+            //enemyCnt 만큼 
+            //enemyPrefabs 중에 임의로 소환
+
+            int enemyIndex = Random.Range(0, enemyObjects.Count);
+            CreateEnemy(enemyObjects[enemyIndex]);
+            enemyObjects.RemoveAt(enemyIndex);
+
+            yield return new WaitForSeconds(currentWave.spawnTime);
+            
+            spawnEnemyCount++;
+        }
+
+
+        ///
+        if (OnWaveFinish != null)
+        {
+            OnWaveFinish();
+        }
+
+
+    }
+    public void CreateEnemy(GameObject enemy)
     {
         //추후 수정
-        GameObject cat = Instantiate(enemy[0]);
+        GameObject cat = Instantiate(enemy);
         Enemy _enemy = cat.GetComponent<Enemy>();
         _enemy.SetUp(wayPoints);
 
@@ -40,9 +93,9 @@ public class StageManager : MonoBehaviour
         //리스트에서 삭제
         _enemy.OnDeath += () => enemies.Remove(_enemy);
         //남은 적 수,재화 변경 (gm메소드)
-        //_enemy.OnDeath += () => 
+        _enemy.OnDeath += () => GameManager.Instance.UpdateEnemyDeath(_enemy);
 
-        //통과한 적숫자 누적 후 게임오버 관련 메서드
+        //
         //_enemy.OnSurvive += () =>
 
 
