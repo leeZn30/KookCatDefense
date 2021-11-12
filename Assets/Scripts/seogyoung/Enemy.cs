@@ -7,30 +7,36 @@ public class Enemy : MonoBehaviour
 {
     public int id;
     public string enemyName;
+    public int coin;
     public float affection;
     public float speed;
 
     public Transform affection_bar;
+    public GameObject objAffection_bar;
 
-    private bool isSurvive=false;
+
+    private bool isDead=false;
     private float curAffection = 0;
     private Transform[] wayPoints;
     private int currentWayPointIdx=1;
     private Rigidbody2D rigidbody2D;
+    private Animator animator;
 
     public event System.Action OnDeath;
-    public event System.Action OnSurvive;
+
 
     void Start()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
-        UpdateAffectionBar();
     }
     public void SetUp(Transform[] wps)
     {
+        rigidbody2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        UpdateAffectionBar();
+
         wayPoints = new Transform[wps.Length];
         wayPoints = wps;
-        Debug.Log(currentWayPointIdx);
+        
         transform.position = wayPoints[currentWayPointIdx++].position;
         StartCoroutine(Move());
     }
@@ -58,24 +64,32 @@ public class Enemy : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.tag == "Weapon")
-        {//충돌한 오브젝트가 weapon일때
-            float power = 2;
-            Debug.Log("in Enemy.cs : OnTriggerEnter2D - 공격력 : "+power);
-            AddAffection(power);
+        if (isDead == false)
+        {
+            if (coll.gameObject.tag == "Weapon")
+            {//충돌한 오브젝트가 weapon일때
+                float power = 2;
+                //Debug.Log("in Enemy.cs : OnTriggerEnter2D - 공격력 : "+power);
+                AddAffection(power);
+            }
         }
+       
     }
     IEnumerator Move()
     {
         while (currentWayPointIdx < wayPoints.Length)
         {
             Vector3 dir = (wayPoints[currentWayPointIdx].position - transform.position).normalized;
+
+            animator.SetFloat("MoveX", dir.x);
+            animator.SetFloat("MoveY", dir.y);
+
             transform.position += speed * dir *Time.deltaTime;
             if (Vector3.Distance(transform.position, wayPoints[currentWayPointIdx].position) < 0.02f*speed)
             {
                 if (currentWayPointIdx == wayPoints.Length - 1)
                 {
-                    isSurvive = true;
+                    ////나중에 수정
                     Die();
                     break;
                 }
@@ -89,16 +103,20 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        isDead = true;
+        objAffection_bar.SetActive(false);
+        animator.SetTrigger("isDeath");
+        StopAllCoroutines();
+
         if (OnDeath != null)
         {
             OnDeath();
         }
-        /*
-        if (isSurvive == true && OnSurvive != null)
-        {
-            OnSurvive();
-        }
-        */
+
+
+    }
+    private void DieEvent()
+    {//death 애니메이션 실행시 이벤트 메서드로 호출됨.
         Destroy(gameObject);
     }
 
