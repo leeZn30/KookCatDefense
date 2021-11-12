@@ -7,6 +7,8 @@ public class GameManager : Singleton<GameManager>
     //남은 적 
     //플레이어 게임오버 상태관리
     //ui 갱신
+    public GameObject currentTowerObj;
+
     public StageManager[] maps;
     public int mapIdx = 0;
     private StageManager stage;
@@ -52,7 +54,6 @@ public class GameManager : Singleton<GameManager>
     }
     public void UpdateEnemyDeath(Enemy enemy)
     {
-        Debug.Log(enemyCnt+" 현재 카운트");
         coin += enemy.coin;
         enemyCnt--;
     }

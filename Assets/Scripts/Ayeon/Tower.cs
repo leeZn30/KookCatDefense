@@ -6,8 +6,10 @@ using UnityEngine.EventSystems;
 public class Tower : MonoBehaviour
 {
     // Start is called before the first frame update
+    public float price;
 
     // skill 관련 변수
+
     float skillGague;
     float maxSkillGauge = 100.0f;
     float chargeTime = 0.5f;
