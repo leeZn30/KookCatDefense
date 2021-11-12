@@ -1237,6 +1237,9 @@ MonoBehaviour:
   maps:
   - {fileID: 1482456980663961910, guid: c8d37590971ee1f43be9390dcbe92ed2, type: 3}
   mapIdx: 0
+  coin: 0
+  waveNum: -1
+  enemyCnt: 0
 --- !u!4 &1221161646
 Transform:
   m_ObjectHideFlags: 0
