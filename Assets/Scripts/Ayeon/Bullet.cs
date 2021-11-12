@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
         targetPosition = (target.transform.position - transform.parent.position).normalized;
         transform.Translate(targetPosition * Time.deltaTime * attackTime);
 
-        // 나와 부모의 사이가 일정거리 도달하면 삭제
+        // 총알이 최대 거리 밖으로 나가면 삭제
         float distance = Vector3.Distance(transform.position, transform.parent.position);
         if (distance > max_distance)
         {
@@ -45,7 +45,9 @@ public class Bullet : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            collision.GetComponent<Enemy>().AddAffection(attackDmg);
+            Enemy enemy = collision.GetComponent<Enemy>();
+            if (enemy.isDead == false)
+                enemy.AddAffection(attackDmg);
             Destroy(gameObject);
         }
     }

@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 public class Tower : MonoBehaviour
 {
     // Start is called before the first frame update
+    public int TowerId;
+
     public float price;
 
     // skill 관련 변수
@@ -78,6 +80,16 @@ public class Tower : MonoBehaviour
                 fTime = 0.0f;
                 var aBullet = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
                 aBullet.GetComponent<Bullet>().target = collEnemys[0];
+                switch (TowerId)
+                {
+                    case 1:
+                        aBullet.GetComponent<Bullet>().max_distance = 100.0f;
+                        break;
+
+                    default:
+                        aBullet.GetComponent<Bullet>().max_distance = transform.GetComponent<CircleCollider2D>().radius;
+                        break;
+                }
             }
 
         }
@@ -92,13 +104,29 @@ public class Tower : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        foreach (GameObject go in collEnemys)
+        switch (TowerId)
         {
-            if (go == collision.gameObject)
-            {
-                collEnemys.Remove(go);
+            case 1:
+                foreach (GameObject go in collEnemys)
+                {
+                    if (go == collision.gameObject && go.GetComponent<Enemy>().isDead)
+                    {
+                        collEnemys.Remove(go);
+                        break;
+                    }
+                }
                 break;
-            }
+
+            default:
+                foreach (GameObject go in collEnemys)
+                {
+                    if (go == collision.gameObject)
+                    {
+                        collEnemys.Remove(go);
+                        break;
+                    }
+                }
+                break;
         }
     }
 
