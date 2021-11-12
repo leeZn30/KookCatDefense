@@ -77,8 +77,7 @@ public class Tower : MonoBehaviour
             {
                 fTime = 0.0f;
                 var aBullet = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
-                aBullet.GetComponent<Bullet>().targetPosition = (target.transform.position - transform.position).normalized;
-                target.GetComponent<SpriteRenderer>().color = Color.blue;
+                aBullet.GetComponent<Bullet>().target = collEnemys[0];
             }
 
         }
