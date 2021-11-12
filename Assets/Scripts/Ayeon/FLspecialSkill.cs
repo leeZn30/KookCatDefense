@@ -8,6 +8,8 @@ public class FLspecialSkill : MonoBehaviour
     Vector3 mousePos;
     bool move_flag;
 
+    public float attackDmg;
+
     private List<GameObject> collEnemys = new List<GameObject>();
 
     // Start is called before the first frame update
@@ -42,7 +44,6 @@ public class FLspecialSkill : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             move_flag = false;
-            //Debug.Log("fixed: " + rectTransform.position);
             attack();
         }
     }
@@ -55,7 +56,7 @@ public class FLspecialSkill : MonoBehaviour
             // 아직 몬스터 객체가 없어서 임시 코드
             foreach (GameObject go in collEnemys)
             {
-                go.GetComponent<SpriteRenderer>().color = Color.red;
+                go.GetComponent<Enemy>().AddAffection(attackDmg);
             }
         }
         Destroy(gameObject);
