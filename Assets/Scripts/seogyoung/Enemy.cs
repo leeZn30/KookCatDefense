@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     public GameObject objAffection_bar;
 
 
-    private bool isDead=false;
+    public bool isDead=false;
     private float curAffection = 0;
     private Transform[] wayPoints;
     private int currentWayPointIdx=1;

@@ -26,27 +26,30 @@ public class Bullet : MonoBehaviour
         targetPosition = (target.transform.position - transform.parent.position).normalized;
         transform.Translate(targetPosition * Time.deltaTime * attackTime);
 
-        // ³ª¿Í ºÎ¸ðÀÇ »çÀÌ°¡ ÀÏÁ¤°Å¸® µµ´ÞÇÏ¸é »èÁ¦
+        // ï¿½Ñ¾ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         float distance = Vector3.Distance(transform.position, transform.parent.position);
         if (distance > max_distance)
         {
             Destroy(gameObject);
         }
 
-        // È­¸é ¹Û
+        // È­ï¿½ï¿½ ï¿½ï¿½
         //if (transform.position.x < -0.64f || transform.position.x > 13.44f || transform.position.y < -0.64f || transform.position.y > 8.32f)
         //{
             //Destroy(gameObject);
         //}
     }
 
-    // ÀûÀ» ¸¸³ª¸é »èÁ¦
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
         {
 
-            collision.GetComponent<Enemy>().AddAffection(attackDmg);
+            Enemy enemy = collision.GetComponent<Enemy>();
+            if (enemy.isDead == false)
+                enemy.AddAffection(attackDmg);
+
             Destroy(gameObject);
         }
     }
