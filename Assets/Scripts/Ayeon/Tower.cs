@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class FeedLauncher : MonoBehaviour
+public class Tower : MonoBehaviour
 {
     // Start is called before the first frame update
 
@@ -16,13 +17,16 @@ public class FeedLauncher : MonoBehaviour
     private List<GameObject> collEnemys = new List<GameObject>();
 
     // 총알
-    public GameObject Feed = null;
+    public GameObject Feed;
 
     // 특수스킬 범위
-    public GameObject specialSkillRange = null;
+    public GameObject specialSkill;
 
     // 기본 공격 시간
     private float fTime = 0.0f;
+
+    // 마우스 오버
+    bool isOver = false;
 
     void Start()
     {
@@ -39,13 +43,13 @@ public class FeedLauncher : MonoBehaviour
 
         if (skillGague >= maxSkillGauge)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (isOver && Input.GetMouseButtonDown(0))
             {
                 specialSkillAttack();
-                //skillGague = 0.0f;
-                //StartCoroutine("chargeSkillGauge", chargeTime);
             }
         }
+
+
 
     }
 
@@ -71,7 +75,7 @@ public class FeedLauncher : MonoBehaviour
             {
                 fTime = 0.0f;
                 var aFeed = Instantiate(Feed, transform.position, Quaternion.identity, transform);
-                aFeed.GetComponent<Feed>().targetPosition = (target.transform.position - transform.position).normalized;
+                aFeed.GetComponent<Bullet>().targetPosition = (target.transform.position - transform.position).normalized;
                 target.GetComponent<SpriteRenderer>().color = Color.blue;
             }
 
@@ -99,15 +103,38 @@ public class FeedLauncher : MonoBehaviour
 
     void specialSkillAttack()
     {
-        // 일단 시간을 멈추고
-        // Time.timeScale = 0; 멈추면 특수 스킬 공격이 안먹어서 일단 보류
-
         // 커서를 따라다니면서 공격 범위 표시
-        var specialSkill = Instantiate(specialSkillRange, transform.position, Quaternion.identity, transform);
+        var speciaAttack = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
 
         skillGague = 0.0f;
         StartCoroutine("chargeSkillGauge", chargeTime);
     }
 
+    void OnMouseOver()
+    {
+        if (isOver == false)
+        {
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                isOver = true;
+            }
+
+
+        }
+
+    }
+    void OnMouseExit()
+    {
+        if (isOver == true)
+        {
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                isOver = false;
+            }
+
+
+        }
+
+    }
 
 }

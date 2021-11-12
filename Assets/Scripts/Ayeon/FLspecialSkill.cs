@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FLspecialSkillRange : MonoBehaviour
+public class FLspecialSkill : MonoBehaviour
 {
     public RectTransform rectTransform;
     Vector3 mousePos;
