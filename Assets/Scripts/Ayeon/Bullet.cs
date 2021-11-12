@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour
     {
         transform.Translate(targetPosition * Time.deltaTime * attackTime);
 
-        // ÃÑ¾ËÀÌ ÃÖ´ë °Å¸® ¹ÛÀ¸·Î ³ª°¡¸é »èÁ¦
+        // ï¿½Ñ¾ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         float distance = Vector3.Distance(transform.position, transform.parent.position);
         if (distance > transform.parent.GetComponent<CircleCollider2D>().radius)
         {
@@ -31,14 +31,16 @@ public class Bullet : MonoBehaviour
 
     }
 
-    // ÀûÀ» ¸¸³ª¸é »èÁ¦
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
         {
+
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy.isDead == false)
                 enemy.AddAffection(attackDmg);
+
             Destroy(gameObject);
         }
     }

@@ -37,7 +37,7 @@ public class TowerTile : MonoBehaviour
 
                 tower = Instantiate(p_towerObj);
                 tower.transform.parent = gameObject.transform;//타일의 자식으로 설정
-                tower.transform.localPosition = new Vector3(0, 0, 0);
+                tower.transform.localPosition = new Vector3(0, 0.5f, 0);
 
 
             }
