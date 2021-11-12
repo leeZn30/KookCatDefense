@@ -47,6 +47,7 @@ public class Tower : MonoBehaviour
 
         if (skillGague >= maxSkillGauge)
         {
+            Debug.Log("max charge");
             if (isOver && Input.GetMouseButtonDown(0))
             {
                 specialSkillAttack();
@@ -63,7 +64,7 @@ public class Tower : MonoBehaviour
         {
             yield return new WaitForSeconds(chargeTime);
             StartCoroutine("chargeSkillGauge", chargeTime);
-            Debug.Log("Gauge: " + skillGague);
+            //Debug.Log("Gauge: " + skillGague);
             skillGague += 10.0f;
         }
     }
@@ -132,11 +133,19 @@ public class Tower : MonoBehaviour
 
     void specialSkillAttack()
     {
-        // 커서를 따라다니면서 공격 범위 표시
-        var speciaAttack = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
+        switch (TowerId)
+        {
+            case 2: // no special skill
+                break;
+            default:
+                var speciaAttack = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
 
-        skillGague = 0.0f;
-        StartCoroutine("chargeSkillGauge", chargeTime);
+                skillGague = 0.0f;
+                StartCoroutine("chargeSkillGauge", chargeTime);
+                break;
+
+
+        }
     }
 
     void OnMouseOver()
