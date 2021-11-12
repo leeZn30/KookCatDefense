@@ -795,18 +795,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4727185181175592580, guid: 9e211f5dd8957ec4faf3ded019a6ad31, type: 3}
-      propertyPath: Feed
-      value: 
-      objectReference: {fileID: 3771187067902564040, guid: 270dd4b1149740c49a333bbd223ca3c1, type: 3}
-    - target: {fileID: 4727185181175592580, guid: 9e211f5dd8957ec4faf3ded019a6ad31, type: 3}
-      propertyPath: specialSkill
-      value: 
-      objectReference: {fileID: 530769403481947189, guid: 4300aff60595db94ba9669efe08bf983, type: 3}
-    - target: {fileID: 4727185181175592580, guid: 9e211f5dd8957ec4faf3ded019a6ad31, type: 3}
-      propertyPath: specialSkillRange
-      value: 
-      objectReference: {fileID: 530769403481947189, guid: 4300aff60595db94ba9669efe08bf983, type: 3}
     - target: {fileID: 5206933061407225356, guid: 9e211f5dd8957ec4faf3ded019a6ad31, type: 3}
       propertyPath: m_Name
       value: FeedLauncher

@@ -1595,7 +1595,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileMap: {fileID: 1482456978562849967}
-  pointTiles: {fileID: 1482456979963454195}
+  pointTilesParent: {fileID: 1482456979963454195}
+  towerTilesParent: {fileID: 1038094100}
   startCoin: 1000
   waveTIme: 5
   waves:
