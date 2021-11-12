@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6394382574310486939}
   - component: {fileID: 3331856837042051058}
   m_Layer: 0
-  m_Name: Feed
+  m_Name: Catnip
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.10062516, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.8831452, g: 1, b: 0.3882353, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
