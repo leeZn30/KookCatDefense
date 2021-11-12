@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Feed : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
 
     public Vector3 targetPosition = Vector3.zero;
@@ -31,5 +31,12 @@ public class Feed : MonoBehaviour
         //{
             //Destroy(gameObject);
         //}
+    }
+
+    // 적을 만나면 삭제
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy")
+            Destroy(gameObject);
     }
 }

@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 3015759636150081104}
   - component: {fileID: 5798849742149693231}
   m_Layer: 0
-  m_Name: FLspecialSkillRange
-  m_TagString: Untagged
+  m_Name: FLspecialSkill
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efc9a7e0954aec143ae0f6e01613ddb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rectTransform: {fileID: 0}
+  rectTransform: {fileID: 7934483882208852208}
 --- !u!50 &5798849742149693231
 Rigidbody2D:
   serializedVersion: 4

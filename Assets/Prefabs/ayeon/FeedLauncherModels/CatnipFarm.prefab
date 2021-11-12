@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Feed: {fileID: 3771187067902564040, guid: 3634db2ae4d87654abedfb7875b17b27, type: 3}
-  specialSkillRange: {fileID: 0}
+  specialSkill: {fileID: 0}
 --- !u!212 &5206933061407225358
 SpriteRenderer:
   m_ObjectHideFlags: 0
