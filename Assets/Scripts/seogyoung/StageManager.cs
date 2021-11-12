@@ -6,9 +6,11 @@ using UnityEngine.Tilemaps;
 public class StageManager : MonoBehaviour
 {//enemyspowner나 다름없음
     private Transform[] wayPoints;
+    private TowerTile[] towerTiles;
 
     public Tilemap tileMap;
-    public GameObject pointTiles;
+    public GameObject pointTilesParent;
+    public GameObject towerTilesParent;
     public int startCoin;
 
     public float waveTIme;
@@ -40,7 +42,8 @@ public class StageManager : MonoBehaviour
     }
     public void LoadMap()
     {
-        wayPoints = pointTiles.GetComponentsInChildren<Transform>();
+        towerTiles = towerTilesParent.GetComponentsInChildren<TowerTile>();
+        wayPoints = pointTilesParent.GetComponentsInChildren<Transform>();
     }
     public Transform[] GetWayPoints()
     {
