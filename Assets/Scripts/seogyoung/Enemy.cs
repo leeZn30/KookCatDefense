@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
         transform.position = wayPoints[currentWayPointIdx++].position;
         StartCoroutine(Move());
     }
-    void AddAffection(float value) 
+    public void AddAffection(float value) 
     {
         if(value+ curAffection >= affection)
         {
@@ -68,10 +68,6 @@ public class Enemy : MonoBehaviour
         {
             if (coll.gameObject.tag == "Weapon")
             {//충돌한 오브젝트가 weapon일때
-                float power = 2;
-                //float power = coll.gameObject.GetComponent<Feed>().attackDmg ;
-                //Debug.Log("in Enemy.cs : OnTriggerEnter2D - 공격력 : "+power);
-                AddAffection(power);
             }
         }
        

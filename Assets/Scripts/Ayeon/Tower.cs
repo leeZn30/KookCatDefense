@@ -17,7 +17,7 @@ public class Tower : MonoBehaviour
     private List<GameObject> collEnemys = new List<GameObject>();
 
     // 총알
-    public GameObject Feed;
+    public GameObject Bullet;
 
     // 특수스킬 범위
     public GameObject specialSkill;
@@ -74,8 +74,8 @@ public class Tower : MonoBehaviour
             if (target != null && fTime > attackTime)
             {
                 fTime = 0.0f;
-                var aFeed = Instantiate(Feed, transform.position, Quaternion.identity, transform);
-                aFeed.GetComponent<Bullet>().targetPosition = (target.transform.position - transform.position).normalized;
+                var aBullet = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
+                aBullet.GetComponent<Bullet>().targetPosition = (target.transform.position - transform.position).normalized;
                 target.GetComponent<SpriteRenderer>().color = Color.blue;
             }
 
