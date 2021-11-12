@@ -78,16 +78,16 @@ public class Tower : MonoBehaviour
             if (target != null && fTime > attackTime)
             {
                 fTime = 0.0f;
-                var aBullet = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
-                aBullet.GetComponent<Bullet>().target = collEnemys[0];
                 switch (TowerId)
                 {
                     case 1:
-                        aBullet.GetComponent<Bullet>().max_distance = 100.0f;
+                        var aTargettingBullet = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
+                        aTargettingBullet.GetComponent<TargetingBullet>().target = target;
                         break;
 
                     default:
-                        aBullet.GetComponent<Bullet>().max_distance = transform.GetComponent<CircleCollider2D>().radius;
+                        var aBullet = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
+                        aBullet.GetComponent<Bullet>().targetPosition = (target.transform.position - transform.position).normalized;
                         break;
                 }
             }
