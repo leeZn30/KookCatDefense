@@ -20,7 +20,6 @@ public class StageManager : MonoBehaviour
     public  List<Enemy> enemies=new List<Enemy>();//생성한 적들
 
 
-    public event System.Action OnWaveFinish;
     void Start()
     {
         
@@ -75,11 +74,8 @@ public class StageManager : MonoBehaviour
         }
 
 
-        ///
-        if (OnWaveFinish != null)
-        {
-            OnWaveFinish();
-        }
+        ///지금은 wave 적 a모두 소환하면 바로일정시간 대기후 e다음 웨이브
+        GameManager.Instance.NextWave();
 
 
     }

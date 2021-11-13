@@ -33,10 +33,10 @@ public class GameManager : Singleton<GameManager>
         stage = Instantiate(maps[mapIdx]);
         stage.LoadMap();
         coin = stage.startCoin;
-        stage.OnWaveFinish += NextWave;
+        
 
     }
-    void NextWave()
+    public void NextWave()
     {
         if (++waveNum>=stage.waves.Count)
         {
