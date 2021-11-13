@@ -14,12 +14,13 @@ public class TowerTile : MonoBehaviour
         { //좌클릭 이벤트 
             if (tower != null)
             {
+                Debug.Log("타워 설치되어있음");
                 //타워가 설치상태면 클릭 안되게
             }
             else
             {
                 BulidTower(GameManager.Instance.currentTowerObj);
-                Debug.Log("click");
+                Debug.Log("타워 설치");
             }
             
         } 
