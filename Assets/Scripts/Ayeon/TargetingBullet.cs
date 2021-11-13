@@ -2,46 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class TargetingBullet : MonoBehaviour
 {
+    public GameObject target;
     public float attackDmg;
 
     public float attackTime;
 
-    public float max_distance;
-
-    public Vector3 targetPosition;
+    Vector3 targetPosition;
 
     // Start is called before the first frame update
     void Start()
     {
+        targetPosition = (target.transform.position - transform.parent.position).normalized;
     }
 
     // Update is called once per frame
     void Update()
     {
+        targetPosition = (target.transform.position - transform.parent.position).normalized;
         transform.Translate(targetPosition * Time.deltaTime * attackTime);
 
-        // ï¿½Ñ¾ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-        float distance = Vector3.Distance(transform.position, transform.parent.position);
-        if (distance > transform.parent.GetComponent<CircleCollider2D>().radius)
-        {
-            Destroy(gameObject);
-        }
-
+        // È­¸é ¹Û
+        //if (transform.position.x < -0.64f || transform.position.x > 13.44f || transform.position.y < -0.64f || transform.position.y > 8.32f)
+        //{
+        //Destroy(gameObject);
+        //}
     }
 
-    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    // ÀûÀ» ¸¸³ª¸é »èÁ¦
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
         {
-
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy.isDead == false)
                 enemy.AddAffection(attackDmg);
-
             Destroy(gameObject);
         }
     }
+
 }
