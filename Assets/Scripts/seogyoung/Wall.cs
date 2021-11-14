@@ -22,7 +22,8 @@ public class Wall : MonoBehaviour
     }
     public void AddHp(float value)
     {
-        hp += value;    
+        hp += value;
+        Debug.Log("Wall hp: " + hp);
     }
 
 

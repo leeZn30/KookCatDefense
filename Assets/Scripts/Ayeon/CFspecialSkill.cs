@@ -41,7 +41,6 @@ public class CFspecialSkill : MonoBehaviour
 
         if (collEnemys.Count > 0)
         {
-            // 아직 몬스터 객체가 없어서 임시 코드
             foreach (GameObject go in collEnemys)
             {
                 // 나중에 enemy speedDown메소드 호출해서 거기서 시간 넣어서 하기

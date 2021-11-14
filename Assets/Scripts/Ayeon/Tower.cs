@@ -78,15 +78,28 @@ public class Tower : MonoBehaviour
             
             if (target != null && fTime > attackTime)
             {
-                fTime = 0.0f;
                 switch (TowerId)
                 {
                     case 1:
+                        fTime = 0.0f;
                         var aTargettingBullet = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
                         aTargettingBullet.GetComponent<TargetingBullet>().target = target;
                         break;
 
+                    case 5:
+                        fTime = 0.0f;
+                        var aRazer = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
+                        Vector3 dir = (target.transform.position - transform.position).normalized;
+                        float angle = Vector2.SignedAngle(Vector2.down, dir);
+                        Quaternion qut = new Quaternion();
+                        qut.eulerAngles = new Vector3(0, 0, angle);
+                        aRazer.transform.rotation = qut;
+                        aRazer.transform.position += dir * 1.0f;
+                        transform.localScale = new Vector3(0.3f, transform.GetComponent<CircleCollider2D>().radius, 1);
+                        break;
+
                     default:
+                        fTime = 0.0f;
                         var aBullet = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
                         aBullet.GetComponent<Bullet>().targetPosition = (target.transform.position - transform.position).normalized;
                         break;
