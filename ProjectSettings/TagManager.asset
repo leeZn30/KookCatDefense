@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - Tile
   - Tower
+  - Road
   layers:
   - Default
   - TransparentFX

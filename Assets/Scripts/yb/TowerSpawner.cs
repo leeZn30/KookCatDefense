@@ -44,24 +44,31 @@ public class TowerSpawner : MonoBehaviour
         {
             return;
         }
-
-        Tile tile = tileTransform.GetComponent<Tile>();
-
-        if(tile.IsBuildTower == true)
+        
+        TowerTile towerTile = tileTransform.GetComponent<TowerTile>();
+        //Tile tile = tileTransform.GetComponent<Tile>();
+        /*
+        if (tile.IsBuildTower == true)
         {
             return;
         }
 
-        isOnTowerButton = false;
+        
 
         tile.IsBuildTower = true;
-
+        */
         Tower tower = towerPrefab[towerType].GetComponent<Tower>();
 
-        GameManager.Instance.coin -= (int)tower.price;
+        if (towerTile.BulidTower(towerPrefab[towerType]))
+        {
+            GameManager.Instance.coin -= (int)tower.price;
 
-        Vector3 position = tileTransform.position + Vector3.back;
-        GameObject clone = Instantiate(towerPrefab[towerType], position, Quaternion.identity);
+        }
+        else Debug.Log("타워 건설 실패");
+        isOnTowerButton = false;
+
+        //Vector3 position = tileTransform.position + Vector3.back;
+        //GameObject clone = Instantiate(towerPrefab[towerType], position, Quaternion.identity);
 
         Destroy(followTowerClone);
 
