@@ -54,6 +54,7 @@
         "Temp/":true
     },
     "files.associations": {
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "algorithm": "cpp"
     }
 }
