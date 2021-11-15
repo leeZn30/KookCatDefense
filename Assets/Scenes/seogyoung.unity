@@ -352,6 +352,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FeedLauncher (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5206933061407225358, guid: 9e211f5dd8957ec4faf3ded019a6ad31, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f6aebf692297ca40ad51ea1f643b11b, type: 3}
     - target: {fileID: 5206933061407225457, guid: 9e211f5dd8957ec4faf3ded019a6ad31, type: 3}
       propertyPath: m_RootOrder
       value: 7
