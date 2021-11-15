@@ -10,32 +10,34 @@ public class Tower : MonoBehaviour
 
     public float price;
 
-    // skill °ü·Ã º¯¼ö
+    // skill ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     float skillGague;
     float maxSkillGauge = 100.0f;
     float chargeTime = 0.5f;
     float attackTime = 0.5f;
 
-    // Àû ¸®½ºÆ®
+    // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
     private List<GameObject> collEnemys = new List<GameObject>();
 
-    // ÃÑ¾Ë
+    // ï¿½Ñ¾ï¿½
     public GameObject Bullet;
 
-    // Æ¯¼ö½ºÅ³ ¹üÀ§
+    // Æ¯ï¿½ï¿½ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
     public GameObject specialSkill;
 
-    // ±âº» °ø°Ý ½Ã°£
+    // ï¿½âº» ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
     private float fTime = 0.0f;
 
-    // ¸¶¿ì½º ¿À¹ö
+    // ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½
     bool isOver = false;
+
+    public float Price => price;
 
     void Start()
     {
         skillGague = 0;
-        // maxSkillGaugeº¸´Ù skillGauge°¡ ÀÛ´Ù¸é, ½Ã°£º°·Î ÃæÀüÇØÁÖ±â
+        // maxSkillGaugeï¿½ï¿½ï¿½ï¿½ skillGaugeï¿½ï¿½ ï¿½Û´Ù¸ï¿½, ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
         StartCoroutine("chargeSkillGauge", chargeTime);
 
     }
