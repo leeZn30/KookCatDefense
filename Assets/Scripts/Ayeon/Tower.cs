@@ -95,7 +95,6 @@ public class Tower : MonoBehaviour
                         qut.eulerAngles = new Vector3(0, 0, angle);
                         aRazer.transform.rotation = qut;
                         aRazer.transform.position += dir * 1.0f;
-                        transform.localScale = new Vector3(0.3f, transform.GetComponent<CircleCollider2D>().radius, 1);
                         break;
 
                     default:

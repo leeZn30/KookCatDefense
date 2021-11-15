@@ -17,9 +17,10 @@ public class Razer : MonoBehaviour
     void Update()
     {
         Destroy(gameObject, 0.3f);
+        //transform.localScale = new Vector3(0.3f, transform.GetComponent<CircleCollider2D>().radius, 1);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2d(Collider2D collision)
     {
         if (collision.tag == "Enemy")
         {
