@@ -21,11 +21,25 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private int enemyCnt;
 
+    private bool isWaveFinish = false;//웨이브가 다끝났는지
     private bool isGameOver = false;
-    
+
+
+    //추후 타워 스포너로 옮길 코드
+    int maxTowerCnt=4;
+    [SerializeField]
+    private GameObject[] towerPrefabs;
+
     // Start is called before the first frame update
     void Start()
     {
+        //타워스포너로 옮기기
+        towerPrefabs = new GameObject[maxTowerCnt];
+        for(int i=0; i<maxTowerCnt; i++) { 
+            towerPrefabs[i] = Resources.Load<GameObject>("Prefabs/Tower/Tower"+GameData.Instance.selectedTowers[i]);
+        }
+        //
+
         InitMap();
     }
     void InitMap()
@@ -36,12 +50,24 @@ public class GameManager : Singleton<GameManager>
         
 
     }
+    public void ClearGame()
+    {
+        Debug.Log("GameClear");
+    }
+    public void GameOver()
+    {
+        if (isGameOver == false)
+        {
+            isGameOver = true;
+            Debug.Log("GameOver");    
+        }
+    }
     public void NextWave()
     {
         if (++waveNum>=stage.waves.Count)
         {
-            //모든 웨이브가 끝남. 클리어
-            //여기서  finish메서드 호출
+            //모든 웨이브가 끝남. 남은 적만 다 없애면 클리어
+            isWaveFinish = true;
             return;
         }
 
@@ -56,10 +82,15 @@ public class GameManager : Singleton<GameManager>
     {
         coin += enemy.coin;
         enemyCnt--;
+        if (isWaveFinish == true && enemyCnt<=0)
+        {
+            ClearGame();
+        }
     }
     // Update is called once per frame
     void Update()
     {
+        //테스트용 코드
         if (Input.GetKeyDown(KeyCode.Space))
         {
             NextWave();

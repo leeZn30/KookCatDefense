@@ -11,6 +11,7 @@ public class StageManager : MonoBehaviour
     public Tilemap tileMap;
     public GameObject pointTilesParent;
     public GameObject towerTilesParent;
+    public Wall lastWall;
     public int startCoin;
 
     public float waveTIme;
@@ -24,7 +25,15 @@ public class StageManager : MonoBehaviour
     {
         
     }
- 
+    private void Update()
+    {
+        if (lastWall == null)
+        {
+            StopAllCoroutines();
+            GameManager.Instance.GameOver();
+        }        
+    }
+
     public void StartWave(int idx)
     {
         currentWave = waves[idx];
