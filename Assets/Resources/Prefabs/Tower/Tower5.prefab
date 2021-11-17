@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5206933061407225358}
   - component: {fileID: 2724901029555571023}
   m_Layer: 0
-  m_Name: CatWheel
+  m_Name: Tower5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49526f3a10480c748abae9a7132c0d88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TowerId: 4
+  TowerId: 5
   price: 0
-  Bullet: {fileID: 0}
+  Bullet: {fileID: 8206214582102084688, guid: a4edd878c99c3c445a1c306ba2257dca, type: 3}
   specialSkill: {fileID: 0}
 --- !u!212 &5206933061407225358
 SpriteRenderer:
@@ -90,7 +90,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
-  m_Color: {r: 0.38823533, g: 0.92705214, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.4431373, b: 0.36862746, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -115,4 +115,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 7
+  m_Radius: 2

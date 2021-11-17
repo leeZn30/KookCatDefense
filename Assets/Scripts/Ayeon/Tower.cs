@@ -21,7 +21,7 @@ public class Tower : MonoBehaviour
     private List<GameObject> collEnemys = new List<GameObject>();
 
     // �Ѿ�
-    public GameObject Bullet;
+    public GameObject Bullet = null;
 
     // Ư����ų ����
     public GameObject specialSkill;
