@@ -6,53 +6,30 @@ using UnityEngine.EventSystems;
 public class TowerTile : MonoBehaviour
 {
     private GameObject tower;
-
-    bool isOver = false; 
     void Update()
     {
-        if (isOver && Input.GetMouseButtonDown(0))
-        { //좌클릭 이벤트 
-            if (tower != null)
-            {
-                Debug.Log("타워 설치되어있음");
-                //타워가 설치상태면 클릭 안되게
-            }
-            else
-            {
-                BulidTower(GameManager.Instance.currentTowerObj);
-                Debug.Log("타워 설치");
-            }
-            
-        } 
  
     } 
-    public void BulidTower(GameObject p_towerObj)
+    public bool BulidTower(GameObject p_towerObj)
     {
-        Tower p_tower = p_towerObj.GetComponent<Tower>(); 
-        if (p_tower != null)
+        bool isSuccess=false;
+        if (tower == null)
         {
-            if (GameManager.Instance.coin >=p_tower.price)
+            Tower p_tower = p_towerObj.GetComponent<Tower>();
+            if (p_tower != null)
             {
-                //GameManager.Instance.coin += p_tower.price;
-                //추후추가
 
                 tower = Instantiate(p_towerObj);
                 tower.transform.parent = gameObject.transform;//타일의 자식으로 설정
                 tower.transform.localPosition = new Vector3(0, 0.5f, 0);
-
+                isSuccess = true;
 
             }
-            else
-            {
-                Debug.Log("돈 없음");
-            }
         }
-        else
-        {
-            Debug.Log("설치 선택된 타워 없음");
-        }
+        return isSuccess;
         
     }
+    /*
     void OnMouseOver() {
         if (isOver == false)
         {
@@ -78,6 +55,6 @@ public class TowerTile : MonoBehaviour
 
         }
 
-    }
+    }*/
 
 }

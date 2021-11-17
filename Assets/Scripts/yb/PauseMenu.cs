@@ -6,6 +6,7 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject PauseUI;
     public GameObject NormalUI;
+    public GameObject BuildTowerUI;
 
     private bool paused = false;
     // Start is called before the first frame update
@@ -23,11 +24,13 @@ public class PauseMenu : MonoBehaviour
         if(paused){
             PauseUI.SetActive(true);
             NormalUI.SetActive(false);
+            BuildTowerUI.SetActive(false);
             Time.timeScale = 0;
         }
         if(!paused){
             PauseUI.SetActive(false);
             NormalUI.SetActive(true);
+            BuildTowerUI.SetActive(true);
             Time.timeScale = 1f;
         }
     }
@@ -38,11 +41,13 @@ public class PauseMenu : MonoBehaviour
         if(paused){
             PauseUI.SetActive(true);
             NormalUI.SetActive(false);
+            BuildTowerUI.SetActive(false);
             Time.timeScale = 0;
         }
         if(!paused){
             PauseUI.SetActive(false);
             NormalUI.SetActive(true);
+            BuildTowerUI.SetActive(true);
             Time.timeScale = 1f;
         }
     }

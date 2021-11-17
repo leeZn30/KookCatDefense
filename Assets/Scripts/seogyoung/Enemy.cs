@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float attackDmg;
 
+    public float baseSpeed;
+
     public Transform affection_bar;
     public GameObject objAffection_bar;
     public GameObject enemyAttackRangeObj;
@@ -31,9 +33,15 @@ public class Enemy : MonoBehaviour
 
     public event System.Action OnDeath;
 
+    public float Speed
+    {
+        set => speed = Mathf.Max(0, value);
+        get => speed;
+    }
 
     void Start()
     {
+        baseSpeed = speed;
     }
     public void SetUp(Transform[] wps)
     {
@@ -79,7 +87,7 @@ public class Enemy : MonoBehaviour
         if (isDead == false)
         {
             if (coll.gameObject.tag == "Weapon")
-            {//Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®°¡ weaponÀÏ¶§
+            {//ï¿½æµ¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ weaponï¿½Ï¶ï¿½
             }
         }
        
@@ -92,7 +100,7 @@ public class Enemy : MonoBehaviour
             {
                 Vector3 dir = (wayPoints[currentWayPointIdx].position - transform.position).normalized;
                 
-                //°ø°Ý¹üÀ§ ÄÃ¶óÀÌ´õ ¹æÇâ ÀüÈ¯
+                //ï¿½ï¿½ï¿½Ý¹ï¿½ï¿½ï¿½ ï¿½Ã¶ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
                 float roValue = 180;
                 if (dir.x <= 0) roValue = 90;
                 roValue += (90 * dir.x);
@@ -108,7 +116,7 @@ public class Enemy : MonoBehaviour
                 {
                     if (currentWayPointIdx == wayPoints.Length - 1)
                     {
-                        ////³ªÁß¿¡ ¼öÁ¤
+                        ////ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½ï¿½
                         Die();
                         break;
                     }
@@ -129,7 +137,7 @@ public class Enemy : MonoBehaviour
         
     }
     private void AttackEvent()
-    {//attack ¾Ö´Ï¸ÞÀÌ¼Ç ½ÇÇà½Ã ÀÌº¥Æ® ¸Þ¼­µå·Î È£ÃâµÊ
+    {//attack ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½
         Wall wall = enemyAttackRange.GetAttckTarget();
         if (wall != null)
         {
@@ -160,7 +168,7 @@ public class Enemy : MonoBehaviour
 
     }
     private void DieEvent()
-    {//death ¾Ö´Ï¸ÞÀÌ¼Ç ½ÇÇà½Ã ÀÌº¥Æ® ¸Þ¼­µå·Î È£ÃâµÊ.
+    {//death ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½.
         Destroy(gameObject);
     }
 
@@ -169,6 +177,11 @@ public class Enemy : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void ResetMoveSpeed()
+    {
+        speed = baseSpeed;
     }
 
 
