@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5206933061407225358}
   - component: {fileID: 2724901029555571023}
   m_Layer: 0
-  m_Name: CatnipFarm
+  m_Name: Tower3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
