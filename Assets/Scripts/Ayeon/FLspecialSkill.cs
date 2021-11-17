@@ -16,15 +16,17 @@ public class FLspecialSkill : MonoBehaviour
     void Start()
     {
        rectTransform = GetComponent<RectTransform>();
-        move_flag = true;
+       move_flag = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         moveObjcet();
-        fixingObject();
-        Debug.Log(collEnemys.Count);
+        if (Input.GetMouseButtonDown(0))
+        {
+            fixingObject();
+        }
     }
 
     void moveObjcet()
@@ -41,11 +43,8 @@ public class FLspecialSkill : MonoBehaviour
 
     void fixingObject()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            move_flag = false;
-            attack();
-        }
+        move_flag = false;
+        attack();
     }
 
     void attack()
@@ -59,6 +58,7 @@ public class FLspecialSkill : MonoBehaviour
                 go.GetComponent<Enemy>().AddAffection(attackDmg);
             }
         }
+        transform.parent.GetComponent<Tower>().Startco();
         Destroy(gameObject);
     }
 

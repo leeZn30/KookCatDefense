@@ -10,21 +10,30 @@ public class Bullet : MonoBehaviour
 
     public float max_distance;
 
+    public GameObject target = null;
     public Vector3 targetPosition;
 
     // Start is called before the first frame update
     void Start()
     {
+        targetPosition = (target.transform.position - transform.position).normalized;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(targetPosition * Time.deltaTime * attackTime);
+        if (target != null)
+        {
+            transform.Translate(targetPosition * Time.deltaTime * attackTime);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
         // �Ѿ��� �ִ� �Ÿ� ������ ������ ����
         float distance = Vector3.Distance(transform.position, transform.parent.position);
-        if (distance > transform.parent.GetComponent<CircleCollider2D>().radius)
+        if (distance > transform.parent.GetComponentInChildren<CircleCollider2D>().radius)
         {
             Destroy(gameObject);
         }

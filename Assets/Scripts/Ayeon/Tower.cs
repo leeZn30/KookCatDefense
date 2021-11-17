@@ -12,13 +12,13 @@ public class Tower : MonoBehaviour
 
     // skill ���� ����
 
-    float skillGague;
+    public float skillGague;
     float maxSkillGauge = 100.0f;
     float chargeTime = 0.5f;
     float attackTime = 0.5f;
 
     // �� ����Ʈ
-    private List<GameObject> collEnemys = new List<GameObject>();
+    public List<GameObject> collEnemys = new List<GameObject>();
 
     // �Ѿ�
     public GameObject Bullet = null;
@@ -46,7 +46,19 @@ public class Tower : MonoBehaviour
     void Update()
     {
         attack();
+        deleteCollEnemys();
 
+        if (isOver && Input.GetMouseButtonDown(0))
+        {
+            if (skillGague >= maxSkillGauge)
+            {
+                Debug.Log("max charge");
+                
+                specialSkillAttack();
+                
+            }
+        }
+        /*
         if (skillGague >= maxSkillGauge)
         {
             Debug.Log("max charge");
@@ -55,18 +67,28 @@ public class Tower : MonoBehaviour
                 specialSkillAttack();
             }
         }
-
-
+    */
 
     }
-
+    public void Startco()
+    {
+        skillGague = 0.0f;
+        StartCoroutine("chargeSkillGauge", chargeTime);
+    }
     public IEnumerator chargeSkillGauge(float chargeTime)
     {
+        /*
         if (skillGague < maxSkillGauge)
         {
             yield return new WaitForSeconds(chargeTime);
             StartCoroutine("chargeSkillGauge", chargeTime);
             //Debug.Log("Gauge: " + skillGague);
+            skillGague += 10.0f;
+        }
+        */
+        while(skillGague < maxSkillGauge)
+        {
+            yield return new WaitForSeconds(chargeTime);
             skillGague += 10.0f;
         }
     }
@@ -102,46 +124,11 @@ public class Tower : MonoBehaviour
                     default:
                         fTime = 0.0f;
                         var aBullet = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
-                        aBullet.GetComponent<Bullet>().targetPosition = (target.transform.position - transform.position).normalized;
+                        aBullet.GetComponent<Bullet>().target= target;
                         break;
                 }
             }
 
-        }
-    }
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Enemy")
-            collEnemys.Add(collision.gameObject);
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        switch (TowerId)
-        {
-            case 1:
-                foreach (GameObject go in collEnemys)
-                {
-                    if (go == collision.gameObject && go.GetComponent<Enemy>().isDead)
-                    {
-                        collEnemys.Remove(go);
-                        break;
-                    }
-                }
-                break;
-
-            default:
-                foreach (GameObject go in collEnemys)
-                {
-                    if (go == collision.gameObject)
-                    {
-                        collEnemys.Remove(go);
-                        break;
-                    }
-                }
-                break;
         }
     }
 
@@ -153,17 +140,32 @@ public class Tower : MonoBehaviour
                 break;
             default:
                 var speciaAttack = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
-
+                /*
                 skillGague = 0.0f;
                 StartCoroutine("chargeSkillGauge", chargeTime);
+                */
                 break;
 
 
         }
     }
 
+    // collenemys를 검사해서 죽은 몬스터는 지워줌
+    void deleteCollEnemys()
+    {
+        foreach (GameObject go in collEnemys)
+        {
+            if (go == null) // or isDead?
+            {
+                collEnemys.Remove(go);
+                break;
+            }
+        }
+    }
+
     void OnMouseOver()
     {
+        //Debug.Log("Enter!");
         if (isOver == false)
         {
             if (!EventSystem.current.IsPointerOverGameObject())
@@ -171,12 +173,12 @@ public class Tower : MonoBehaviour
                 isOver = true;
             }
 
-
         }
-
     }
+
     void OnMouseExit()
     {
+        //Debug.Log("Exit!");
         if (isOver == true)
         {
             if (!EventSystem.current.IsPointerOverGameObject())
