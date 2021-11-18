@@ -45,10 +45,11 @@ public class Bullet : MonoBehaviour
         {
 
             Enemy enemy = collision.GetComponent<Enemy>();
-            if (enemy.isDead == false)
+            if (!enemy.isDead)
+            {
                 enemy.AddAffection(attackDmg);
-
-            Destroy(gameObject);
+                Destroy(gameObject);
+            }
         }
     }
 }

@@ -43,9 +43,10 @@ public class Catnip : MonoBehaviour
             Enemy enemy = collision.GetComponent<Enemy>();
 
             if (!enemy.isDead)
+            {
                 enemy.SpeedDownAndReset(3.0f);
-
-            Destroy(gameObject);
+                Destroy(gameObject);
+            }
 
         }
     }
