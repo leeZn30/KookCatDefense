@@ -116,8 +116,11 @@ public class Tower : MonoBehaviour
                         foreach (GameObject enemy in collEnemys)
                             if (enemy.GetComponent<Enemy>().Speed == 0)
                                 continue;
-                            else target = enemy;
-                            aCatnip.GetComponent<Catnip>().target = target;
+                            else
+                            {
+                                aCatnip.GetComponent<Catnip>().target = target;
+                                break;
+                            }
                         break;
 
                     case 5:

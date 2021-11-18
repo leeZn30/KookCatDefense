@@ -33,15 +33,18 @@ public class TargetingBullet : MonoBehaviour
         
     }
 
-    // 적을 만나면 삭제
+    // 타겟을 만나면 삭제
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
         {
             Enemy enemy = collision.GetComponent<Enemy>();
-            if (enemy.isDead == false)
+            if (enemy == target.GetComponent<Enemy>() && !enemy.isDead)
+            {
                 enemy.AddAffection(attackDmg);
-            Destroy(gameObject);
+                Destroy(gameObject);
+
+            }
         }
     }
 
