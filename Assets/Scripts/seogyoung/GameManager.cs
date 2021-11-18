@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
-{   //½ºÅ×ÀÌÁöº° ¸Ê ·Îµå
-    //³²Àº Àû 
-    //ÇÃ·¹ÀÌ¾î °ÔÀÓ¿À¹ö »óÅÂ°ü¸®
-    //ui °»½Å
+{   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Îµï¿½
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
+    //ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ï¿½ï¿½
+    //ui ï¿½ï¿½ï¿½ï¿½
     public GameObject currentTowerObj;
 
     public StageManager[] maps;
@@ -21,19 +21,22 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private int enemyCnt;
 
-    private bool isWaveFinish = false;//¿þÀÌºê°¡ ´Ù³¡³µ´ÂÁö
+    private bool isWaveFinish = false;//ï¿½ï¿½ï¿½Ìºê°¡ ï¿½Ù³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private bool isGameOver = false;
 
 
-    //ÃßÈÄ Å¸¿ö ½ºÆ÷³Ê·Î ¿Å±æ ÄÚµå
+    //ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ê·ï¿½ ï¿½Å±ï¿½ ï¿½Úµï¿½
     int maxTowerCnt=4;
     [SerializeField]
     private GameObject[] towerPrefabs;
 
+    public float WaveNum => waveNum;
+    public float EnemyCnt => enemyCnt;
+
     // Start is called before the first frame update
     void Start()
     {
-        //Å¸¿ö½ºÆ÷³Ê·Î ¿Å±â±â
+        //Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê·ï¿½ ï¿½Å±ï¿½ï¿½
         towerPrefabs = new GameObject[maxTowerCnt];
         for(int i=0; i<maxTowerCnt; i++) { 
             towerPrefabs[i] = Resources.Load<GameObject>("Prefabs/Tower/Tower"+GameData.Instance.selectedTowers[i]);
@@ -66,17 +69,17 @@ public class GameManager : Singleton<GameManager>
     {
         if (++waveNum>=stage.waves.Count)
         {
-            //¸ðµç ¿þÀÌºê°¡ ³¡³². ³²Àº Àû¸¸ ´Ù ¾ø¾Ö¸é Å¬¸®¾î
+            //ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºê°¡ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ö¸ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
             isWaveFinish = true;
             return;
         }
 
-        //´ÙÀ½ ¿þÀÌºê
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½
         stage.StartWave(waveNum);
         enemyCnt += stage.currentWave.enemyCnt;
 
         Debug.Log("in GameManager.cs NextWave() - wave Num :" + waveNum+" enemyCnt :"+enemyCnt);
-        //uiº¯°æ
+        //uiï¿½ï¿½ï¿½ï¿½
     }
     public void UpdateEnemyDeath(Enemy enemy)
     {
@@ -90,7 +93,7 @@ public class GameManager : Singleton<GameManager>
     // Update is called once per frame
     void Update()
     {
-        //Å×½ºÆ®¿ë ÄÚµå
+        //ï¿½×½ï¿½Æ®ï¿½ï¿½ ï¿½Úµï¿½
         if (Input.GetKeyDown(KeyCode.Space))
         {
             NextWave();
