@@ -49,6 +49,7 @@ MonoBehaviour:
   TowerId: 1
   price: 0
   skillGague: 0
+  attackTime: 2
   collEnemys: []
   Bullet: {fileID: 3771187067902564040, guid: 8917ea9d20ab9af489512532108eca1f, type: 3}
   specialSkill: {fileID: 530769403481947189, guid: 4300aff60595db94ba9669efe08bf983, type: 3}

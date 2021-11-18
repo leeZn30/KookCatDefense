@@ -15,7 +15,7 @@ public class Tower : MonoBehaviour
     public float skillGague;
     float maxSkillGauge = 100.0f;
     float chargeTime = 0.5f;
-    float attackTime = 0.5f;
+    public float attackTime;
 
     // �� ����Ʈ
     public List<GameObject> collEnemys = new List<GameObject>();
@@ -108,6 +108,16 @@ public class Tower : MonoBehaviour
                         fTime = 0.0f;
                         var aTargettingBullet = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
                         aTargettingBullet.GetComponent<TargetingBullet>().target = target;
+                        break;
+
+                    case 3:
+                        fTime = 0.0f;
+                        var aCatnip = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
+                        foreach (GameObject enemy in collEnemys)
+                            if (enemy.GetComponent<Enemy>().Speed == 0)
+                                continue;
+                            else target = enemy;
+                            aCatnip.GetComponent<Catnip>().target = target;
                         break;
 
                     case 5:

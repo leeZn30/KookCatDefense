@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5206933061407225457}
   - component: {fileID: 4727185181175592580}
   - component: {fileID: 5206933061407225358}
+  - component: {fileID: 7520146049285458922}
   m_Layer: 0
   m_Name: Tower3
   m_TagString: Untagged
@@ -48,6 +49,7 @@ MonoBehaviour:
   TowerId: 3
   price: 0
   skillGague: 0
+  attackTime: 3
   collEnemys: []
   Bullet: {fileID: 3771187067902564040, guid: 3634db2ae4d87654abedfb7875b17b27, type: 3}
   specialSkill: {fileID: 530769403481947189, guid: 2335a25b4178346418be6fd586e4e176, type: 3}
@@ -102,6 +104,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &7520146049285458922
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5206933061407225356}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0
 --- !u!1 &7497055101298206073
 GameObject:
   m_ObjectHideFlags: 0

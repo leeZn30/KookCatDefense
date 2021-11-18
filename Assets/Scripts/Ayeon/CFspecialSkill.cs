@@ -43,8 +43,9 @@ public class CFspecialSkill : MonoBehaviour
         {
             foreach (GameObject go in collEnemys)
             {
-                // 나중에 enemy speedDown메소드 호출해서 거기서 시간 넣어서 하기
-                go.GetComponent<Enemy>().speed *= 0.995f;
+                Enemy enemy = go.GetComponent<Enemy>();
+
+                enemy.SpeedDownAndReset(1.5f);
             }
         }
         
