@@ -7,11 +7,9 @@ public class Tower : MonoBehaviour
 {
     // Start is called before the first frame update
     public int TowerId;
-
-    public float price;
+    public ItemInfo info;
 
     // skill ���� ����
-
     public float skillGague;
     float maxSkillGauge = 100.0f;
     float chargeTime = 0.5f;
@@ -32,7 +30,7 @@ public class Tower : MonoBehaviour
     // ���콺 ����
     bool isOver = false;
 
-    public float Price => price;
+    public float Price => info.price;
 
     void Start()
     {

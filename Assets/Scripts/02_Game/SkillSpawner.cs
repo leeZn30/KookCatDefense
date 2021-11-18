@@ -12,7 +12,14 @@ public class SkillSpawner : MonoBehaviour
     private GameObject followTowerClone = null;
     private GameObject skill = null;
     private int skillType;
-
+    private void Start()
+    {
+        
+        for (int i = 0; i < skillPrefab.Length; i++)
+        {
+            skillPrefab[i] = Resources.Load<GameObject>("Prefabs/Skill/Skill" + GameData.Instance.selectedSkills[i]);
+        }
+    }
     public void ReadytoSpawnSkill(int type)
     {
         skillType = type;

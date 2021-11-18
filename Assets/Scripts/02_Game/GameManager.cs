@@ -25,23 +25,12 @@ public class GameManager : Singleton<GameManager>
     private bool isGameOver = false;
 
 
-    //���� Ÿ�� �����ʷ� �ű� �ڵ�
-    int maxTowerCnt=4;
-    [SerializeField]
-    private GameObject[] towerPrefabs;
-
     public float WaveNum => waveNum;
     public float EnemyCnt => enemyCnt;
 
     // Start is called before the first frame update
     void Start()
     {
-        //Ÿ�������ʷ� �ű��
-        towerPrefabs = new GameObject[maxTowerCnt];
-        for(int i=0; i<maxTowerCnt; i++) { 
-            towerPrefabs[i] = Resources.Load<GameObject>("Prefabs/Tower/Tower"+GameData.Instance.selectedTowers[i]);
-        }
-        //
 
         InitMap();
     }
@@ -56,6 +45,7 @@ public class GameManager : Singleton<GameManager>
     public void ClearGame()
     {
         Debug.Log("GameClear");
+        //
     }
     public void GameOver()
     {
@@ -63,6 +53,7 @@ public class GameManager : Singleton<GameManager>
         {
             isGameOver = true;
             Debug.Log("GameOver");    
+            //
         }
     }
     public void NextWave()

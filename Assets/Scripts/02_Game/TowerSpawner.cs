@@ -12,6 +12,13 @@ public class TowerSpawner : MonoBehaviour
     private GameObject followTowerClone = null;
     private int towerType;
 
+    private void Start()
+    {
+        for(int i=0; i<towerPrefab.Length; i++)
+        {
+            towerPrefab[i] = Resources.Load<GameObject>("Prefabs/Tower/Tower"+GameData.Instance.selectedTowers[i]); 
+        }
+    }
     public void ReadytoSpawnTower(int type)
     {
         towerType = type;
@@ -61,7 +68,7 @@ public class TowerSpawner : MonoBehaviour
 
         if (towerTile.BulidTower(towerPrefab[towerType]))
         {
-            GameManager.Instance.coin -= (int)tower.price;
+            GameManager.Instance.coin -= (int)tower.Price;
 
         }
         else Debug.Log("타워 건설 실패");
