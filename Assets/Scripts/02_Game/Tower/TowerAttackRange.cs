@@ -31,10 +31,7 @@ public class TowerAttackRange : MonoBehaviour
 
         switch (TowerId)
         {
-            case 1:
-                break;
-
-            default: // 타워1을 제외하고는, 범위 밖을 나가면 지워줌
+            default: // 범위 밖을 나가면 지워줌
                 foreach (GameObject go in collEnemys)
                 {
                     if (go == collision.gameObject)
