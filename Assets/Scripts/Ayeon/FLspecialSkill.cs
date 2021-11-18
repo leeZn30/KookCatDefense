@@ -52,7 +52,6 @@ public class FLspecialSkill : MonoBehaviour
 
         if (collEnemys.Count > 0)
         {
-            // 아직 몬스터 객체가 없어서 임시 코드
             foreach (GameObject go in collEnemys)
             {
                 go.GetComponent<Enemy>().AddAffection(attackDmg);

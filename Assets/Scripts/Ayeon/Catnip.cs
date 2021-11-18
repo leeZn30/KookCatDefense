@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Catnip : MonoBehaviour
 {
-    public float attackDmg;
-
     public float attackTime;
 
     public GameObject target = null;
@@ -29,7 +27,6 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        // �Ѿ��� �ִ� �Ÿ� ������ ������ ����
         float distance = Vector3.Distance(transform.position, transform.parent.position);
         if (distance > transform.parent.GetComponentInChildren<CircleCollider2D>().radius)
         {
@@ -38,17 +35,18 @@ public class Bullet : MonoBehaviour
 
     }
 
-    // ���� ������ ����
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
         {
 
             Enemy enemy = collision.GetComponent<Enemy>();
-            if (enemy.isDead == false)
-                enemy.AddAffection(attackDmg);
+
+            if (!enemy.isDead)
+                enemy.SpeedDownAndReset(3.0f);
 
             Destroy(gameObject);
+
         }
     }
 }

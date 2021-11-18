@@ -28,5 +28,17 @@ public class Razer : MonoBehaviour
                 enemy.AddAffection(attackDmg);
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy")
+        {
+
+            Enemy enemy = collision.GetComponent<Enemy>();
+            if (enemy.isDead == false)
+                enemy.AddAffection(attackDmg);
+
+            Destroy(gameObject);
+        }
+    }
 
 }

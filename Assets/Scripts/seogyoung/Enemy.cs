@@ -183,7 +183,19 @@ public class Enemy : MonoBehaviour
     {
         speed = baseSpeed;
     }
+    public void SpeedDownAndReset(float waitTime)
+    {
+        // Speed -= Speed * 0.4f; %로 줄이고 싶으면 이거 사용
+        Speed = 0;
+        StartCoroutine(KeepDowningSpeed(waitTime));
+    }
 
+    public IEnumerator KeepDowningSpeed(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
 
+        ResetMoveSpeed();
+
+    }
 
 }
