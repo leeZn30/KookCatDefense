@@ -5,13 +5,18 @@ using UnityEngine.UI;
 
 public class SelectedSlot : MonoBehaviour
 {
-
+    public Type type;
     public int idx;
     public int itemIdx;
 
     public Image image;
     public Button delBtn;
 
+    
+
+    public delegate void DeleteHandler(Type type,int num);
+    public event DeleteHandler OnDelete;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +31,14 @@ public class SelectedSlot : MonoBehaviour
     }
     void ClickDelBtn()
     {
-        itemIdx = -1;
-        image.sprite = null;
+        if (itemIdx != -1)
+        {
+            
+            OnDelete(type, itemIdx);
+            itemIdx = -1;
+            image.sprite = null;
+
+        }
+        
     }
 }

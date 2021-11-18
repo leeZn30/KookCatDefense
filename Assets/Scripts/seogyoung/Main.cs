@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 
 public class Main : MonoBehaviour
 {
-    public Select select;
     public GameObject backGround;
     public StageInfoPanel stageInfoPanel;
 

@@ -9,19 +9,35 @@ public class Slot : MonoBehaviour
     public string ItemName;
     public string price;
     public string content;
-
+    
     public Select select;
 
     public Image image;
-
+    public string selectText;
     private Button button;
     // Start is called before the first frame update
     void Start()
     {
+        selectText = "선택";
         button = GetComponent<Button>();
         button.onClick.AddListener(delegate { select.ClickSlot(this); });
     }
+    public void SetSelect(bool value)
+    {
+       
+        if (value)
+        {
+            selectText = "선택 완료";
+            image.color = new Color(0.5f, 0.5f, 0.5f);
 
+        }
+        else
+        {
+            selectText = "선택";
+            image.color = new Color(1, 1, 1);
+        }
+
+    }
     public void SetSlot()
     {
 

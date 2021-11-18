@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 public class StageInfoPanel : MonoBehaviour
 {
+    public Select select;
     public TextMeshProUGUI text_stageName;
     public TextMeshProUGUI text_stageContent;
     public Button btn_select;
@@ -20,6 +21,7 @@ public class StageInfoPanel : MonoBehaviour
     void Start()
     {
         stageInfo_animator = gameObject.GetComponent<Animator>();
+        btn_select.onClick.AddListener(select.InitSelect);
     }
 
     public void SetStageInfos(StageInfo[] s)
