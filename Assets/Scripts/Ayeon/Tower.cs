@@ -39,7 +39,7 @@ public class Tower : MonoBehaviour
         skillGague = 0;
         // maxSkillGauge���� skillGauge�� �۴ٸ�, �ð����� �������ֱ�
         StartCoroutine("chargeSkillGauge", chargeTime);
-
+        
     }
 
     // Update is called once per frame
@@ -161,7 +161,7 @@ public class Tower : MonoBehaviour
 
         }
     }
-
+    
     void OnMouseOver()
     {
         if (isOver == false)
