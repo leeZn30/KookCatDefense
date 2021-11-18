@@ -9,6 +9,8 @@ public class Catnip : MonoBehaviour
     public GameObject target = null;
     public Vector3 targetPosition;
 
+    public List<Enemy> enterEnemys = new List<Enemy>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,12 +41,13 @@ public class Catnip : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-
             Enemy enemy = collision.GetComponent<Enemy>();
 
             if (!enemy.isDead)
             {
-                enemy.SpeedDownAndReset(3.0f);
+                enterEnemys.Add(enemy);
+
+                enterEnemys[0].SpeedDownAndReset(3.0f);
                 Destroy(gameObject);
             }
 

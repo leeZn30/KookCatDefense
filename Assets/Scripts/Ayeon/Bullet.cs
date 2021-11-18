@@ -11,6 +11,8 @@ public class Bullet : MonoBehaviour
     public GameObject target = null;
     public Vector3 targetPosition;
 
+    public List<Enemy> enterEnemys = new List<Enemy>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,11 +45,13 @@ public class Bullet : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-
             Enemy enemy = collision.GetComponent<Enemy>();
             if (!enemy.isDead)
             {
-                enemy.AddAffection(attackDmg);
+                enterEnemys.Add(enemy);
+
+                enterEnemys[0].AddAffection(attackDmg);
+
                 Destroy(gameObject);
             }
         }
