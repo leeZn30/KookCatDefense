@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class Tower : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int TowerId;
+    //public int TowerId;
     public ItemInfo info;
 
     // skill ���� ����
@@ -14,9 +14,6 @@ public class Tower : MonoBehaviour
     float maxSkillGauge = 100.0f;
     float chargeTime = 0.5f;
     public float attackTime;
-
-    // �� ����Ʈ
-    //public List<GameObject> collEnemys = new List<GameObject>();
 
     // �Ѿ�
     public GameObject Bullet = null;
@@ -33,6 +30,7 @@ public class Tower : MonoBehaviour
     public float hitSize;
 
     public float Price => info.price;
+    public int TowerId => info.id;
 
     void Start()
     {

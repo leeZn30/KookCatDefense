@@ -45,10 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49526f3a10480c748abae9a7132c0d88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TowerId: 1
   info:
-    id: 0
-    name: 
+    id: 1
+    name: FeedLauncher
     content: 
     price: 0
   skillGague: 0
