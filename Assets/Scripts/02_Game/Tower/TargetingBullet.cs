@@ -19,7 +19,6 @@ public class TargetingBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if (target != null)
         {
             //targetPosition = (target.transform.position - transform.parent.position).normalized;
@@ -68,15 +67,6 @@ public class TargetingBullet : MonoBehaviour
                 Destroy(gameObject);
 
             }
-        }
-    }
-
-    void ScreenOut()
-    {
-        Vector3 targetScreenPos = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-        if (targetScreenPos.x < Screen.width || targetScreenPos.x > 0 || targetScreenPos.y < Screen.height || targetScreenPos.y > 0)
-        {
-            Destroy(gameObject);
         }
     }
 
