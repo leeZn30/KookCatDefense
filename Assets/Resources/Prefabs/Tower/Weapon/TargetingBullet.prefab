@@ -114,4 +114,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   attackDmg: 3
-  attackTime: 10
+  attackSpeed: 10

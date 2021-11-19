@@ -112,6 +112,7 @@ public class Tower : MonoBehaviour
                     case 3:
                         fTime = 0.0f;
                         var aCatnip = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
+                        aCatnip.GetComponent<Catnip>().target = target;
                         break;
 
                     case 5:

@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDmg: 2
-  attackTime: 10
+  attackSpeed: 10
   target: {fileID: 0}
   targetPosition: {x: 0, y: 0, z: 0}
   enterEnemys: []

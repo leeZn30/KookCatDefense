@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60809b1f3db451747a1ebbbc7eddb7d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackTime: 5
+  attackSpeed: 10
   target: {fileID: 0}
   targetPosition: {x: 0, y: 0, z: 0}
   enterEnemys: []
