@@ -48,7 +48,8 @@ MonoBehaviour:
   info:
     id: 5
     name: "\uACE0\uC591\uC774 \uC7A5\uB09C\uAC10"
-    content: 
+    content: "\uD55C\uBC88\uC5D0 \uC5EC\uB7EC\uB9C8\uB9AC\uB97C \uB180\uC544\uC904
+      \uC218 \uC788\uB294 \uACE0\uC591\uC774 \uC7A5\uB09C\uAC10"
     price: 0
   skillGague: 0
   attackTime: 0
