@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 public enum Type { tower, skill }
 public class Select : MonoBehaviour
 {
@@ -16,6 +18,7 @@ public class Select : MonoBehaviour
     public GameObject typeBtnGroup;
     public Button selectBtn;
     public Button startBtn;
+    public Button exitBtn;
 
     public TextMeshProUGUI text_name;
     public TextMeshProUGUI text_price;
@@ -40,6 +43,7 @@ public class Select : MonoBehaviour
 
         text_btnState = selectBtn.gameObject.GetComponentInChildren<TextMeshProUGUI>();
 
+        exitBtn.onClick.AddListener(ExitSelect);
         startBtn.onClick.AddListener(StartGameScene);
         typeBtn = typeBtnGroup.GetComponentsInChildren<Button>();
         typeBtn[0].onClick.AddListener(delegate { ClickTypeButton(Type.tower); });
@@ -88,7 +92,15 @@ public class Select : MonoBehaviour
             GameData.Instance.selectedTowers[i] = selectedSlots[0][i].itemIdx;
             GameData.Instance.selectedSkills[i] = selectedSlots[1][i].itemIdx;
         }
+        SceneManager.LoadScene("02_Game");
        
+    }
+    private void ExitSelect()
+    {
+
+        backPanel.SetActive(false);
+        panel.SetActive(false);
+
     }
 
     public void ClickTypeButton(Type tp)
@@ -106,6 +118,7 @@ public class Select : MonoBehaviour
         text_price.SetText("");
         text_content.SetText("");
         bigImage.sprite = null;
+        bigImage.preserveAspect = true;
 
         if (selectBtn.gameObject.activeSelf == true)
         {
@@ -119,6 +132,8 @@ public class Select : MonoBehaviour
         }
         for (int i = 0; i < slots.Length; i++)
         {
+            slots[i].SetSlotImage(Resources.Load<Sprite>("Image/" + type.ToString() + i));   
+
             if (idxs.Contains(slots[i].idx))
             {
                 slots[i].SetSelect(true);
@@ -170,11 +185,29 @@ public class Select : MonoBehaviour
         if (currentSlotIndex == slot.idx) return;
         currentSlotIndex = slot.idx;
 
+        ItemInfo itemInfo=null;
+        if (type == Type.tower)
+        {
+            itemInfo = Resources.Load<Tower>("Prefabs/Tower/Tower" + currentSlotIndex).info;
+        }
+        else{
+            //itemInfo = Resources.Load<Tower>("Prefabs/Skill/Skill" + currentSlotIndex).info;
+        }
+
         //text 업데이트
-        text_name.text = slot.ItemName;
-        text_content.text = slot.content;
-        text_price.text = slot.price;
-        Debug.Log("this slot image is    Image/" + type + "" + slot.idx);
+        if (itemInfo != null)
+        {
+            text_name.text = itemInfo.name;
+            text_content.text = itemInfo.content ;
+            text_price.text = itemInfo.price.ToString();
+        }
+        else
+        {
+            text_name.text = slot.ItemName;
+            text_content.text = slot.content;
+            text_price.text = slot.price;
+        }
+ 
         bigImage.sprite = Resources.Load<Sprite>("Image/"+ type.ToString() + ""+slot.idx);
 
         if (selectBtn.gameObject.activeSelf == false)

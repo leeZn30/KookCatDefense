@@ -37,7 +37,7 @@ public class Main : MonoBehaviour
                 {
                     if (hit.transform.CompareTag("StageButton"))
                     {
-                        Debug.Log("click");
+                        Debug.Log("stage click");
                         OnClickStageButton(hit.transform.GetComponent<StageInfo>());
                     }
                     else
@@ -57,7 +57,7 @@ public class Main : MonoBehaviour
     }
     void OnClickStageButton(StageInfo stageInfo)
     {
-
+        if (GameData.Instance.stageLocks[stageInfo.num] == -1) return;//잠금 안풀린 스테이지 누른경우
         if (GameData.Instance.selectedStage == stageInfo.num) return;//같은 스테이지 누른 경우 return;
         GameData.Instance.selectedStage = stageInfo.num;
 

@@ -31,8 +31,9 @@ public class GameManager : Singleton<GameManager>
     // Start is called before the first frame update
     void Start()
     {
-
+        mapIdx = GameData.Instance.selectedStage;
         InitMap();
+        
     }
     void InitMap()
     {
@@ -45,15 +46,16 @@ public class GameManager : Singleton<GameManager>
     public void ClearGame()
     {
         Debug.Log("GameClear");
-        //
+        //1,2,3 이렇게 별 구분 나중에 가능 
+        GameData.Instance.stageLocks[mapIdx] = 0;
     }
     public void GameOver()
     {
         if (isGameOver == false)
         {
             isGameOver = true;
-            Debug.Log("GameOver");    
-            //
+            Debug.Log("GameOver");
+
         }
     }
     public void NextWave()

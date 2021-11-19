@@ -27,7 +27,6 @@ public class CameraMove : MonoBehaviour
     void Update()
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel") ;
-        Debug.Log(scroll);
         if(camera.orthographicSize < maxSize && scroll>0)
         {//√‡º“
             StartCoroutine(ZoomOut());

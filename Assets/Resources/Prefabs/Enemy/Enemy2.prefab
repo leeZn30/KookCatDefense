@@ -189,7 +189,8 @@ MonoBehaviour:
   affection: 50
   speed: 5
   attackDmg: 0
-  baseSpeed: 0
+  attackSpeed: 1
+  baseSpeed: 5
   affection_bar: {fileID: 1983988444}
   objAffection_bar: {fileID: 5478114430488031466}
   enemyAttackRangeObj: {fileID: 3987378349508212683}

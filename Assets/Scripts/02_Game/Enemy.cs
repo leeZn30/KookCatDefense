@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public float affection;
     public float speed;
     public float attackDmg;
+    public float attackSpeed;
 
     public float baseSpeed;
 
@@ -33,6 +34,11 @@ public class Enemy : MonoBehaviour
 
     public event System.Action OnDeath;
 
+    public float AttackSpeed
+    {
+        set => attackSpeed = Mathf.Max(0, value);
+        get => attackSpeed;
+    }
     public float Speed
     {
         set => speed = Mathf.Max(0, value);
@@ -51,7 +57,7 @@ public class Enemy : MonoBehaviour
         enemyAttackRange.OnMissWall += () => SetMoving(true);
 
         rigidbody2D = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>(); animator.SetFloat("attackSpeed", AttackSpeed);
         UpdateAffectionBar();
 
         wayPoints = new Transform[wps.Length];
@@ -149,11 +155,12 @@ public class Enemy : MonoBehaviour
         }
     }
     private void SetMoving(bool value)
-    {
+    {//공격모션 같이나오게
         if (isMoving == !value)
         {
             isMoving = value;
             animator.SetBool("isAttack", !isMoving);
+            
         }
     }
     private void Die()
@@ -188,11 +195,13 @@ public class Enemy : MonoBehaviour
     public void ResetMoveSpeed()
     {
         speed = baseSpeed;
+        if (Speed > 0) isMoving = true;
     }
     public void SpeedDownAndReset(float waitTime)
     {
         // Speed -= Speed * 0.4f; %로 줄이고 싶으면 이거 사용
         Speed = 0;
+        if (Speed <= 0) isMoving = false;
         StartCoroutine(KeepDowningSpeed(waitTime));
     }
 

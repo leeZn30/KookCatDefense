@@ -22,6 +22,16 @@ public class StageInfoPanel : MonoBehaviour
     {
         stageInfo_animator = gameObject.GetComponent<Animator>();
         btn_select.onClick.AddListener(select.InitSelect);
+
+        for(int i=0; i<GameData.Instance.stageLocks.Length; i++)
+        {
+            if (stageInfos.Length <= i) break;
+            if(GameData.Instance.stageLocks[i]==-1)
+                stageInfos[i].GetComponent<SpriteRenderer>().color= new Color(0.5f, 0.5f, 0.5f);
+            else
+                stageInfos[i].GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
+
+        }
     }
 
     public void SetStageInfos(StageInfo[] s)

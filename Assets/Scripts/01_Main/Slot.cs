@@ -38,6 +38,11 @@ public class Slot : MonoBehaviour
         }
 
     }
+    public void SetSlotImage(Sprite img)
+    {
+        image.sprite = img;
+        image.preserveAspect = true;
+    }
     public void SetSlot()
     {
 

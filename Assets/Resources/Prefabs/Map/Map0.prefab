@@ -1877,6 +1877,11 @@ MonoBehaviour:
       type: {fileID: 1456442249226602773, guid: db030c1b87f22e944802eb6c45a710b8, type: 3}
     - amount: 4
       type: {fileID: 1456442249226602773, guid: 03780fcae054f6d4cbb8b7fdb74b30f1, type: 3}
+  - spawnTime: 0.5
+    enemyCnt: 0
+    enemyPrefabs:
+    - amount: 1
+      type: {fileID: 1456442249226602773, guid: 8d8cfbc4cc3c5c54db920bfdf0f13ff4, type: 3}
   currentWave:
     spawnTime: 0
     enemyCnt: 0

@@ -43,7 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eccde0d10e34b74c8ab7ab0b4ce7b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageLocks: 
+  stageLocks: 00000000ffffffffffffffffffffffffffffffffffffffffffffffff
   stageStars: 
-  selectedTowers: 01000000010000000100000001000000
-  selectedSkills: 
+  selectedStage: -1
+  selectedTowers: 02000000030000000400000004000000
+  selectedSkills: 01000000
