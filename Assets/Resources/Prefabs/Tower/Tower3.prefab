@@ -45,17 +45,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49526f3a10480c748abae9a7132c0d88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-
   info:
     id: 3
-    name: CatnipFarm
+    name: "\uCEA3\uB2E2\uB300\uD3EC"
     content: 
     price: 0
   skillGague: 0
-  attackTime: 3
+  attackTime: 0
   Bullet: {fileID: 3771187067902564040, guid: 3634db2ae4d87654abedfb7875b17b27, type: 3}
-  specialSkill: {fileID: 530769403481947189, guid: 2335a25b4178346418be6fd586e4e176, type: 3}
-  hitSize: 7
+  specialSkill: {fileID: 0}
+  hitSize: 0
 --- !u!212 &5206933061407225358
 SpriteRenderer:
   m_ObjectHideFlags: 0

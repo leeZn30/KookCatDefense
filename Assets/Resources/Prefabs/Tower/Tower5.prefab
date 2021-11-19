@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   info:
     id: 5
-    name: CatToy
+    name: "\uACE0\uC591\uC774 \uC7A5\uB09C\uAC10"
     content: 
     price: 0
   skillGague: 0

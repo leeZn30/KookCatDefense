@@ -45,18 +45,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49526f3a10480c748abae9a7132c0d88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TowerId: 4
   info:
-    id: 0
-    name: 
+    id: 4
+    name: "\uCEA3\uD720"
     content: 
     price: 0
   skillGague: 0
   attackTime: 0
-
   Bullet: {fileID: 0}
   specialSkill: {fileID: 0}
-  hitSize: 5
+  hitSize: 0
 --- !u!212 &5206933061407225358
 SpriteRenderer:
   m_ObjectHideFlags: 0

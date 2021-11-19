@@ -45,18 +45,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49526f3a10480c748abae9a7132c0d88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-
   info:
     id: 2
-    name: Snacker
-
+    name: "\uAC04\uC2DD\uC8FC\uB294\uC0AC\uB78C"
     content: 
     price: 0
   skillGague: 0
-  attackTime: 2
+  attackTime: 0
   Bullet: {fileID: 3771187067902564040, guid: 270dd4b1149740c49a333bbd223ca3c1, type: 3}
   specialSkill: {fileID: 0}
-  hitSize: 2
+  hitSize: 0
 --- !u!212 &5206933061407225358
 SpriteRenderer:
   m_ObjectHideFlags: 0
