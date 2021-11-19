@@ -48,8 +48,14 @@ public class CFspecialSkill : MonoBehaviour
                 enemy.SpeedDownAndReset(1.5f);
             }
         }
-        
+        //transform.parent.GetComponent<Tower>().Startco();
         Destroy(gameObject, 1f);
     }
+
+    private void OnDestroy()
+    {
+        transform.parent.GetComponent<Tower>().Startco();
+    }
+
 
 }

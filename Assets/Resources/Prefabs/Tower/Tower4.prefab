@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5206933061407225457}
   - component: {fileID: 4727185181175592580}
   - component: {fileID: 5206933061407225358}
-  - component: {fileID: 2724901029555571023}
+  - component: {fileID: 5890627463624479936}
   m_Layer: 0
   m_Name: Tower4
   m_TagString: Untagged
@@ -46,9 +46,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TowerId: 4
-  price: 0
+  info:
+    id: 0
+    name: 
+    content: 
+    price: 0
+  skillGague: 0
+  attackTime: 0
   Bullet: {fileID: 0}
   specialSkill: {fileID: 0}
+  hitSize: 5
 --- !u!212 &5206933061407225358
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -100,8 +107,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &2724901029555571023
-CircleCollider2D:
+--- !u!70 &5890627463624479936
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -110,9 +117,9 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 7
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0
