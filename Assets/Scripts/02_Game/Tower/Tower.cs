@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class Tower : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int TowerId;
+    //public int TowerId;
     public ItemInfo info;
 
     // skill ���� ����
@@ -15,14 +15,11 @@ public class Tower : MonoBehaviour
     float chargeTime = 0.5f;
     public float attackTime;
 
-    // �� ����Ʈ
-    public List<GameObject> collEnemys = new List<GameObject>();
-
     // �Ѿ�
     public GameObject Bullet = null;
 
     // Ư����ų ����
-    public GameObject specialSkill;
+    public GameObject specialSkill = null;
 
     // �⺻ ���� �ð�
     private float fTime = 0.0f;
@@ -30,73 +27,77 @@ public class Tower : MonoBehaviour
     // ���콺 ����
     bool isOver = false;
 
+    public float hitSize;
+
     public float Price => info.price;
+    public int TowerId => info.id;
 
     void Start()
     {
         skillGague = 0;
         // maxSkillGauge���� skillGauge�� �۴ٸ�, �ð����� �������ֱ�
         StartCoroutine("chargeSkillGauge", chargeTime);
-        
     }
 
     // Update is called once per frame
     void Update()
     {
         attack();
-        deleteCollEnemys();
-
-        if (isOver && Input.GetMouseButtonDown(0))
-        {
-            if (skillGague >= maxSkillGauge)
-            {
-                Debug.Log("max charge");
-                
-                specialSkillAttack();
-                
-            }
-        }
-        /*
-        if (skillGague >= maxSkillGauge)
-        {
-            Debug.Log("max charge");
-            if (isOver && Input.GetMouseButtonDown(0))
-            {
-                specialSkillAttack();
-            }
-        }
-    */
-
+        specialSkillAttack();
     }
     public void Startco()
     {
-        skillGague = 0.0f;
         StartCoroutine("chargeSkillGauge", chargeTime);
     }
+
     public IEnumerator chargeSkillGauge(float chargeTime)
     {
-        /*
-        if (skillGague < maxSkillGauge)
-        {
-            yield return new WaitForSeconds(chargeTime);
-            StartCoroutine("chargeSkillGauge", chargeTime);
-            //Debug.Log("Gauge: " + skillGague);
-            skillGague += 10.0f;
-        }
-        */
-        while(skillGague < maxSkillGauge)
+        while (skillGague < maxSkillGauge)
         {
             yield return new WaitForSeconds(chargeTime);
             skillGague += 10.0f;
         }
+    }
+
+    GameObject targetSearch(Collider2D[] collEnmeys, int TowerId)
+    {
+        switch (TowerId)
+        {
+            case 3:
+                for (int i = 0; i < collEnmeys.Length; i++)
+                {
+                    if (collEnmeys[i].tag == "Enemy")
+                    {
+                        return collEnmeys[i].gameObject;
+                    }
+                    else
+                        return null;
+                }
+                break;
+
+            default:
+                for (int i = 0; i < collEnmeys.Length; i++)
+                {
+                    GameObject enemy = collEnmeys[i].gameObject;
+                    if (enemy.tag == "Enemy" && enemy.GetComponent<Enemy>().Speed != 0)
+                    {
+                        return enemy;
+                    }
+                    else return null;
+                }
+                break;
+        }
+        return null;
     }
 
     void attack()
     {
+        Collider2D[] collEnemys = Physics2D.OverlapCircleAll(transform.position, hitSize);
+
         fTime += Time.deltaTime;
-        if (collEnemys.Count > 0)
+        if (collEnemys.Length > 0)
         {
-            GameObject target = collEnemys[0];
+            GameObject target = targetSearch(collEnemys, TowerId);
             
             if (target != null && fTime > attackTime)
             {
@@ -111,14 +112,6 @@ public class Tower : MonoBehaviour
                     case 3:
                         fTime = 0.0f;
                         var aCatnip = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
-                        foreach (GameObject enemy in collEnemys)
-                            if (enemy.GetComponent<Enemy>().Speed == 0)
-                                continue;
-                            else
-                            {
-                                aCatnip.GetComponent<Catnip>().target = target;
-                                break;
-                            }
                         break;
 
                     case 5:
@@ -145,63 +138,54 @@ public class Tower : MonoBehaviour
 
     void specialSkillAttack()
     {
-        switch (TowerId)
+        if (skillGague >= maxSkillGauge && (isOver && Input.GetMouseButtonUp(0)))
         {
-            case 2: // no special skill
-                break;
-            default:
-                var speciaAttack = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
-                /*
-                skillGague = 0.0f;
-                StartCoroutine("chargeSkillGauge", chargeTime);
-                */
-                break;
-
-
-        }
-    }
-
-
-    // collenemys를 검사해서 죽은 몬스터는 지워줌
-    void deleteCollEnemys()
-    {
-        foreach (GameObject go in collEnemys)
-        {
-            if (go == null) // or isDead?
+            switch (TowerId)
             {
-                collEnemys.Remove(go);
-                break;
+                case 2: // no special skill
+                    break;
+
+                case 3:
+                    var tower3SpecialSkill = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
+                    break;
+
+                default:
+                    var speciaAttack = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
+                    break;
             }
+            skillGague = 0.0f;
         }
     }
 
-
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, hitSize);
+    }
+    
     void OnMouseOver()
     {
-        //Debug.Log("Enter!");
+        
         if (isOver == false)
         {
             if (!EventSystem.current.IsPointerOverGameObject())
             {
                 isOver = true;
             }
-
         }
+        
     }
 
     void OnMouseExit()
     {
-        //Debug.Log("Exit!");
         if (isOver == true)
         {
             if (!EventSystem.current.IsPointerOverGameObject())
             {
                 isOver = false;
             }
-
-
         }
-
     }
+    
 
 }

@@ -57,7 +57,6 @@ public class FLspecialSkill : MonoBehaviour
                 go.GetComponent<Enemy>().AddAffection(attackDmg);
             }
         }
-        transform.parent.GetComponent<Tower>().Startco();
         Destroy(gameObject);
     }
 
@@ -77,5 +76,10 @@ public class FLspecialSkill : MonoBehaviour
                 break;
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        transform.parent.GetComponent<Tower>().Startco();
     }
 }

@@ -14,7 +14,10 @@ public class Catnip : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        targetPosition = (target.transform.position - transform.position).normalized;
+        if (target != null)
+        {
+            targetPosition = (target.transform.position - transform.position).normalized;
+        }
     }
 
     // Update is called once per frame
