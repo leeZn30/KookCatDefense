@@ -71,8 +71,13 @@ public class TargetingBullet : MonoBehaviour
         }
     }
 
-    private void OnBecameInvisible()
+    void ScreenOut()
     {
-        Destroy(gameObject);
+        Vector3 targetScreenPos = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+        if (targetScreenPos.x < Screen.width || targetScreenPos.x > 0 || targetScreenPos.y < Screen.height || targetScreenPos.y > 0)
+        {
+            Destroy(gameObject);
+        }
     }
+
 }
