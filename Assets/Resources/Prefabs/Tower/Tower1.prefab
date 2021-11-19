@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5206933061407225457}
   - component: {fileID: 4727185181175592580}
   - component: {fileID: 5206933061407225358}
-  - component: {fileID: -915032898422140804}
+  - component: {fileID: 7122909157371667738}
   m_Layer: 0
   m_Name: Tower1
   m_TagString: Untagged
@@ -51,10 +51,10 @@ MonoBehaviour:
     content: 
     price: 0
   skillGague: 0
-  attackTime: 0
+  attackTime: 2
   Bullet: {fileID: 3771187067902564040, guid: 8917ea9d20ab9af489512532108eca1f, type: 3}
   specialSkill: {fileID: 530769403481947189, guid: 4300aff60595db94ba9669efe08bf983, type: 3}
-  hitSize: 0
+  hitSize: 7
 --- !u!212 &5206933061407225358
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -106,8 +106,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &-915032898422140804
-CapsuleCollider2D:
+--- !u!61 &7122909157371667738
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -119,6 +119,16 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
-  m_Direction: 0
+  m_Offset: {x: 0.030745566, y: -0.28900847}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 1, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.3727902, y: 1.421983}
+  m_EdgeRadius: 0

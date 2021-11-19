@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public float attackDmg;
 
-    public float attackTime;
+    public float attackSpeed;
 
     public GameObject target = null;
     public Vector3 targetPosition;
@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
     {
         if (target != null)
         {
-            transform.Translate(targetPosition * Time.deltaTime * attackTime);
+            transform.Translate(targetPosition * Time.deltaTime * attackSpeed);
         }
         else
         {
@@ -33,7 +33,7 @@ public class Bullet : MonoBehaviour
 
         // �Ѿ��� �ִ� �Ÿ� ������ ������ ����
         float distance = Vector3.Distance(transform.position, transform.parent.position);
-        if (distance > transform.parent.GetComponentInChildren<CircleCollider2D>().radius)
+        if (distance > transform.parent.GetComponent<Tower>().hitSize)
         {
             Destroy(gameObject);
         }

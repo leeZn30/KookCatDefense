@@ -7,7 +7,7 @@ public class TargetingBullet : MonoBehaviour
     public GameObject target;
     public float attackDmg;
 
-    public float attackTime;
+    public float attackSpeed;
 
     Vector3 targetPosition;
 
@@ -44,7 +44,7 @@ public class TargetingBullet : MonoBehaviour
 
                 // angle이 윗 방향과 target의 각도.
                 // do someting.
-                transform.Translate(pos * Time.deltaTime * attackTime);
+                transform.Translate(pos * Time.deltaTime * attackSpeed);
             }
 
         }
