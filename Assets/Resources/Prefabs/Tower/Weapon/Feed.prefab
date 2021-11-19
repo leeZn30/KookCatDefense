@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3771187067902564040}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.0267365, y: -0.09432253, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: -1634080529
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.10062516, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: ce1d649336be9c4489ee57a2f0e3b40b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -96,10 +96,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d8666d852acd744a8d82b46e0d07028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   attackDmg: 2
   attackTime: 10
-  max_distance: 0
+  target: {fileID: 0}
+  targetPosition: {x: 0, y: 0, z: 0}
+  enterEnemys: []
 --- !u!58 &-2191336210589176925
 CircleCollider2D:
   m_ObjectHideFlags: 0

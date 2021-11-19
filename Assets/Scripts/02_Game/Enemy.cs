@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     public GameObject enemyAttackRangeObj;
 
     public bool isDead=false;
-
+    
     private bool isMoving = true;
     private float curAffection = 0;
     private Transform[] wayPoints;
@@ -79,7 +79,11 @@ public class Enemy : MonoBehaviour
         affection_bar.localScale = new Vector3(perValue, 1.0f, 1.0f);
         if (curAffection >= affection)
         {
-            Die();
+            if (isDead == false)
+            {
+                isDead = true;
+                Die();
+            }    
         }
     }
     void OnTriggerEnter2D(Collider2D coll)
@@ -154,16 +158,18 @@ public class Enemy : MonoBehaviour
     }
     private void Die()
     {
-        isMoving = false;
-        isDead = true;
-        objAffection_bar.SetActive(false);
-        animator.SetTrigger("isDeath");
-        StopAllCoroutines();
+        
+            isMoving = false;
+            objAffection_bar.SetActive(false);
+            animator.SetTrigger("isDeath");
+            StopAllCoroutines();
 
-        if (OnDeath != null)
-        {
-            OnDeath();
-        }
+            if (OnDeath != null)
+            {
+                OnDeath();
+            }
+        
+        
 
 
     }

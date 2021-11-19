@@ -74,6 +74,7 @@ public class GameManager : Singleton<GameManager>
     }
     public void UpdateEnemyDeath(Enemy enemy)
     {
+        Debug.Log("cnt");
         coin += enemy.coin;
         enemyCnt--;
         if (isWaveFinish == true && enemyCnt<=0)

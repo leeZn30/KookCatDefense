@@ -99,14 +99,19 @@ public class StageManager : MonoBehaviour
         enemies.Add(_enemy);
 
         //리스트에서 삭제
-        _enemy.OnDeath += () => enemies.Remove(_enemy);
-        //남은 적 수,재화 변경 (gm메소드)
-        _enemy.OnDeath += () => GameManager.Instance.UpdateEnemyDeath(_enemy);
+        _enemy.OnDeath += () => RemoveEnemy(_enemy);
+
 
         //
         //_enemy.OnSurvive += () =>
 
 
+    }
+    void RemoveEnemy(Enemy e)
+    {   //남은 적 수,재화 변경 (gm메소드)
+        //리스트에서 삭제
+        enemies.Remove(e);
+        GameManager.Instance.UpdateEnemyDeath(e);
     }
 
 }
