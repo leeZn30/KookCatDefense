@@ -2257,9 +2257,9 @@ MonoBehaviour:
   backPanel: {fileID: 1419210926}
   panel: {fileID: 323973933}
   masterSoundSlider: {fileID: 2047689195}
-  bgmSlider: {fileID: 0}
-  gameSFXSlider: {fileID: 0}
-  sfxSlider: {fileID: 0}
+  bgmSlider: {fileID: 1440282021}
+  gameSFXSlider: {fileID: 1988415440}
+  sfxSlider: {fileID: 2027372875}
 --- !u!1001 &637473122
 PrefabInstance:
   m_ObjectHideFlags: 0
