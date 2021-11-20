@@ -14,19 +14,22 @@ public class Logo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startButton.onClick.AddListener(delegate { SceneManager.LoadScene("01_Main"); });
+        startButton.onClick.AddListener(delegate { SoundManager.Instance.PlaySFX(SFX.ButtonClick); SceneManager.LoadScene("01_Main"); });
         creditButton.onClick.AddListener(OpenCredit);
         creditExitButton.onClick.AddListener(CloseCredit);
+        SoundManager.Instance.PlayBGM();
     }
 
 
     void OpenCredit()
     {
+        SoundManager.Instance.PlaySFX(SFX.ButtonClick);
         credit.SetActive(true);
         creditBack.SetActive(true);
     }
     void CloseCredit()
     {
+        SoundManager.Instance.PlaySFX(SFX.ButtonClick);
         credit.SetActive(false);
         creditBack.SetActive(false);
     }

@@ -37,6 +37,7 @@ public class GameManager : Singleton<GameManager>
     }
     void InitMap()
     {
+        SoundManager.Instance.PlayBGM((BGM)mapIdx + 1);
         stage = Instantiate(maps[mapIdx]);
         stage.LoadMap();
         coin = stage.startCoin;

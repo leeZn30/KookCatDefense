@@ -43,8 +43,8 @@ public class Select : MonoBehaviour
 
         text_btnState = selectBtn.gameObject.GetComponentInChildren<TextMeshProUGUI>();
 
-        exitBtn.onClick.AddListener(ExitSelect);
-        startBtn.onClick.AddListener(StartGameScene);
+        exitBtn.onClick.AddListener(ClickExitButton);
+        startBtn.onClick.AddListener(ClickStartGameScene);
         typeBtn = typeBtnGroup.GetComponentsInChildren<Button>();
         typeBtn[0].onClick.AddListener(delegate { ClickTypeButton(Type.tower); });
         typeBtn[1].onClick.AddListener(delegate { ClickTypeButton(Type.skill); });
@@ -80,8 +80,9 @@ public class Select : MonoBehaviour
         selectedItemCnt = 0;
         type = Type.tower;
         LoadSlots();
+        SoundManager.Instance.PlaySFX(SFX.ButtonClick);
     }
-    private void StartGameScene()
+    private void ClickStartGameScene()
     {
         backPanel.SetActive(false);
         panel.SetActive(false);
@@ -92,15 +93,16 @@ public class Select : MonoBehaviour
             GameData.Instance.selectedTowers[i] = selectedSlots[0][i].itemIdx;
             GameData.Instance.selectedSkills[i] = selectedSlots[1][i].itemIdx;
         }
+        SoundManager.Instance.PlaySFX(SFX.ButtonClick);
         SceneManager.LoadScene("02_Game");
        
     }
-    private void ExitSelect()
+    private void ClickExitButton()
     {
 
         backPanel.SetActive(false);
         panel.SetActive(false);
-
+        SoundManager.Instance.PlaySFX(SFX.ButtonClick);
     }
 
     public void ClickTypeButton(Type tp)
@@ -108,7 +110,7 @@ public class Select : MonoBehaviour
         if (tp == type) return;
         type = tp;
         LoadSlots();
-
+        SoundManager.Instance.PlaySFX(SFX.ButtonClick);
 
     }
     public void LoadSlots()
@@ -156,7 +158,8 @@ public class Select : MonoBehaviour
                 text_btnState.SetText("º±≈√");
         }
         if (selectedItemCnt < 8) { startBtn.gameObject.SetActive(false); }
-        
+        SoundManager.Instance.PlaySFX(SFX.ButtonClick);
+
     }
     public void ClickSelectButton()
     {
@@ -179,6 +182,7 @@ public class Select : MonoBehaviour
                 break;
             }
         }
+        SoundManager.Instance.PlaySFX(SFX.ButtonClick);
     }
     public void ClickSlot(Slot slot)
     {
@@ -215,6 +219,7 @@ public class Select : MonoBehaviour
             selectBtn.gameObject.SetActive(true);
         }
         text_btnState.SetText( slot.selectText);
+        SoundManager.Instance.PlaySFX(SFX.ButtonClick);
     }
     // Update is called once per frame
     void Update()

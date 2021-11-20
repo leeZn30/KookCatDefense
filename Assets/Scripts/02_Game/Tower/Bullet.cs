@@ -16,6 +16,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         targetPosition = (target.transform.position - transform.position).normalized;
     }
 

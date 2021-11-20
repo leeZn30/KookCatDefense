@@ -23,6 +23,7 @@ public class Main : MonoBehaviour
     {
         mainCamera = Camera.main;
         GetStageInfo();
+        SoundManager.Instance.PlayBGM();
 
     }
     private void Update()
@@ -63,6 +64,7 @@ public class Main : MonoBehaviour
 
 
         stageInfoPanel.PanelOpen();
+        SoundManager.Instance.PlaySFX(SFX.ButtonClick);
     }
 
 }
