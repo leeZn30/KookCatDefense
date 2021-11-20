@@ -24,6 +24,7 @@ public class GameManager : Singleton<GameManager>
     private bool isWaveFinish = false;//���̺갡 �ٳ�������
     private bool isGameOver = false;
 
+    public event System.Action GameOverEvent;
 
     public float WaveNum => waveNum;
     public float EnemyCnt => enemyCnt;
@@ -48,24 +49,31 @@ public class GameManager : Singleton<GameManager>
     {
         Debug.Log("GameClear");
         //1,2,3 이렇게 별 구분 나중에 가능 
-        GameData.Instance.stageLocks[mapIdx] = 0;
+        GameData.Instance.stageLocks[mapIdx] = 1;
+
+        if(GameData.Instance.stageLocks.Length>mapIdx+1)//다음맵 개방
+            GameData.Instance.stageLocks[mapIdx+1] = 0;
     }
     public void GameOver()
     {
         if (isGameOver == false)
         {
+            GameData.Instance.ClearSelectedThings();
             isGameOver = true;
             Debug.Log("GameOver");
+            if (GameOverEvent != null)
+            {
+                GameOverEvent();
+            }
 
         }
     }
     public void NextWave()
     {
-        if (++waveNum>=stage.waves.Count)
+        if (++waveNum + 1>=stage.waves.Count)
         {
             //��� ���̺갡 ����. ���� ���� �� ���ָ� Ŭ����
             isWaveFinish = true;
-            return;
         }
 
         //���� ���̺�
@@ -77,12 +85,16 @@ public class GameManager : Singleton<GameManager>
     }
     public void UpdateEnemyDeath(Enemy enemy)
     {
-        Debug.Log("cnt");
         coin += enemy.coin;
         enemyCnt--;
+
         if (isWaveFinish == true && enemyCnt<=0)
         {
             ClearGame();
+        }
+        else if (enemyCnt <= 0)
+        {
+            NextWave();
         }
     }
     // Update is called once per frame

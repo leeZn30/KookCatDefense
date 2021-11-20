@@ -23,7 +23,15 @@ public class GameData : Singleton<GameData>
         }
         DontDestroyOnLoad(gameObject);
     }
-
+    public void ClearSelectedThings()
+    {
+        selectedStage = -1;
+        for(int i=0; i<4; i++)
+        {
+            selectedTowers[i] = -1;
+            //selectedSkills[i] = -1;
+        }
+    }
     void Update()
     {
         

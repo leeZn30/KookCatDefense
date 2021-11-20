@@ -82,11 +82,6 @@ public class StageManager : MonoBehaviour
             spawnEnemyCount++;
         }
 
-
-        ///지금은 wave 적 a모두 소환하면 바로일정시간 대기후 e다음 웨이브
-        GameManager.Instance.NextWave();
-
-
     }
     public void CreateEnemy(GameObject enemy)
     {

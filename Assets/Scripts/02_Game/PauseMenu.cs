@@ -21,20 +21,8 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetButtonDown("Pause")){
             paused = !paused;
         }
-        if(paused){
-            PauseUI.SetActive(true);
-            NormalUI.SetActive(false);
-            BuildTowerUI.SetActive(false);
-            Time.timeScale = 0;
-        }
-        if(!paused){
-            PauseUI.SetActive(false);
-            NormalUI.SetActive(true);
-            BuildTowerUI.SetActive(true);
-            Time.timeScale = 1f;
-        }
-    }
 
+    }
     public void Pause(){
         paused = !paused;
 
@@ -53,7 +41,7 @@ public class PauseMenu : MonoBehaviour
     }
     
     public void Resume(){
-        paused = !paused;
+        Pause();
     }
 
     public void Quit(){

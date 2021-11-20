@@ -10,6 +10,7 @@ public class Setting : MonoBehaviour
     public GameObject backPanel;
     public GameObject panel;
 
+
     public Slider masterSoundSlider;
     public Slider bgmSlider;
     public Slider gameSFXSlider;

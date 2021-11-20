@@ -21,6 +21,7 @@ public class Main : MonoBehaviour
     }
     void Start()
     {
+        
         mainCamera = Camera.main;
         GetStageInfo();
         SoundManager.Instance.PlayBGM();

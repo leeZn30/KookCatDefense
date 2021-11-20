@@ -29,12 +29,14 @@ public class Tower : MonoBehaviour
 
     public float hitSize;
 
+    private bool isStop = false;
     public float Price => info.price;
     public int TowerId => info.id;
 
     void Start()
     {
         skillGague = 0;
+        GameManager.Instance.GameOverEvent += () => isStop = true; //게임오버면 멈추기
         // maxSkillGauge���� skillGauge�� �۴ٸ�, �ð����� �������ֱ�
         StartCoroutine("chargeSkillGauge", chargeTime);
     }
@@ -42,8 +44,12 @@ public class Tower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        attack();
-        specialSkillAttack();
+        if (!isStop)
+        {
+            attack();
+            specialSkillAttack();
+        }
+
     }
     public void Startco()
     {
