@@ -177,6 +177,10 @@ public class Tower : MonoBehaviour
                     var tower3SpecialSkill = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
                     break;
 
+                case 4:
+                    var tower4SpecialSkill = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
+                    break;
+
                 default:
                     var speciaAttack = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
                     break;

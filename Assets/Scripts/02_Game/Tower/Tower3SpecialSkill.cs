@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Tower3SpecialSkill : MonoBehaviour
 {
-
     private List<GameObject> collEnemys = new List<GameObject>();
 
     // Start is called before the first frame update
@@ -45,7 +44,7 @@ public class Tower3SpecialSkill : MonoBehaviour
             {
                 Enemy enemy = go.GetComponent<Enemy>();
 
-                enemy.SpeedDownAndReset(1.5f);
+                enemy.SpeedDownAndReset(0, 1.5f);
             }
         }
         Destroy(gameObject, 1f);

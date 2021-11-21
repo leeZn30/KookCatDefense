@@ -197,10 +197,9 @@ public class Enemy : MonoBehaviour
         speed = baseSpeed;
         if (Speed > 0) isMoving = true;
     }
-    public void SpeedDownAndReset(float waitTime)
+    public void SpeedDownAndReset(float downWeight, float waitTime)
     {
-        // Speed -= Speed * 0.4f; %로 줄이고 싶으면 이거 사용
-        Speed = 0;
+        Speed *= downWeight;
         if (Speed <= 0) isMoving = false;
         StartCoroutine(KeepDowningSpeed(waitTime));
     }

@@ -50,7 +50,7 @@ public class Catnip : MonoBehaviour
             {
                 enterEnemys.Add(enemy);
 
-                enterEnemys[0].SpeedDownAndReset(3.0f);
+                enterEnemys[0].SpeedDownAndReset(0f, 3.0f);
                 Destroy(gameObject);
             }
 
