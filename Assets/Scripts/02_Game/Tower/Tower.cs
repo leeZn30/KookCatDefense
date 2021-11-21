@@ -44,6 +44,11 @@ public class Tower : MonoBehaviour
         GameManager.Instance.GameOverEvent += () => isStop = true; //게임오버면 멈추기
         // maxSkillGauge���� skillGauge�� �۴ٸ�, �ð����� �������ֱ�
         StartCoroutine("chargeSkillGauge", chargeTime);
+
+        if (TowerId == 4)
+        {
+            Instantiate(Bullet, transform.position, Quaternion.identity, transform);
+        }
     }
 
     // Update is called once per frame
@@ -110,11 +115,11 @@ public class Tower : MonoBehaviour
         Collider2D[] collEnemys = Physics2D.OverlapCircleAll(transform.position, hitSize);
 
         fTime += Time.deltaTime;
-        if (collEnemys.Length > 0)
+        if (collEnemys.Length > 0 && TowerId != 4)
         {
             GameObject target = targetSearch(collEnemys, TowerId);
             
-            if (target != null && fTime > attackTime)
+            if (target != null && fTime >= attackTime)
             {
                 switch (TowerId)
                 {
@@ -131,6 +136,9 @@ public class Tower : MonoBehaviour
                         fTime = 0.0f;
                         var aCatnip = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
                         aCatnip.GetComponent<Catnip>().target = target;
+                        break;
+
+                    case 4: // start에서 한번 호출
                         break;
 
                     case 5:

@@ -51,10 +51,13 @@ MonoBehaviour:
     content: "\uBE59\uBE59"
     price: 0
   skillGague: 0
+  maxSkillGauge: 100
   attackTime: 0
-  Bullet: {fileID: 0}
+  Bullet: {fileID: 5177973688369320540, guid: 90a42d8710a56ab428570a67e5adc082, type: 3}
   specialSkill: {fileID: 0}
   hitSize: 0
+  TowerHp: 0
+  useGizmo: 1
 --- !u!212 &5206933061407225358
 SpriteRenderer:
   m_ObjectHideFlags: 0
