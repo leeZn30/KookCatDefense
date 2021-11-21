@@ -144,12 +144,13 @@ public class Tower : MonoBehaviour
                     case 5:
                         fTime = 0.0f;
                         var aRazer = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
+                        
                         Vector3 dir = (target.transform.position - transform.position).normalized;
                         float angle = Vector2.SignedAngle(Vector2.down, dir);
                         Quaternion qut = new Quaternion();
                         qut.eulerAngles = new Vector3(0, 0, angle);
                         aRazer.transform.rotation = qut;
-                        aRazer.transform.position += dir * 1.0f;
+                        aRazer.transform.position += dir * 2.0f; // 거리
                         break;
 
                     default:
@@ -169,16 +170,7 @@ public class Tower : MonoBehaviour
         {
             switch (TowerId)
             {
-                case 2:
-                    var tower2SpecialSkill = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
-                    break;
-
-                case 3:
-                    var tower3SpecialSkill = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
-                    break;
-
-                case 4:
-                    var tower4SpecialSkill = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
+                case 0:
                     break;
 
                 default:

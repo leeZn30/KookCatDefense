@@ -55,8 +55,8 @@ MonoBehaviour:
   maxSkillGauge: 100
   attackTime: 2
   Bullet: {fileID: 8206214582102084688, guid: a4edd878c99c3c445a1c306ba2257dca, type: 3}
-  specialSkill: {fileID: 0}
-  hitSize: 5
+  specialSkill: {fileID: 5206933061407225356, guid: 9ddce0831687b9040b22db47f96998cf, type: 3}
+  hitSize: 4
   TowerHp: 0
   useGizmo: 0
 --- !u!212 &5206933061407225358

@@ -14,7 +14,7 @@ public class TargetingBullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //SoundManager.Instance.PlayGameSFX(GameSFX.Bullet);
+        SoundManager.Instance.PlayGameSFX(GameSFX.Bullet);
     }
 
     // Update is called once per frame
