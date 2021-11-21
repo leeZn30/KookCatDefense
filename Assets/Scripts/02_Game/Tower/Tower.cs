@@ -11,7 +11,7 @@ public class Tower : MonoBehaviour
 
     // skill ���� ����
     public float skillGague;
-    float maxSkillGauge = 100.0f;
+    public float maxSkillGauge = 100.0f;
     float chargeTime = 0.5f;
     public float attackTime;
 
@@ -33,6 +33,11 @@ public class Tower : MonoBehaviour
     public float Price => info.price;
     public int TowerId => info.id;
 
+    public float TowerHp;
+
+    // 나중에 지울 코드
+    public bool useGizmo = false;
+
     void Start()
     {
         skillGague = 0;
@@ -48,6 +53,7 @@ public class Tower : MonoBehaviour
         {
             attack();
             specialSkillAttack();
+            showGauge();
         }
 
     }
@@ -63,6 +69,9 @@ public class Tower : MonoBehaviour
             yield return new WaitForSeconds(chargeTime);
             skillGague += 10.0f;
         }
+    }
+    void showGauge()
+    {
     }
 
     GameObject targetSearch(Collider2D[] collEnmeys, int TowerId)
@@ -109,6 +118,9 @@ public class Tower : MonoBehaviour
             {
                 switch (TowerId)
                 {
+                    case 0:
+                        break;
+
                     case 1:
                         fTime = 0.0f;
                         var aTargettingBullet = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
@@ -149,7 +161,8 @@ public class Tower : MonoBehaviour
         {
             switch (TowerId)
             {
-                case 2: // no special skill
+                case 2:
+                    var tower2SpecialSkill = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
                     break;
 
                 case 3:
@@ -166,8 +179,11 @@ public class Tower : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, hitSize);
+        if (useGizmo)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, hitSize);
+        }
     }
     
     void OnMouseOver()
