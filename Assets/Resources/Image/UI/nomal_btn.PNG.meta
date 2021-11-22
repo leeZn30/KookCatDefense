@@ -1,7 +1,43 @@
 fileFormatVersion: 2
 guid: 1a5ff2e11a4ea20449acc87a130221dd
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -2372693055148419172
+    second: nomal_btn_0
+  - first:
+      213: -7320513545492880164
+    second: nomal_btn_1
+  - first:
+      213: -9203063544669036459
+    second: nomal_btn_2
+  - first:
+      213: 4573932873354203544
+    second: nomal_btn_3
+  - first:
+      213: 4110281623793323342
+    second: nomal_btn_4
+  - first:
+      213: 3369383745765837542
+    second: nomal_btn_5
+  - first:
+      213: 7809373841445371071
+    second: nomal_btn_6
+  - first:
+      213: 5822319139031447030
+    second: nomal_btn_7
+  - first:
+      213: -6728243043240710240
+    second: nomal_btn_8
+  - first:
+      213: -5408937382248205550
+    second: nomal_btn_9
+  - first:
+      213: 4869730044614325596
+    second: nomal_btn_10
+  - first:
+      213: 4039533283470364247
+    second: nomal_btn_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +77,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -89,7 +125,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: nomal_btn_0
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 435
+        width: 300
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 27, y: 12, z: 26, w: 24}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9797d6cc30821fd0800000000000000
+      internalID: -2372693055148419172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nomal_btn_1
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 435
+        width: 300
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 30, y: 12, z: 30, w: 26}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd4267357bf486a90800000000000000
+      internalID: -7320513545492880164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nomal_btn_2
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 355
+        width: 300
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 550a7ae4776284080800000000000000
+      internalID: -9203063544669036459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nomal_btn_3
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 355
+        width: 300
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 28, y: 9, z: 33, w: 25}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89152cee6bfd97f30800000000000000
+      internalID: 4573932873354203544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nomal_btn_4
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 265
+        width: 300
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4d44011c57aa0930800000000000000
+      internalID: 4110281623793323342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nomal_btn_5
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 265
+        width: 300
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 30, y: 10, z: 30, w: 27}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ea095e3aa472ce20800000000000000
+      internalID: 3369383745765837542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nomal_btn_6
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 185
+        width: 300
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbc34990228706c60800000000000000
+      internalID: 7809373841445371071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nomal_btn_7
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 185
+        width: 300
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f57de2b8680dc050800000000000000
+      internalID: 5822319139031447030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nomal_btn_8
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 99
+        width: 300
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0afe425999a70a2a0800000000000000
+      internalID: -6728243043240710240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nomal_btn_9
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 99
+        width: 300
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 213b3cecb189fe4b0800000000000000
+      internalID: -5408937382248205550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nomal_btn_10
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 19
+        width: 300
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c55b845bca1c49340800000000000000
+      internalID: 4869730044614325596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nomal_btn_11
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 19
+        width: 300
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75e4e937e1e4f0830800000000000000
+      internalID: 4039533283470364247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
