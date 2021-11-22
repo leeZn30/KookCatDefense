@@ -10,12 +10,18 @@ public class Enemy : MonoBehaviour
     public string enemyName;
     public int coin;
     public float affection;
-    public float speed;
+
     public float attackDmg;
     public float attackSpeed;
 
     public float baseSpeed;
 
+    [SerializeField]
+    private float speed;
+    [SerializeField]
+    private float currentAtkSpeed;
+    [SerializeField]
+    private float curAffection = 0;
     public Transform affection_bar;
     public GameObject objAffection_bar;
     public GameObject enemyAttackRangeObj;
@@ -23,7 +29,7 @@ public class Enemy : MonoBehaviour
     public bool isDead=false;
     
     private bool isMoving = true;
-    private float curAffection = 0;
+    
     private Transform[] wayPoints;
     private int currentWayPointIdx=1;
 
@@ -36,8 +42,8 @@ public class Enemy : MonoBehaviour
 
     public float AttackSpeed
     {
-        set => attackSpeed = Mathf.Max(0, value);
-        get => attackSpeed;
+        set => currentAtkSpeed = Mathf.Max(0, value);
+        get => currentAtkSpeed;
     }
     public float Speed
     {
@@ -47,17 +53,20 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        baseSpeed = speed;
+        
     }
     public void SetUp(Transform[] wps)
     {
+        speed = baseSpeed;
+        currentAtkSpeed = attackSpeed;
+
         transformAttackRange = enemyAttackRangeObj.GetComponent<Transform>();
         enemyAttackRange = enemyAttackRangeObj.GetComponent<EnemyAttackRange>();
         enemyAttackRange.OnFindWall += Attack;
         enemyAttackRange.OnMissWall += () => SetMoving(true);
 
         rigidbody2D = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>(); animator.SetFloat("attackSpeed", AttackSpeed);
+        animator = GetComponent<Animator>(); animator.SetFloat("attackSpeed", currentAtkSpeed);
         UpdateAffectionBar();
 
         wayPoints = new Transform[wps.Length];
@@ -192,6 +201,10 @@ public class Enemy : MonoBehaviour
 
     }
 
+    public void ResetAttackSpeed()
+    {
+        currentAtkSpeed = attackSpeed;
+    }
     public void ResetMoveSpeed()
     {
         speed = baseSpeed;

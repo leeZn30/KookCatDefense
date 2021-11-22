@@ -20,7 +20,7 @@ public class Razer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Enter"); // 감지를 못함 대체 왜
+
         if (collision.tag == "Enemy")
         {
             Enemy enemy = collision.GetComponent<Enemy>();

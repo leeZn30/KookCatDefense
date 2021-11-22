@@ -44,7 +44,12 @@ public class ObjectDetector : MonoBehaviour
                 if (hit.transform.CompareTag("Tile"))
                 {
                     towerSpawner.SpawnTower(hit.transform);
-                    skillSpawner.SpawnSkill(hit.transform);
+                }
+                else if (hit.transform.CompareTag("Road"))
+                {
+                    Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    pos.z = 0;                     
+                    skillSpawner.SpawnSkill(pos);
                 }
                 else if (hit.transform.CompareTag("Tower"))
                 {
