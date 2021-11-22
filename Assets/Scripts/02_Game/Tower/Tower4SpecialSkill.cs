@@ -4,26 +4,30 @@ using UnityEngine;
 
 public class Tower4SpecialSkill : MonoBehaviour
 {
-    //public GameManager gm;
+    public StageManager stage;
 
     public List<Enemy> enemies;
 
     // Start is called before the first frame update
     void Start()
     {
-        //enemies = sm.enemies;
+        stage = GameManager.Instance.Stage;
+        enemies = stage.enemies;
 
-        foreach(Enemy enemy in enemies)
-        {
-            Debug.Log(enemy);
-            enemy.SpeedDownAndReset(0.5f, 4.0f);
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        foreach (Enemy enemy in enemies)
+        {
+            enemy.SpeedDownAndReset(0.5f, 4.0f);
+            Destroy(gameObject);
+        }
+    }
 
-        Destroy(gameObject);
+    private void OnDestroy()
+    {
+        transform.parent.GetComponent<Tower>().Startco();
     }
 }

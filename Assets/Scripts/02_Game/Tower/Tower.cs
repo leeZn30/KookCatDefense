@@ -138,9 +138,6 @@ public class Tower : MonoBehaviour
                         aCatnip.GetComponent<Catnip>().target = target;
                         break;
 
-                    case 4: // start에서 한번 호출
-                        break;
-
                     case 5:
                         fTime = 0.0f;
                         var aRazer = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
@@ -195,7 +192,6 @@ public class Tower : MonoBehaviour
     
     void OnMouseOver()
     {
-        
         if (isOver == false)
         {
             if (!EventSystem.current.IsPointerOverGameObject())

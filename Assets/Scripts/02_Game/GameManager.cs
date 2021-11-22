@@ -106,4 +106,9 @@ public class GameManager : Singleton<GameManager>
             NextWave();
         }
     }
+
+    public StageManager Stage
+    {
+        get => stage;
+    }
 }
