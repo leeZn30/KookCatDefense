@@ -35,9 +35,9 @@ public class Tower : MonoBehaviour
     public string Content => info.content;
     public int TowerId => info.id;
 
-    public float TowerHp;
+    //public float TowerHp;
 
-    private TowerTile ownerTile;
+    //private TowerTile ownerTile;
 
     // 나중에 지울 코드
     public bool useGizmo = false;
