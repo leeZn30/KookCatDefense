@@ -53,10 +53,13 @@ MonoBehaviour:
       \uC801\uC911\uD55C\uB2E4!"
     price: 0
   skillGague: 0
-  attackTime: 2
+  maxSkillGauge: 100
+  attackTime: 1
   Bullet: {fileID: 3771187067902564040, guid: 8917ea9d20ab9af489512532108eca1f, type: 3}
   specialSkill: {fileID: 530769403481947189, guid: 4300aff60595db94ba9669efe08bf983, type: 3}
   hitSize: 7
+  TowerHp: 0
+  useGizmo: 0
 --- !u!212 &5206933061407225358
 SpriteRenderer:
   m_ObjectHideFlags: 0

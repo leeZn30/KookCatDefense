@@ -24,6 +24,7 @@ public class line : MonoBehaviour
         capsule = gameObject.AddComponent<CapsuleCollider2D>();
         capsule.size = new Vector2(LineWidth/2, (target - start).y);
         capsule.transform.position = start + (target - start) / 2;
+
     }
 
     void Update()

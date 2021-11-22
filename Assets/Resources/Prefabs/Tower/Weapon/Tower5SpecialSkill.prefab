@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rectTransform: {fileID: 5755686462333426576}
-  beam: {fileID: 5177973688369320540, guid: f92742f88710cdd47b46a99c22e05590, type: 3}
+  beam: {fileID: 8206214582102084688, guid: 91b13110d4e2d6e458a5efb8873891eb, type: 3}
 --- !u!61 &2547626644949129315
 BoxCollider2D:
   m_ObjectHideFlags: 0

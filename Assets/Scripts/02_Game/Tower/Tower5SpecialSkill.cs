@@ -49,7 +49,7 @@ public class Tower5SpecialSkill : MonoBehaviour
     void attack()
     {
         var beamObj = Instantiate(beam, transform.position, Quaternion.identity, transform);
-        beamObj.GetComponent<line>().start = transform.parent.position;
-        beamObj.GetComponent<line>().target = transform.position;
+        beamObj.GetComponent<beam>().target = transform.parent.position;
+        beamObj.GetComponent<beam>().start = transform.position;
     }
 }

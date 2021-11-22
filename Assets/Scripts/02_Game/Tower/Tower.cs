@@ -86,12 +86,12 @@ public class Tower : MonoBehaviour
             case 3:
                 for (int i = 0; i < collEnmeys.Length; i++)
                 {
-                    if (collEnmeys[i].tag == "Enemy")
+                    GameObject enemy = collEnmeys[i].gameObject;
+                    if (enemy.tag == "Enemy" && enemy.GetComponent<Enemy>().Speed != 0)
                     {
-                        return collEnmeys[i].gameObject;
+                        if (enemy != null)
+                            return enemy;
                     }
-                    else
-                        return null;
                 }
                 break;
 
@@ -99,11 +99,11 @@ public class Tower : MonoBehaviour
                 for (int i = 0; i < collEnmeys.Length; i++)
                 {
                     GameObject enemy = collEnmeys[i].gameObject;
-                    if (enemy.tag == "Enemy" && enemy.GetComponent<Enemy>().Speed != 0)
+                    if (enemy.tag == "Enemy")
                     {
-                        return enemy;
+                        if (enemy != null)
+                            return enemy;
                     }
-                    else return null;
                 }
                 break;
         }
@@ -150,7 +150,10 @@ public class Tower : MonoBehaviour
                         Quaternion qut = new Quaternion();
                         qut.eulerAngles = new Vector3(0, 0, angle);
                         aRazer.transform.rotation = qut;
-                        aRazer.transform.position += dir * 2.0f; // 거리
+                        Vector3 scale = aRazer.transform.localScale;
+                        scale.y = (target.transform.position - gameObject.transform.position).magnitude;
+                        aRazer.transform.localScale = scale;
+                        aRazer.transform.position += dir * 1.5f; // 거리
                         break;
 
                     default:
