@@ -26,7 +26,26 @@ public class SelectedSlot : MonoBehaviour
     public void SetSlot(int num, string str)
     {
         itemIdx = num;
+        
+        SetImage(str);
+
+    }
+    public void SetImage(string str)
+    {
+        image.preserveAspect = true;
         image.sprite = Resources.Load<Sprite>(str);
+        if (image.sprite == null)
+        {
+            Color color = image.color;
+            color.a = 0;
+            image.color = color;
+        }
+        else
+        {
+            Color color = image.color;
+            color.a = 255;
+            image.color = color;
+        }
 
     }
     void ClickDelBtn()
@@ -36,8 +55,7 @@ public class SelectedSlot : MonoBehaviour
             
             OnDelete(type, itemIdx);
             itemIdx = -1;
-            image.sprite = null;
-
+            SetImage("");
         }
         
     }

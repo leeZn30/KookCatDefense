@@ -120,6 +120,9 @@ public class Select : MonoBehaviour
         text_price.SetText("");
         text_content.SetText("");
         bigImage.sprite = null;
+        Color color = bigImage.color;
+        color.a = 0;
+        bigImage.color = color;
         bigImage.preserveAspect = true;
 
         if (selectBtn.gameObject.activeSelf == true)
@@ -213,6 +216,9 @@ public class Select : MonoBehaviour
         }
  
         bigImage.sprite = Resources.Load<Sprite>("Image/"+ type.ToString() + ""+slot.idx);
+        Color color = bigImage.color;
+        color.a =255;
+        bigImage.color = color;
 
         if (selectBtn.gameObject.activeSelf == false)
         {
