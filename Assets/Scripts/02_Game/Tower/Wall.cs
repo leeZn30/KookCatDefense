@@ -25,5 +25,10 @@ public class Wall : MonoBehaviour
         Debug.Log("Wall hp: " + hp);
     }
 
+    private void OnDestroy()
+    {
+        transform.parent.GetComponent<Tower>().Startco();
+    }
+
 
 }

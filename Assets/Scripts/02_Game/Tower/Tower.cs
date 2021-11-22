@@ -33,8 +33,6 @@ public class Tower : MonoBehaviour
     public float Price => info.price;
     public int TowerId => info.id;
 
-    public float TowerHp;
-
     // 나중에 지울 코드
     public bool useGizmo = false;
 
@@ -115,7 +113,7 @@ public class Tower : MonoBehaviour
         Collider2D[] collEnemys = Physics2D.OverlapCircleAll(transform.position, hitSize);
 
         fTime += Time.deltaTime;
-        if (collEnemys.Length > 0 && TowerId != 4)
+        if (collEnemys.Length > 0 && (TowerId != 4 && TowerId != 0))
         {
             GameObject target = targetSearch(collEnemys, TowerId);
             
@@ -170,9 +168,6 @@ public class Tower : MonoBehaviour
         {
             switch (TowerId)
             {
-                case 0:
-                    break;
-
                 default:
                     var speciaAttack = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
                     break;
