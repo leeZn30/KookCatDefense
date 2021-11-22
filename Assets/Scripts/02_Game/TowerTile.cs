@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class TowerTile : MonoBehaviour
 {
-    private GameObject tower;
+    public GameObject tower;
     void Update()
     {
  
@@ -29,6 +29,7 @@ public class TowerTile : MonoBehaviour
         return isSuccess;
         
     }
+
     /*
     void OnMouseOver() {
         if (isOver == false)

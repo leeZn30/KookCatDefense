@@ -11,6 +11,7 @@ TagManager:
   - Tower
   - Road
   - StageButton
+  - TowerButton
   layers:
   - Default
   - TransparentFX

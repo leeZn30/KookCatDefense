@@ -31,12 +31,22 @@ public class Tower : MonoBehaviour
 
     private bool isStop = false;
     public float Price => info.price;
+    public string Name => info.name;
+    public string Content => info.content;
     public int TowerId => info.id;
 
     public float TowerHp;
 
+    private TowerTile ownerTile;
+
     // 나중에 지울 코드
     public bool useGizmo = false;
+
+    public void Sell()
+    {
+        GameManager.Instance.coin += (int)Price;
+        Destroy(gameObject);
+    }
 
     void Start()
     {

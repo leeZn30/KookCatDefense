@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TowerSpawner : MonoBehaviour
-{
+{   
+    [SerializeField]
+    private TowerDataViewer towerDataViewer;
     [SerializeField]
     private GameObject[] towerPrefab;
     [SerializeField]
-    private GameObject followtowerPrefab;
+    private GameObject[] followtowerPrefab;
     private bool isOnTowerButton = false;
     private GameObject followTowerClone = null;
     private int towerType;
@@ -16,20 +18,24 @@ public class TowerSpawner : MonoBehaviour
     {
         for(int i=0; i<towerPrefab.Length; i++)
         {
-            towerPrefab[i] = Resources.Load<GameObject>("Prefabs/Tower/Tower"+GameData.Instance.selectedTowers[i]); 
+            towerPrefab[i] = Resources.Load<GameObject>("Prefabs/Tower/Tower"+GameData.Instance.selectedTowers[i]);
+            followtowerPrefab[i] = Resources.Load<GameObject>("Prefabs/UI/FollowTower"+GameData.Instance.selectedTowers[i]); 
         }
     }
     public void ReadytoSpawnTower(int type)
     {
         towerType = type;
 
+        towerDataViewer.OnPanel1(towerPrefab[towerType]);
+
         //towerPrefab[towerType].;
         Tower tower = towerPrefab[towerType].GetComponent<Tower>();
 
-        Debug.Log(GameManager.Instance.coin);
+        //Debug.Log(GameManager.Instance.coin);
 
         if (tower.Price > GameManager.Instance.coin)
         {
+            Debug.Log("Îèà Î∂ÄÏ°±");
             return;
         }
 
@@ -40,7 +46,7 @@ public class TowerSpawner : MonoBehaviour
         
         isOnTowerButton = true;
 
-        followTowerClone = Instantiate(followtowerPrefab);
+        followTowerClone = Instantiate(followtowerPrefab[towerType]);
 
         StartCoroutine("OnTowerCancelSystem");
     }
@@ -71,7 +77,8 @@ public class TowerSpawner : MonoBehaviour
             GameManager.Instance.coin -= (int)tower.Price;
 
         }
-        else Debug.Log("≈∏øˆ ∞«º≥ Ω«∆–");
+        else Debug.Log("≈∏ÔøΩÔøΩ ÔøΩ«ºÔøΩ ÔøΩÔøΩÔøΩÔøΩ");
+
         isOnTowerButton = false;
 
         //Vector3 position = tileTransform.position + Vector3.back;
@@ -80,6 +87,8 @@ public class TowerSpawner : MonoBehaviour
         Destroy(followTowerClone);
 
         StopCoroutine("OnTowerCancelSystem");
+
+        towerDataViewer.OffPanel();
     }
 
     private IEnumerator OnTowerCancelSystem()
@@ -90,6 +99,7 @@ public class TowerSpawner : MonoBehaviour
             {
                 isOnTowerButton = false;
                 Destroy(followTowerClone);
+                towerDataViewer.OffPanel();
                 break;
             }
 

@@ -11,8 +11,8 @@ public class TextTMPViewer : MonoBehaviour
     private TextMeshProUGUI textEnemyCount;
     [SerializeField]
     private TextMeshProUGUI textWaveCount;
-    //[SerializeField]
-    //private TextMeshProUGUI textStage;
+    [SerializeField]
+    private TextMeshProUGUI textStage;
     [SerializeField]
     private GameManager gameManager;
     // Start is called before the first frame update
@@ -26,7 +26,7 @@ public class TextTMPViewer : MonoBehaviour
     {
         textPlayerGold.text = gameManager.coin.ToString();
         textEnemyCount.text = gameManager.EnemyCnt.ToString();
-        textWaveCount.text = gameManager.WaveNum.ToString();
-        //textStage.text = gameManager.WaveNum.ToString();
+        textWaveCount.text = (gameManager.WaveNum+1).ToString();
+        textStage.text = "Stage " + (gameManager.mapIdx+1).ToString();
     }
 }

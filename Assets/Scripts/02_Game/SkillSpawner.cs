@@ -5,12 +5,14 @@ using UnityEngine;
 public class SkillSpawner : MonoBehaviour
 {
     [SerializeField]
+    private TowerDataViewer towerDataViewer;
+    [SerializeField]
     private GameObject[] skillPrefab;
     [SerializeField]
-    private GameObject followskillPrefab;
+    private GameObject[] followskillPrefab;
     private bool isOnSkillButton = false;
-    private GameObject followTowerClone = null;
-    private GameObject skill = null;
+    private GameObject followSkillClone = null;
+    private GameObject skillClone = null;
     private int skillType;
     private void Start()
     {
@@ -18,22 +20,30 @@ public class SkillSpawner : MonoBehaviour
         for (int i = 0; i < skillPrefab.Length; i++)
         {
             skillPrefab[i] = Resources.Load<GameObject>("Prefabs/Skill/Skill" + GameData.Instance.selectedSkills[i]);
+            followskillPrefab[i] = Resources.Load<GameObject>("Prefabs/UI/FollowSkill" + GameData.Instance.selectedSkills[i]); 
         }
     }
     public void ReadytoSpawnSkill(int type)
     {
         skillType = type;
 
-        //towerPrefab[towerType].;
+        towerDataViewer.OnPanelSkill(skillPrefab[skillType]);
+
+        Skill skill = skillPrefab[skillType].GetComponent<Skill>();
 
         if (isOnSkillButton == true)
+        {
+            return;
+        }
+
+        if (skill.Price > GameManager.Instance.coin)
         {
             return;
         }
         
         isOnSkillButton = true;
 
-        followTowerClone = Instantiate(followskillPrefab);
+        followSkillClone = Instantiate(followskillPrefab[skillType]);
 
         StartCoroutine("OnSkillCancelSystem");
     }
@@ -45,17 +55,23 @@ public class SkillSpawner : MonoBehaviour
             return;
         }
 
-        Tile tile = tileTransform.GetComponent<Tile>();
+        //Tile tile = tileTransform.GetComponent<Tile>();
 
         isOnSkillButton = false;
 
-        skill = Instantiate(skillPrefab[skillType], tileTransform.position, Quaternion.identity);
+        Skill skill = skillPrefab[skillType].GetComponent<Skill>();
 
-        Destroy(followTowerClone);
+        GameManager.Instance.coin -= (int)skill.Price;
+
+        skillClone = Instantiate(skillPrefab[skillType], tileTransform.position, Quaternion.identity);
+
+        Destroy(followSkillClone);
 
         StopCoroutine("OnSkillCancelSystem");
 
-        Destroy(skill, 5);
+        towerDataViewer.OffPanel();
+
+        Destroy(skillClone, 5);
     }
 
     private IEnumerator OnSkillCancelSystem()
@@ -65,7 +81,8 @@ public class SkillSpawner : MonoBehaviour
             if (Input.GetMouseButtonDown(1))
             {
                 isOnSkillButton = false;
-                Destroy(followTowerClone);
+                Destroy(followSkillClone);
+                towerDataViewer.OffPanel();
                 break;
             }
 
