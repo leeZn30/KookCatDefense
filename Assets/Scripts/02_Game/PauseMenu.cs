@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject PauseUI;
     public GameObject NormalUI;
     public GameObject BuildTowerUI;
+    public GameObject TowerInfoUI;
 
     private bool paused = false;
     // Start is called before the first frame update
@@ -19,7 +20,7 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         if (Input.GetButtonDown("Pause")){
-            paused = !paused;
+            Pause();
         }
 
     }
@@ -30,6 +31,7 @@ public class PauseMenu : MonoBehaviour
             PauseUI.SetActive(true);
             NormalUI.SetActive(false);
             BuildTowerUI.SetActive(false);
+            TowerInfoUI.SetActive(false);
             Time.timeScale = 0;
         }
         if(!paused){

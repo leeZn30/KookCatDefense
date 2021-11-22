@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ObjectDetector : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class ObjectDetector : MonoBehaviour
 
     private Ray ray;
     private RaycastHit hit;
+    private Transform hitTransform = null;
+
 
     // Start is called before the first frame update
     private void Start()
@@ -25,12 +28,19 @@ public class ObjectDetector : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (EventSystem.current.IsPointerOverGameObject() == true)
+        {
+            return;
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
+                hitTransform = hit.transform;
+
                 if (hit.transform.CompareTag("Tile"))
                 {
                     towerSpawner.SpawnTower(hit.transform);
@@ -38,9 +48,19 @@ public class ObjectDetector : MonoBehaviour
                 }
                 else if (hit.transform.CompareTag("Tower"))
                 {
-                    towerDataViewer.OnPanel(hit.transform);
+                    towerDataViewer.OnPanel(hit.transform.parent);
                 }
             }
+        }
+
+        else if (Input.GetMouseButtonUp(0))
+        {
+            if (hitTransform == null || hitTransform.CompareTag("Tower") == false)
+            {
+                towerDataViewer.OffPanel();
+            }
+
+            hitTransform = null;
         }
 
         /*if (Input.GetMouseButtonDown(0))
