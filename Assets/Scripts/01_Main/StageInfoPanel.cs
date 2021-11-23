@@ -9,6 +9,7 @@ public class StageInfoPanel : MonoBehaviour
     public TextMeshProUGUI text_stageName;
     public TextMeshProUGUI text_stageContent;
     public Button btn_select;
+    public Image previewImg;
 
 
     private bool isInfoPanelOpen = false;
@@ -72,12 +73,13 @@ public class StageInfoPanel : MonoBehaviour
         {
             text_stageName.text = "";
             text_stageContent.text = "";
-           
+            
         }
         else
         {
             text_stageName.text = stageInfos[GameData.Instance.selectedStage].stageName;
             text_stageContent.text = stageInfos[GameData.Instance.selectedStage].content;
+            previewImg.sprite = Resources.Load<Sprite>("Image/map" + GameData.Instance.selectedStage);
         }
         
     }
