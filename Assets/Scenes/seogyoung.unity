@@ -2104,6 +2104,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8136181533671917880, guid: ba75817a7ff2666469d03fc5b4151e4d, type: 3}
+      propertyPath: gameSFXAudioClips.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136181533671917880, guid: ba75817a7ff2666469d03fc5b4151e4d, type: 3}
+      propertyPath: gameSFXAudioClips.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: d2136a51432914242b0ac787b124939a, type: 3}
+    - target: {fileID: 8136181533671917880, guid: ba75817a7ff2666469d03fc5b4151e4d, type: 3}
+      propertyPath: gameSFXAudioClips.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: b51e497cd8378634c835451f75418197, type: 3}
     - target: {fileID: 8136181533671917883, guid: ba75817a7ff2666469d03fc5b4151e4d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2640,11 +2652,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
       propertyPath: selectedSkills.Array.data[0]
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
       propertyPath: selectedSkills.Array.data[1]
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
       propertyPath: selectedTowers.Array.data[0]

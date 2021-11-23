@@ -16,6 +16,8 @@ public enum GameSFX
     Bullet,
     Catnip,
     Razer,
+    SkillCount,
+    Pang
 
 }
 public enum SFX
