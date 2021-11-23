@@ -35,6 +35,8 @@ public class Tower : MonoBehaviour
     public string Content => info.content;
     public int TowerId => info.id;
 
+    public bool attackMode;
+
     // 나중에 지울 코드
     public bool useGizmo = false;
 
@@ -55,6 +57,8 @@ public class Tower : MonoBehaviour
         {
             Instantiate(Bullet, transform.position, Quaternion.identity, transform);
         }
+
+        attackMode = true;
     }
 
     // Update is called once per frame
@@ -62,9 +66,11 @@ public class Tower : MonoBehaviour
     {
         if (!isStop)
         {
-            attack();
+            if (attackMode)
+            {
+                attack();
+            }
             specialSkillAttack();
-            showGauge();
         }
 
     }
@@ -80,9 +86,6 @@ public class Tower : MonoBehaviour
             yield return new WaitForSeconds(chargeTime);
             skillGague += 10.0f;
         }
-    }
-    void showGauge()
-    {
     }
 
     GameObject targetSearch(Collider2D[] collEnmeys, int TowerId)
@@ -169,12 +172,7 @@ public class Tower : MonoBehaviour
     {
         if (skillGague >= maxSkillGauge && (isOver && Input.GetMouseButtonUp(0)))
         {
-            switch (TowerId)
-            {
-                default:
-                    var speciaAttack = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
-                    break;
-            }
+            var specialAttack = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
             skillGague = 0.0f;
         }
     }

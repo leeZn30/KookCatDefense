@@ -23,6 +23,10 @@ public class TowerWall : MonoBehaviour
         {
             fixingObject();
         }
+        if (Input.GetMouseButtonDown(1))
+        {
+            Destroy(gameObject);
+        }
     }
 
 

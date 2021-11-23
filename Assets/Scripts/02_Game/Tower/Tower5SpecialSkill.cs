@@ -15,6 +15,7 @@ public class Tower5SpecialSkill : MonoBehaviour
     {
         rectTransform = GetComponent<RectTransform>();
         move_flag = true;
+        transform.parent.GetComponent<Tower>().attackMode = false;
 
     }
 
@@ -26,6 +27,11 @@ public class Tower5SpecialSkill : MonoBehaviour
         {
             fixingObject();
         }
+        if (Input.GetMouseButtonDown(1))
+        {
+            Destroy(gameObject);
+        }
+        if (!move_flag) Destroy(gameObject, 5f);
     }
 
     void moveObjcet()
@@ -49,7 +55,13 @@ public class Tower5SpecialSkill : MonoBehaviour
     void attack()
     {
         var beamObj = Instantiate(beam, transform.position, Quaternion.identity, transform);
+
         beamObj.GetComponent<beam>().target = transform.parent.position;
         beamObj.GetComponent<beam>().start = transform.position;
+    }
+    private void OnDestroy()
+    {
+        transform.parent.GetComponent<Tower>().attackMode = true;
+        transform.parent.GetComponent<Tower>().Startco();
     }
 }

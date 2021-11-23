@@ -8,6 +8,8 @@ public class beam : MonoBehaviour
     public Vector3 start;
     public Vector3 target;
 
+    public float attackDmg;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,20 +21,19 @@ public class beam : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.y = (target - start).magnitude;
         transform.localScale = scale;
-        gameObject.transform.position += dir * 2.0f; // 거리
+        gameObject.transform.position += dir * scale.y * 0.5f; // 거리
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
+        if (collision != null && collision.tag == "Enemy")
         {
-            Debug.Log("Enemy!");
+            collision.GetComponent<Enemy>().AddAffection(attackDmg);
         }
     }
 }

@@ -27,6 +27,10 @@ public class Tower1SpecialSkill : MonoBehaviour
         {
             fixingObject();
         }
+        if (Input.GetMouseButtonDown(1))
+        {
+            Destroy(gameObject);
+        }
     }
 
     void moveObjcet()

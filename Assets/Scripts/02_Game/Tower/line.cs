@@ -8,9 +8,9 @@ public class line : MonoBehaviour
     public Vector3 target;
 
     LineRenderer lr;
-    EdgeCollider2D coll;
 
-    CapsuleCollider2D capsule;
+    BoxCollider2D coll;
+
     public float LineWidth; // use the same as you set in the line renderer.
 
     void Start()
@@ -21,10 +21,9 @@ public class line : MonoBehaviour
 
         LineWidth = lr.startWidth;
 
-        capsule = gameObject.AddComponent<CapsuleCollider2D>();
-        capsule.size = new Vector2(LineWidth/2, (target - start).y);
-        capsule.transform.position = start + (target - start) / 2;
+        coll = gameObject.AddComponent<BoxCollider2D>();
 
+        coll.size = new Vector2(LineWidth / 2, 3);
     }
 
     void Update()

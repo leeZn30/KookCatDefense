@@ -101,9 +101,9 @@ MonoBehaviour:
   attackTime: 1
   Bullet: {fileID: 3771187067902564040, guid: 270dd4b1149740c49a333bbd223ca3c1, type: 3}
   specialSkill: {fileID: 530769403481947189, guid: c0bce100a81d1374399127fc42939718, type: 3}
-  hitSize: 3
-  TowerHp: 0
-  useGizmo: 0
+  hitSize: 2
+  attackMode: 0
+  useGizmo: 1
 --- !u!212 &5206933061407225358
 SpriteRenderer:
   m_ObjectHideFlags: 0
