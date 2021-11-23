@@ -147,16 +147,12 @@ public class Tower : MonoBehaviour
                     case 5:
                         fTime = 0.0f;
                         var aRazer = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
-                        
                         Vector3 dir = (target.transform.position - transform.position).normalized;
                         float angle = Vector2.SignedAngle(Vector2.down, dir);
                         Quaternion qut = new Quaternion();
                         qut.eulerAngles = new Vector3(0, 0, angle);
                         aRazer.transform.rotation = qut;
-                        Vector3 scale = aRazer.transform.localScale;
-                        scale.y = (target.transform.position - gameObject.transform.position).magnitude;
-                        aRazer.transform.localScale = scale;
-                        aRazer.transform.position += dir * 1.5f; // 거리
+                        aRazer.transform.position += dir * 2f; // 거리
                         break;
 
                     default:
@@ -166,7 +162,6 @@ public class Tower : MonoBehaviour
                         break;
                 }
             }
-
         }
     }
 
