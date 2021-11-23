@@ -98,7 +98,7 @@ MonoBehaviour:
     price: 0
   skillGague: 0
   maxSkillGauge: 100
-  attackTime: 1
+  attackTime: 2
   Bullet: {fileID: 3308750203277239889, guid: 07e24377654e0c04fb2fba63c4a5e97d, type: 3}
   specialSkill: {fileID: 530769403481947189, guid: 2335a25b4178346418be6fd586e4e176, type: 3}
   hitSize: 7
