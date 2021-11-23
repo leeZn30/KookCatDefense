@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Catnip : MonoBehaviour
 {
-    public float attackSpeed;
-
     public GameObject target = null;
     public Vector3 targetPosition;
+    public float attackSpeed;
 
     public List<Enemy> enterEnemys = new List<Enemy>();
 
@@ -18,6 +17,7 @@ public class Catnip : MonoBehaviour
         {
             targetPosition = (target.transform.position - transform.position).normalized;
         }
+
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class Catnip : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
 
         float distance = Vector3.Distance(transform.position, transform.parent.position);
@@ -37,7 +37,6 @@ public class Catnip : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
