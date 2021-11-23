@@ -15,10 +15,12 @@ public class CameraMove : MonoBehaviour
     public float sensitivity ;
     public float speed;
 
+    public Vector3 originPos;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        originPos = transform.localPosition;
         camera = GetComponent<Camera>();
         
     }
@@ -89,6 +91,21 @@ public class CameraMove : MonoBehaviour
 
             yield return new WaitForSeconds(0.025f);
         }
+
+    }
+
+    // 카메라 흔들기 기능 만들고 싶은데 인스턴스화가 안됨
+    public IEnumerator Shake(float _amount, float _duration)
+    {
+        float timer = 0;
+        while (timer <= _duration)
+        {
+            transform.localPosition = (Vector3)Random.insideUnitCircle * _amount + originPos;
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        transform.localPosition = originPos;
 
     }
 }

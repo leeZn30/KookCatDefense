@@ -252,10 +252,11 @@ MonoBehaviour:
   skillGague: 0
   maxSkillGauge: 100
   attackTime: 2
-  skillGaugeBar: {fileID: 6847388858367599934}
   Bullet: {fileID: 3771187067902564040, guid: 8917ea9d20ab9af489512532108eca1f, type: 3}
   specialSkill: {fileID: 530769403481947189, guid: 4300aff60595db94ba9669efe08bf983, type: 3}
   hitSize: 7
+  attackMode: 0
+  useGizmo: 0
 --- !u!212 &5206933061407225358
 SpriteRenderer:
   m_ObjectHideFlags: 0

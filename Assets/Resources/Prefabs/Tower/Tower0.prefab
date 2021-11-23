@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1113149365225999344}
   m_Layer: 0
   m_Name: Tower0
-  m_TagString: Wall
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,6 +108,7 @@ MonoBehaviour:
   Bullet: {fileID: 0}
   specialSkill: {fileID: 2725644488396490201, guid: 1af08cb73ecd42742989a0fca677d821, type: 3}
   hitSize: 0
+  attackMode: 0
   useGizmo: 0
 --- !u!65 &1113149365225999344
 BoxCollider:

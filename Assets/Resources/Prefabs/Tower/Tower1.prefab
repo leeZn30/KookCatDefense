@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7122909157371667738}
   m_Layer: 0
   m_Name: Tower1
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
   Bullet: {fileID: 3771187067902564040, guid: 8917ea9d20ab9af489512532108eca1f, type: 3}
   specialSkill: {fileID: 530769403481947189, guid: 4300aff60595db94ba9669efe08bf983, type: 3}
   hitSize: 7
-  TowerHp: 0
+  attackMode: 0
   useGizmo: 0
 --- !u!212 &5206933061407225358
 SpriteRenderer:

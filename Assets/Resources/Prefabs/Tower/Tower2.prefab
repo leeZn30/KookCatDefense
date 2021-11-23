@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 9158068485925486798}
   m_Layer: 0
   m_Name: Tower2
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   attackTime: 1
   Bullet: {fileID: 3771187067902564040, guid: 270dd4b1149740c49a333bbd223ca3c1, type: 3}
   specialSkill: {fileID: 530769403481947189, guid: c0bce100a81d1374399127fc42939718, type: 3}
-  hitSize: 2
+  hitSize: 1.6
   attackMode: 0
   useGizmo: 1
 --- !u!212 &5206933061407225358
