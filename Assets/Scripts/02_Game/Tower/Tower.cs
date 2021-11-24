@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Tower : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class Tower : MonoBehaviour
 
     public float baseAttackTime;
     public float baseAttackDmg;
+
+    public Canvas gauge_bar;
 
     // �Ѿ�
     public GameObject Bullet = null;
@@ -73,6 +76,7 @@ public class Tower : MonoBehaviour
     {
         if (!isStop)
         {
+            showGauge();
             if (attackMode)
             {
                 attack();
@@ -85,6 +89,13 @@ public class Tower : MonoBehaviour
         }
 
     }
+
+    public void showGauge()
+    {
+        Image gauge_obj = gauge_bar.GetComponentInChildren<Image>();
+        gauge_obj.fillAmount = skillGague / 100;
+    }
+
     public void Startco()
     {
         StartCoroutine("chargeSkillGauge", chargeTime);
