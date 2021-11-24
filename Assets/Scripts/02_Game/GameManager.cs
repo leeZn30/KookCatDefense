@@ -34,7 +34,8 @@ public class GameManager : Singleton<GameManager>
     {
         mapIdx = GameData.Instance.selectedStage;
         InitMap();
-        
+        NextWave();
+
     }
     void InitMap()
     {
@@ -100,11 +101,7 @@ public class GameManager : Singleton<GameManager>
     // Update is called once per frame
     void Update()
     {
-        //�׽�Ʈ�� �ڵ�
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            NextWave();
-        }
+
     }
 
     public StageManager Stage

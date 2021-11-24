@@ -84,6 +84,7 @@ public class Select : MonoBehaviour
     }
     private void ClickStartGameScene()
     {
+        SoundManager.Instance.PlaySFX(SFX.CatSoundClick);
         backPanel.SetActive(false);
         panel.SetActive(false);
         GameData.Instance.selectedTowers = new int[4];
@@ -93,7 +94,6 @@ public class Select : MonoBehaviour
             GameData.Instance.selectedTowers[i] = selectedSlots[0][i].itemIdx;
             GameData.Instance.selectedSkills[i] = selectedSlots[1][i].itemIdx;
         }
-        SoundManager.Instance.PlaySFX(SFX.ButtonClick);
         SceneManager.LoadScene("02_Game");
        
     }
@@ -195,10 +195,12 @@ public class Select : MonoBehaviour
         ItemInfo itemInfo=null;
         if (type == Type.tower)
         {
-            itemInfo = Resources.Load<Tower>("Prefabs/Tower/Tower" + currentSlotIndex).info;
+            Tower t = Resources.Load<Tower>("Prefabs/Tower/Tower" + currentSlotIndex);
+            if (t != null) itemInfo = t.info;
         }
         else{
-            //itemInfo = Resources.Load<Tower>("Prefabs/Skill/Skill" + currentSlotIndex).info;
+            Skill s= Resources.Load<Skill>("Prefabs/Skill/Skill" + currentSlotIndex);
+            if (s != null) itemInfo = s.info;
         }
 
         //text 업데이트

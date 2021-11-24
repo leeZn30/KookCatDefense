@@ -10,6 +10,7 @@ public class Razer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SoundManager.Instance.PlayGameSFX(GameSFX.Razer);
     }
 
     // Update is called once per frame
