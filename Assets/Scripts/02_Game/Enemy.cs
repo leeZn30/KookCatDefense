@@ -30,8 +30,8 @@ public class Enemy : MonoBehaviour
     
     private bool isMoving = true;
     
-    private Transform[] wayPoints;
-    private int currentWayPointIdx=1;
+    private List<Transform> wayPoints;
+    private int currentWayPointIdx=0;
 
     private Transform transformAttackRange;
     private EnemyAttackRange enemyAttackRange;
@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
     {
         
     }
-    public void SetUp(Transform[] wps)
+    public void SetUp(List<Transform> wps)
     {
         speed = baseSpeed;
         currentAtkSpeed = attackSpeed;
@@ -69,8 +69,24 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>(); animator.SetFloat("attackSpeed", currentAtkSpeed);
         UpdateAffectionBar();
 
-        wayPoints = new Transform[wps.Length];
-        wayPoints = wps;
+        wayPoints = new List<Transform> ();
+        for(int i=0; i<wps.Count; i++)
+        {
+            wayPoints.Add(wps[i]);
+            if (wps[i].childCount>0)
+            {
+                int randomInt = Random.Range(0, wps[i].childCount);
+                Transform randomWP = wps[i].GetChild(randomInt);
+                wayPoints.Add(randomWP);
+                for (int j = 0; j < randomWP.childCount; j++)
+                {
+                    wayPoints.Add(randomWP.GetChild(j));
+                }
+            }
+            
+
+            
+        }
         
         transform.position = wayPoints[currentWayPointIdx++].position;
         StartCoroutine(Move());
@@ -113,7 +129,7 @@ public class Enemy : MonoBehaviour
     }
     IEnumerator Move()
     {
-        while (currentWayPointIdx < wayPoints.Length)
+        while (currentWayPointIdx < wayPoints.Count)
         {
             if (isMoving == true)
             {
@@ -133,7 +149,7 @@ public class Enemy : MonoBehaviour
                 transform.position += speed * dir * Time.deltaTime;
                 if (Vector3.Distance(transform.position, wayPoints[currentWayPointIdx].position) < 0.02f * speed)
                 {
-                    if (currentWayPointIdx == wayPoints.Length - 1)
+                    if (currentWayPointIdx == wayPoints.Count - 1)//마지막 위치일때
                     {
                         ////���߿� ����
                         Die();
@@ -198,7 +214,8 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        animator.SetFloat("Speed", speed);
+ 
     }
 
     public void ResetAttackSpeed()

@@ -10,10 +10,16 @@ public class FinishUI : MonoBehaviour
      GameObject canvas;
     public List<GameObject> canvasChild;
     public GameObject gameOverPanel;
-    public Button goButton;
+    public GameObject gameClearPanel;
+    public Button goButton1;
+    public Button goButton2;
+
+    Animator animator;
     void Start()
     {
-        goButton.onClick.AddListener(delegate { SceneManager.LoadScene("01_Main"); });
+        animator = GetComponent<Animator>();
+        goButton1.onClick.AddListener(delegate { SceneManager.LoadScene("01_Main"); });
+        goButton2.onClick.AddListener(delegate { SceneManager.LoadScene("01_Main"); });
 
         canvas = transform.parent.gameObject;
         canvasChild = new List<GameObject>();
@@ -22,11 +28,25 @@ public class FinishUI : MonoBehaviour
             canvasChild.Add(canvas.transform.GetChild(i).gameObject);
         }
         //CleanUI();
-        GameManager.Instance.GameOverEvent += CleanUI;
+        GameManager.Instance.GameOverEvent += StartGameOverAct;
+        GameManager.Instance.GameClearEvent += StartGameClearAct;
+    }
+    public void OpenClearPanel()
+    {
+        gameClearPanel.SetActive(true);
+    }
+    void StartGameClearAct()
+    {
+        animator.SetTrigger("Clear");
+        CleanUI();
+    }
+    void StartGameOverAct()
+    {
+        StartCoroutine(Wait());
+        CleanUI();
     }
     void CleanUI()
     {
-        StartCoroutine(Wait());
         for (int i = 0; i < canvas.transform.childCount; i++)
         {
             if (canvasChild[i] != gameObject)

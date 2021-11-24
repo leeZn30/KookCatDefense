@@ -29,12 +29,12 @@ public class CameraMove : MonoBehaviour
     void Update()
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel") ;
-        if(camera.orthographicSize < maxSize && scroll>0)
+        if(camera.orthographicSize < maxSize && scroll<0)
         {//축소
             StartCoroutine(ZoomOut());
             //camera.orthographicSize = Mathf.Min(maxSize, camera.orthographicSize + speed );
         }
-        else if (camera.orthographicSize > minSize && scroll < 0)
+        else if (camera.orthographicSize > minSize && scroll > 0)
         {//확대
             StartCoroutine(ZoomIn());
             
@@ -54,7 +54,12 @@ public class CameraMove : MonoBehaviour
             if (camera.orthographicSize < maxSize && !trigger) //카메라의 orthographicSize가 최대값보다 작고 trigger가 false일때 작동 
             {
                 Vector3 pos = camera.ScreenToViewportPoint(Input.mousePosition) - panOrigin; //moveSpeed로 움직이는 속도 조절 
-                transform.position = oldPos + -pos * sensitivity; //(카메라 사이즈가 줄어든 값) * 10 
+
+                float pixelRatio = (11.5f - camera.orthographicSize) * 1.2f;
+                Vector3 newPos= oldPos + -pos * sensitivity;
+                transform.position = new Vector3(Mathf.Clamp(newPos.x, -(pixelRatio), (pixelRatio)), Mathf.Clamp(newPos.y, -(0.5f * pixelRatio), (0.5f * pixelRatio)), -10);
+
+
             }
         }
                
@@ -73,7 +78,7 @@ public class CameraMove : MonoBehaviour
         }
         
     }
-    IEnumerator ZoomOut()
+    public IEnumerator ZoomOut()
     {
         float value = 0;
         float i = 0.3f;

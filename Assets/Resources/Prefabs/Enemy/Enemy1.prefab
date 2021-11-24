@@ -160,8 +160,8 @@ SpriteRenderer:
   m_SortingLayerID: -1634080529
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7743746021356603907, guid: b70d2603519971841ab8516def98cd6f, type: 3}
-  m_Color: {r: 1, g: 0.47798735, b: 0.47798735, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 286ed66f937962f4a9825d8dd0420cb8, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -187,10 +187,12 @@ MonoBehaviour:
   enemyName: "\uB0E5\uC7742"
   coin: 100
   affection: 30
-  speed: 1
   attackDmg: 0
   attackSpeed: 2
   baseSpeed: 1
+  speed: 1
+  currentAtkSpeed: 0
+  curAffection: 0
   affection_bar: {fileID: 1983988444}
   objAffection_bar: {fileID: 5478114430488031466}
   enemyAttackRangeObj: {fileID: 8815276714892477957}
@@ -252,7 +254,7 @@ Animator:
   m_GameObject: {fileID: 1456442249226602773}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d1e69b7c124936e41af3f18c231f229e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1aec86b47e6afc540b5f7efde2d71c7c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

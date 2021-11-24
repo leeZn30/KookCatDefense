@@ -62,7 +62,7 @@ public class TargetingBullet : MonoBehaviour
         if (collision.tag == "Enemy")
         {
             Enemy enemy = collision.GetComponent<Enemy>();
-            if (enemy == target.GetComponent<Enemy>() && !enemy.isDead)
+            if (target != null && enemy == target.GetComponent<Enemy>() && !enemy.isDead)
             {
                 enemy.AddAffection(attackDmg);
                 Destroy(gameObject);

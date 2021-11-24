@@ -57,6 +57,9 @@ public class Tower : MonoBehaviour
         baseAttackTime = attackTime;
         baseAttackDmg = attackDmg;
         GameManager.Instance.GameOverEvent += () => isStop = true; //게임오버면 멈추기
+        GameManager.Instance.GameClearEvent += () => isStop = true; //게임오버면 멈추기
+        // maxSkillGauge���� skillGauge�� �۴ٸ�, �ð����� �������ֱ�
+
         StartCoroutine("chargeSkillGauge", chargeTime);
 
         if (TowerId == 4)
@@ -84,6 +87,10 @@ public class Tower : MonoBehaviour
                 specialSkillAttack();
             }
 
+        }
+        else
+        {
+            StopAllCoroutines();
         }
 
     }

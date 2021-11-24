@@ -17,6 +17,7 @@ public class ClickAffect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(Camera.main.GetComponent<CameraMove>().ZoomOut());
         transform.position = new Vector3(0, 0, 0);
         timeSec = waitTime;
         renderer = GetComponent<SpriteRenderer>();
