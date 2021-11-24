@@ -1,6 +1,8 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4167063607831100275
+
+--- !u!1 &3726290330365895957
+
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +10,52 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+
   - component: {fileID: 7211210736761235921}
   - component: {fileID: 5187705292741010581}
   m_Layer: 6
   m_Name: Collider
   m_TagString: Tower
+
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7211210736761235921
+
+--- !u!4 &6138674944573546507
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4167063607831100275}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.37200004, z: 0}
+
+  m_GameObject: {fileID: 3726290330365895957}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5206933061407225457}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &5187705292741010581
+
+--- !u!65 &2498652159965602039
+
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4167063607831100275}
+
+  m_GameObject: {fileID: 3726290330365895957}
+
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+
+  m_Size: {x: 1.9952743, y: 1.7511506, z: 1}
+  m_Center: {x: -0.00938952, y: -0.056336254, z: 0}
 --- !u!1 &5206933061407225356
 GameObject:
   m_ObjectHideFlags: 0
@@ -55,8 +67,11 @@ GameObject:
   - component: {fileID: 5206933061407225457}
   - component: {fileID: 4727185181175592580}
   - component: {fileID: 5206933061407225358}
+
   - component: {fileID: 2547626644949129315}
   m_Layer: 6
+
+
   m_Name: Tower5
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -74,7 +89,8 @@ Transform:
   m_LocalPosition: {x: 1.48, y: -0.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7211210736761235921}
+
+  - {fileID: 6138674944573546507}
   - {fileID: 8153921748390850866}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -161,32 +177,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2547626644949129315
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5206933061407225356}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.010154128, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.0625, y: 2.0625}
-    newSize: {x: 1, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.8326323, y: 2}
-  m_EdgeRadius: 0
 --- !u!1001 &1666817797269484317
 PrefabInstance:
   m_ObjectHideFlags: 0
