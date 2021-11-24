@@ -10,11 +10,11 @@ public class PanelBuildTowerIamge : MonoBehaviour
     {
         for (int i=0; i<4; i++)
         {
-            transform.GetChild(i).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Image/Tower"+GameData.Instance.selectedTowers[i]);
+            transform.GetChild(i).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Image/icon/icon_tower" + GameData.Instance.selectedTowers[i]);
         }
         for (int i=4; i<6; i++)
         {
-            transform.GetChild(i).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Image/Skill"+GameData.Instance.selectedSkills[i-4]);
+            transform.GetChild(i).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Image/icon/icon_skill"+GameData.Instance.selectedSkills[i-4]);
         }
     }
 

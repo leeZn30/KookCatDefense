@@ -137,7 +137,7 @@ public class Select : MonoBehaviour
         }
         for (int i = 0; i < slots.Length; i++)
         {
-            slots[i].SetSlotImage(Resources.Load<Sprite>("Image/" + type.ToString() + i));   
+            slots[i].SetSlotImage(Resources.Load<Sprite>("Image/icon/icon_" + type.ToString() + i));   
 
             if (idxs.Contains(slots[i].idx))
             {
@@ -178,7 +178,7 @@ public class Select : MonoBehaviour
             {
 
                 selectedItemCnt++;
-                selectedSlots[(int)type][i].SetSlot(currentSlotIndex, "Image/" + type.ToString() + "" + currentSlotIndex);
+                selectedSlots[(int)type][i].SetSlot(currentSlotIndex, "Image/icon/icon_" + type.ToString() + "" + currentSlotIndex);
                 slots[currentSlotIndex].SetSelect(true);
                 text_btnState.SetText(slots[currentSlotIndex].selectText);
                 if (selectedItemCnt >= 8) { startBtn.gameObject.SetActive(true); }
@@ -217,7 +217,7 @@ public class Select : MonoBehaviour
             text_price.text = slot.price;
         }
  
-        bigImage.sprite = Resources.Load<Sprite>("Image/"+ type.ToString() + ""+slot.idx);
+        bigImage.sprite = Resources.Load<Sprite>("Image/icon/icon_"+ type.ToString() + ""+slot.idx);
         Color color = bigImage.color;
         color.a =255;
         bigImage.color = color;

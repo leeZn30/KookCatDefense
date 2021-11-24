@@ -32,14 +32,14 @@ public class Enemy : MonoBehaviour
     
     private List<Transform> wayPoints;
     private int currentWayPointIdx=0;
-
+    
     private Transform transformAttackRange;
     private EnemyAttackRange enemyAttackRange;
     private Rigidbody2D rigidbody2D;
     private Animator animator;
 
     public event System.Action OnDeath;
-
+    protected Vector3 forwardDir;
     public float AttackSpeed
     {
         set => currentAtkSpeed = Mathf.Max(0, value);
@@ -134,7 +134,7 @@ public class Enemy : MonoBehaviour
             if (isMoving == true)
             {
                 Vector3 dir = (wayPoints[currentWayPointIdx].position - transform.position).normalized;
-                
+                forwardDir = dir;
                 //���ݹ��� �ö��̴� ���� ��ȯ
                 float roValue = 180;
                 if (dir.x <= 0) roValue = 90;

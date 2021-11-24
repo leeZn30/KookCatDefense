@@ -90,7 +90,7 @@ public class StageManager : MonoBehaviour
     private void CreateEnemy(GameObject enemy)
     {
         //추후 수정
-        GameObject cat = Instantiate(enemy);
+        GameObject cat = Instantiate(enemy,wayPoints[0].position, Quaternion.identity);
         Enemy _enemy = cat.GetComponent<Enemy>();
         _enemy.SetUp(new List<Transform>(wayPoints));
 

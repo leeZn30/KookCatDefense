@@ -39,6 +39,7 @@ public class FinishUI : MonoBehaviour
     {
         animator.SetTrigger("Clear");
         CleanUI();
+        Debug.Log(Time.timeScale);
     }
     void StartGameOverAct()
     {
