@@ -31,9 +31,6 @@ public class Tower : MonoBehaviour
     // �⺻ ���� �ð�
     private float fTime = 0.0f;
 
-    // ���콺 ����
-    bool isOver = false;
-
     public float hitSize;
 
     private bool isStop = false;
@@ -86,6 +83,7 @@ public class Tower : MonoBehaviour
             {
                 specialSkillAttack();
             }
+
         }
 
     }
@@ -204,35 +202,22 @@ public class Tower : MonoBehaviour
     }
 
     void specialSkillAttack()
-    {   
-        if (TowerId != 4)
+    {
+        if (skillGague >= maxSkillGauge && (Input.GetMouseButtonUp(0)))
         {
-            if (skillGague >= maxSkillGauge && (isOver && Input.GetMouseButtonUp(0)))
-            {
-                var specialAttack = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
-                skillGague = 0.0f;
-            }
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            Transform hitTransform = null;
 
-        }
-        else
-        {
-            if (skillGague >= maxSkillGauge && (Input.GetMouseButtonUp(0)))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-                Transform hitTransform = null;
+                hitTransform = hit.transform;
 
-                if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+                if (hit.transform.parent == transform)
                 {
-                    hitTransform = hit.transform;
-
-                    if (hit.transform.parent == transform)
-                    {
-                        var specialAttack = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
-                    }
+                    var specialAttack = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
                 }
             }
-
         }
 
     }
@@ -272,29 +257,5 @@ public class Tower : MonoBehaviour
             Gizmos.DrawWireSphere(transform.position, hitSize);
         }
     }
-    
-    void OnMouseOver()
-    {
-        if (isOver == false)
-        {
-            if (!EventSystem.current.IsPointerOverGameObject())
-            {
-                isOver = true;
-            }
-        }
-        
-    }
-
-    void OnMouseExit()
-    {
-        if (isOver == true)
-        {
-            if (!EventSystem.current.IsPointerOverGameObject())
-            {
-                isOver = false;
-            }
-        }
-    }
-    
 
 }

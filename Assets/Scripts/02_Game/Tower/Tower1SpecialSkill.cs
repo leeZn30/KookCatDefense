@@ -12,6 +12,8 @@ public class Tower1SpecialSkill : MonoBehaviour
 
     private List<GameObject> collEnemys = new List<GameObject>();
 
+    AnimatorControllerParameter animator = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +71,9 @@ public class Tower1SpecialSkill : MonoBehaviour
     void attack()
     {
 
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponentInChildren<Animator>().enabled = true;
+
         if (collEnemys.Count > 0)
         {
             foreach (GameObject go in collEnemys)
@@ -76,7 +81,7 @@ public class Tower1SpecialSkill : MonoBehaviour
                 go.GetComponent<Enemy>().AddAffection(attackDmg);
             }
         }
-        Destroy(gameObject);
+        Destroy(gameObject, 1f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
