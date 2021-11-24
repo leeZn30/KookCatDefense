@@ -8,31 +8,35 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7847918788042687332}
+  - component: {fileID: 3987091212331319572}
   - component: {fileID: 6394382574310486939}
-  - component: {fileID: -2191336210589176925}
-  - component: {fileID: 6271424690661540605}
+  - component: {fileID: 9058801804720697258}
   m_Layer: 0
-  m_Name: Feed
+  m_Name: Tower6SpecialSkill
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7847918788042687332
-Transform:
+--- !u!224 &3987091212331319572
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3771187067902564040}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0267365, y: -0.09432253, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1.0267365, y: -0.09432253}
+  m_SizeDelta: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &6394382574310486939
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -73,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -1634080529
   m_SortingLayer: 2
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: ce1d649336be9c4489ee57a2f0e3b40b, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -81,26 +85,10 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &-2191336210589176925
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3771187067902564040}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
---- !u!114 &6271424690661540605
+--- !u!114 &9058801804720697258
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,10 +97,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3771187067902564040}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04dd53d901626794cb55f1ba82c65399, type: 3}
+  m_Script: {fileID: 11500000, guid: bc353ee716bf7e749a0cf5ec88482ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  targetPosition: {x: 0, y: 0, z: 0}
-  attackDmg: 2
-  enterEnemys: []
+  speedBuff: {fileID: 21300000, guid: db037df994ccd824f925692498ad2607, type: 3}
+  DmgBuff: {fileID: 21300000, guid: d2cd94ea2f10268459bb9880adb05846, type: 3}
+  fillSkillGauge: {fileID: 21300000, guid: 7b330b422193f4042b19db9a9875e1ea, type: 3}
+  rectTransform: {fileID: 3987091212331319572}
+  renderer: {fileID: 6394382574310486939}

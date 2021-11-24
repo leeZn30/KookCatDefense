@@ -14,6 +14,10 @@ public class Tower : MonoBehaviour
     public float maxSkillGauge = 100.0f;
     float chargeTime = 0.5f;
     public float attackTime;
+    public float attackDmg;
+
+    public float baseAttackTime;
+    public float baseAttackDmg;
 
     // �Ѿ�
     public GameObject Bullet = null;
@@ -36,6 +40,7 @@ public class Tower : MonoBehaviour
     public int TowerId => info.id;
 
     public bool attackMode;
+    public bool specialattackMode;
 
     // 나중에 지울 코드
     public bool useGizmo = false;
@@ -49,9 +54,12 @@ public class Tower : MonoBehaviour
     void Start()
     {
         skillGague = 0;
+        baseAttackTime = attackTime;
+        baseAttackDmg = attackDmg;
         GameManager.Instance.GameOverEvent += () => isStop = true; //게임오버면 멈추기
         GameManager.Instance.GameClearEvent += () => isStop = true; //게임오버면 멈추기
         // maxSkillGauge���� skillGauge�� �۴ٸ�, �ð����� �������ֱ�
+
         StartCoroutine("chargeSkillGauge", chargeTime);
 
         if (TowerId == 4)
@@ -60,6 +68,7 @@ public class Tower : MonoBehaviour
         }
 
         attackMode = true;
+        specialattackMode = true;
     }
 
     // Update is called once per frame
@@ -71,7 +80,11 @@ public class Tower : MonoBehaviour
             {
                 attack();
             }
-            specialSkillAttack();
+
+            if (specialattackMode)
+            {
+                specialSkillAttack();
+            }
         }
         else
         {
@@ -144,6 +157,14 @@ public class Tower : MonoBehaviour
                         fTime = 0.0f;
                         var aTargettingBullet = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
                         aTargettingBullet.GetComponent<TargetingBullet>().target = target;
+                        aTargettingBullet.GetComponent<TargetingBullet>().attackDmg = attackDmg;
+                        break;
+
+                    case 2:
+                        fTime = 0.0f;
+                        var aChur = Instantiate(Bullet, target.transform.position, Quaternion.identity, transform);
+                        aChur.GetComponent<Chur>().target = target;
+                        aChur.GetComponent<Chur>().attackDmg = attackDmg;
                         break;
 
                     case 3:
@@ -155,6 +176,7 @@ public class Tower : MonoBehaviour
                     case 5:
                         fTime = 0.0f;
                         var aRazer = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
+                        aRazer.GetComponent<Razer>().attackDmg = attackDmg;
                         Vector3 dir = (target.transform.position - transform.position).normalized;
                         float angle = Vector2.SignedAngle(Vector2.down, dir);
                         Quaternion qut = new Quaternion();
@@ -163,10 +185,14 @@ public class Tower : MonoBehaviour
                         aRazer.transform.position += dir * 2f; // 거리
                         break;
 
+                    case 6:
+                        break;
+
                     default:
                         fTime = 0.0f;
                         var aBullet = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
                         aBullet.GetComponent<Bullet>().target= target;
+                        aBullet.GetComponent<Bullet>().attackDmg = attackDmg;
                         break;
                 }
             }
@@ -204,6 +230,34 @@ public class Tower : MonoBehaviour
             }
 
         }
+
+    }
+    public void changeAndresetattackTime(float duration, float change)
+    {
+        attackTime *= change;
+        StartCoroutine(resetattackTime(duration));
+    }
+    IEnumerator resetattackTime(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        attackTime = baseAttackTime;
+    }
+
+    public void changeAndresetattackDmg(float duration, float change)
+    {
+        attackDmg *= change;
+        StartCoroutine(resetattackDmg(duration));
+    }
+    IEnumerator resetattackDmg(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        attackDmg = baseAttackDmg;
+    }
+
+    public void onSpecialSkillMode()
+    {
+        if (!specialattackMode)
+            specialattackMode = true;
     }
 
     void OnDrawGizmos()
