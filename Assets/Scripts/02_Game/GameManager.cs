@@ -55,10 +55,12 @@ public class GameManager : Singleton<GameManager>
     public void ClearGame()
     {
         Debug.Log("GameClear");
-        //1,2,3 이렇게 별 구분 나중에 가능 
-        GameData.Instance.stageLocks[mapIdx] = 1;
 
-        if(GameData.Instance.stageLocks.Length>mapIdx+1)//다음맵 개방
+        GameData.Instance.ClearSelectedThings();
+        
+        GameData.Instance.stageLocks[mapIdx] = 1;//1,2,3 이렇게 별 구분 나중에 가능 
+
+        if (GameData.Instance.stageLocks.Length>mapIdx+1)//다음맵 개방
             GameData.Instance.stageLocks[mapIdx+1] = 0;
         if (GameClearEvent != null)
         {

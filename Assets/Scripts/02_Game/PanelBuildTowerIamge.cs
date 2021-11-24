@@ -22,6 +22,7 @@ public class PanelBuildTowerIamge : MonoBehaviour
 
             transform.GetChild(i).gameObject.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = "$" + tower.Price;
         }
+        
         for (int i=4; i<8; i++)
         {
             transform.GetChild(i).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Image/icon/icon_skill"+GameData.Instance.selectedSkills[i-4]);

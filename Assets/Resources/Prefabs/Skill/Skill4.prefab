@@ -52,7 +52,8 @@ MonoBehaviour:
   imgs:
   - {fileID: 21300000, guid: db037df994ccd824f925692498ad2607, type: 3}
   - {fileID: 21300000, guid: 0ba5ddad02a72314d8670377de3352e0, type: 3}
-  - {fileID: 21300000, guid: 9eb8a92d07a9f1645a272dec6f9eb0a8, type: 3}
+  - {fileID: 21300000, guid: e66e9c420463eb74a90e275ad76af6e0, type: 3}
+  - {fileID: 21300000, guid: 52fac899ed8859f45a92122b25902212, type: 3}
 --- !u!114 &3086011629735275174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,17 +110,17 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1634080529
-  m_SortingLayer: 2
+  m_SortingLayerID: -1989280577
+  m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e66e9c420463eb74a90e275ad76af6e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 10, y: 10}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
