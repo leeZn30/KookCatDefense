@@ -71,7 +71,7 @@ MonoBehaviour:
     content: "\uC804\uCCB4\uACF5\uACA9\uC785\uB2C8\uB2E4 \uAE38 \uC5B4\uB514\uB4E0\uC9C0
       \uC124\uCE58\uD574\uC8FC\uC138\uC694\nspace\uBC14\uB97C \uC5F0\uD0C0\uD558\uC5EC
       \uACE0\uC591\uC774\uB97C \uD1A0\uB2E5\uC5EC\uC8FC\uC138\uC694!"
-    price: 0
+    price: 70
 --- !u!212 &3086011629735275169
 SpriteRenderer:
   m_ObjectHideFlags: 0

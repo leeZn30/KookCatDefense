@@ -37,6 +37,8 @@ public class TowerDataViewer : MonoBehaviour
         currentTower = tower.GetComponent<Tower>();
         Debug.Log(currentTower.Price);
         gameObject.SetActive(true);
+        GameObject sellButton = transform.Find("ButtonSell").gameObject;
+        sellButton.SetActive(true);
         UpdateTowerData();
     }
 
@@ -45,6 +47,8 @@ public class TowerDataViewer : MonoBehaviour
         currentTower = tower.GetComponent<Tower>();
         Debug.Log(currentTower.Price);
         gameObject.SetActive(true);
+        GameObject sellButton = transform.Find("ButtonSell").gameObject;
+        sellButton.SetActive(false);
         UpdateTowerData();
     }
 
@@ -53,6 +57,8 @@ public class TowerDataViewer : MonoBehaviour
         currentSkill = skill.GetComponent<Skill>();
         Debug.Log(currentSkill.Price);
         gameObject.SetActive(true);
+        GameObject sellButton = transform.Find("ButtonSell").gameObject;
+        sellButton.SetActive(false);
         UpdateSkillData();
     }
 
