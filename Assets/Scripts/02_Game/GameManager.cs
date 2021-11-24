@@ -25,6 +25,7 @@ public class GameManager : Singleton<GameManager>
     private bool isGameOver = false;
 
     public event System.Action GameOverEvent;
+    public event System.Action GameClearEvent;
 
     public float WaveNum => waveNum;
     public float EnemyCnt => enemyCnt;
@@ -54,6 +55,10 @@ public class GameManager : Singleton<GameManager>
 
         if(GameData.Instance.stageLocks.Length>mapIdx+1)//다음맵 개방
             GameData.Instance.stageLocks[mapIdx+1] = 0;
+        if (GameClearEvent != null)
+        {
+            GameClearEvent();
+        }
     }
     public void GameOver()
     {

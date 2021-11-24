@@ -50,6 +50,7 @@ public class Tower : MonoBehaviour
     {
         skillGague = 0;
         GameManager.Instance.GameOverEvent += () => isStop = true; //게임오버면 멈추기
+        GameManager.Instance.GameClearEvent += () => isStop = true; //게임오버면 멈추기
         // maxSkillGauge���� skillGauge�� �۴ٸ�, �ð����� �������ֱ�
         StartCoroutine("chargeSkillGauge", chargeTime);
 
@@ -71,6 +72,10 @@ public class Tower : MonoBehaviour
                 attack();
             }
             specialSkillAttack();
+        }
+        else
+        {
+            StopAllCoroutines();
         }
 
     }

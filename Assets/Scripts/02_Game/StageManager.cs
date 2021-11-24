@@ -51,11 +51,15 @@ public class StageManager : MonoBehaviour
     public void LoadMap()
     {
         towerTiles = towerTilesParent.GetComponentsInChildren<TowerTile>();
-        wayPoints = pointTilesParent.GetComponentsInChildren<Transform>();
+        wayPoints = new Transform[pointTilesParent.transform.childCount];
+        for (int i=0; i< pointTilesParent.transform.childCount; i++)
+        {
+            wayPoints[i] = pointTilesParent.transform.GetChild(i);
+        }
     }
-    public Transform[] GetWayPoints()
+    public List<Transform> GetWayPoints()
     {
-        return wayPoints;
+        return new List<Transform>(wayPoints);
     }
     private IEnumerator SpawnEnemy()
     {
@@ -83,12 +87,12 @@ public class StageManager : MonoBehaviour
         }
 
     }
-    public void CreateEnemy(GameObject enemy)
+    private void CreateEnemy(GameObject enemy)
     {
         //추후 수정
         GameObject cat = Instantiate(enemy);
         Enemy _enemy = cat.GetComponent<Enemy>();
-        _enemy.SetUp(wayPoints);
+        _enemy.SetUp(new List<Transform>(wayPoints));
 
         //리스트에 추가
         enemies.Add(_enemy);
