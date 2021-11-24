@@ -141,6 +141,12 @@ public class Tower : MonoBehaviour
                         aTargettingBullet.GetComponent<TargetingBullet>().target = target;
                         break;
 
+                    case 2:
+                        fTime = 0.0f;
+                        var aChur = Instantiate(Bullet, target.transform.position, Quaternion.identity, transform);
+                        aChur.GetComponent<Chur>().target = target;
+                        break;
+
                     case 3:
                         fTime = 0.0f;
                         var aCatnip = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
