@@ -10,9 +10,12 @@ public class Tower5SpecialSkill : MonoBehaviour
 
     public GameObject beam = null;
 
+    TowerTile tt = null;
+
     // Start is called before the first frame update
     void Start()
     {
+        transform.parent.GetComponent<Tower>().skillGague = 0.0f;
         rectTransform = GetComponent<RectTransform>();
         move_flag = true;
         transform.parent.GetComponent<Tower>().attackMode = false;
@@ -23,13 +26,12 @@ public class Tower5SpecialSkill : MonoBehaviour
     void Update()
     {
         moveObjcet();
-        if (Input.GetMouseButtonDown(0))
-        {
-            fixingObject();
-        }
+        fixingObject();
+
         if (Input.GetMouseButtonDown(1))
         {
             Destroy(gameObject);
+            transform.parent.GetComponent<Tower>().skillGague = transform.parent.GetComponent<Tower>().maxSkillGauge;
         }
         if (!move_flag) Destroy(gameObject, 5f);
     }
@@ -46,10 +48,32 @@ public class Tower5SpecialSkill : MonoBehaviour
         }
     }
 
+
     void fixingObject()
     {
-        move_flag = false;
-        attack();
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            Transform hitTransform = null;
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            {
+                hitTransform = hit.transform;
+
+                if (hit.transform.CompareTag("Tile"))
+                {
+                    tt = hit.transform.gameObject.GetComponent<TowerTile>();
+                    
+                    if (tt.tower == null)
+                    {
+                        move_flag = false;
+                        attack();
+                        tt.tower = gameObject;
+                    }
+                }
+            }
+        }
     }
 
     void attack()
@@ -62,6 +86,10 @@ public class Tower5SpecialSkill : MonoBehaviour
     private void OnDestroy()
     {
         transform.parent.GetComponent<Tower>().attackMode = true;
+        if (tt != null)
+        {
+            tt.tower = null;
+        }
         transform.parent.GetComponent<Tower>().Startco();
     }
 }

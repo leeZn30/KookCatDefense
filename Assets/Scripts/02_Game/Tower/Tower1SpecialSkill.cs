@@ -17,19 +17,19 @@ public class Tower1SpecialSkill : MonoBehaviour
     {
        rectTransform = GetComponent<RectTransform>();
        move_flag = true;
+       transform.parent.GetComponent<Tower>().skillGague = 0.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
         moveObjcet();
-        if (Input.GetMouseButtonDown(0))
-        {
-            fixingObject();
-        }
+        fixingObject();
         if (Input.GetMouseButtonDown(1))
         {
             Destroy(gameObject);
+
+            transform.parent.GetComponent<Tower>().skillGague = transform.parent.GetComponent<Tower>().maxSkillGauge;
         }
     }
 
@@ -47,8 +47,23 @@ public class Tower1SpecialSkill : MonoBehaviour
 
     void fixingObject()
     {
-        move_flag = false;
-        attack();
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            Transform hitTransform = null;
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            {
+                hitTransform = hit.transform;
+
+                if (hit.transform.CompareTag("Road"))
+                {
+                    move_flag = false;
+                    attack();
+                }
+            }
+        }
     }
 
     void attack()

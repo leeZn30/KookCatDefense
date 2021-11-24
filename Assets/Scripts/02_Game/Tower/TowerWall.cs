@@ -11,6 +11,8 @@ public class TowerWall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        transform.parent.GetComponent<Tower>().skillGague = 0.0f;
         rectTransform = GetComponent<RectTransform>();
         move_flag = true;
     }
@@ -19,13 +21,11 @@ public class TowerWall : MonoBehaviour
     void Update()
     {
         moveObjcet();
-        if (Input.GetMouseButtonDown(0))
-        {
-            fixingObject();
-        }
+        fixingObject();
         if (Input.GetMouseButtonDown(1))
         {
             Destroy(gameObject);
+            transform.parent.GetComponent<Tower>().skillGague = transform.parent.GetComponent<Tower>().maxSkillGauge;
         }
     }
 
@@ -42,8 +42,24 @@ public class TowerWall : MonoBehaviour
         }
     }
 
+
     void fixingObject()
     {
-        move_flag = false;
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            Transform hitTransform = null;
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            {
+                hitTransform = hit.transform;
+
+                if (hit.transform.CompareTag("Road"))
+                {
+                    move_flag = false;
+                }
+            }
+        }
     }
 }

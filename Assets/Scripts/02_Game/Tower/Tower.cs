@@ -169,29 +169,7 @@ public class Tower : MonoBehaviour
     }
 
     void specialSkillAttack()
-    {
-        /*
-        if (skillGague >= maxSkillGauge && (isOver && Input.GetMouseButtonUp(0)))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            Transform hitTransform = null;
-
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-            {
-                hitTransform = hit.transform;
-
-                if (hit.transform.CompareTag("Tower"))
-                {
-                    Debug.Log(hit.transform);
-                    var specialAttack = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
-                    skillGague = 0.0f;
-                }
-            }
-        }
-        */
-
-        
+    {   
         if (TowerId != 4)
         {
             if (skillGague >= maxSkillGauge && (isOver && Input.GetMouseButtonUp(0)))
@@ -216,7 +194,6 @@ public class Tower : MonoBehaviour
                     if (hit.transform.CompareTag("Tower"))
                     {
                         var specialAttack = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
-                        skillGague = 0.0f;
                     }
                 }
             }
