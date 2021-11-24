@@ -35,6 +35,8 @@ public class Tower : MonoBehaviour
     public string Content => info.content;
     public int TowerId => info.id;
 
+    public bool attackMode;
+
     // 나중에 지울 코드
     public bool useGizmo = false;
 
@@ -55,6 +57,8 @@ public class Tower : MonoBehaviour
         {
             Instantiate(Bullet, transform.position, Quaternion.identity, transform);
         }
+
+        attackMode = true;
     }
 
     // Update is called once per frame
@@ -62,9 +66,11 @@ public class Tower : MonoBehaviour
     {
         if (!isStop)
         {
-            attack();
+            if (attackMode)
+            {
+                attack();
+            }
             specialSkillAttack();
-            showGauge();
         }
 
     }
@@ -80,9 +86,6 @@ public class Tower : MonoBehaviour
             yield return new WaitForSeconds(chargeTime);
             skillGague += 10.0f;
         }
-    }
-    void showGauge()
-    {
     }
 
     GameObject targetSearch(Collider2D[] collEnmeys, int TowerId)
@@ -147,16 +150,12 @@ public class Tower : MonoBehaviour
                     case 5:
                         fTime = 0.0f;
                         var aRazer = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
-                        
                         Vector3 dir = (target.transform.position - transform.position).normalized;
                         float angle = Vector2.SignedAngle(Vector2.down, dir);
                         Quaternion qut = new Quaternion();
                         qut.eulerAngles = new Vector3(0, 0, angle);
                         aRazer.transform.rotation = qut;
-                        Vector3 scale = aRazer.transform.localScale;
-                        scale.y = (target.transform.position - gameObject.transform.position).magnitude;
-                        aRazer.transform.localScale = scale;
-                        aRazer.transform.position += dir * 1.5f; // 거리
+                        aRazer.transform.position += dir * 2f; // 거리
                         break;
 
                     default:
@@ -166,21 +165,39 @@ public class Tower : MonoBehaviour
                         break;
                 }
             }
-
         }
     }
 
     void specialSkillAttack()
-    {
-        if (skillGague >= maxSkillGauge && (isOver && Input.GetMouseButtonUp(0)))
+    {   
+        if (TowerId != 4)
         {
-            switch (TowerId)
+            if (skillGague >= maxSkillGauge && (isOver && Input.GetMouseButtonUp(0)))
             {
-                default:
-                    var speciaAttack = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
-                    break;
+                var specialAttack = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
+                skillGague = 0.0f;
             }
-            skillGague = 0.0f;
+
+        }
+        else
+        {
+            if (skillGague >= maxSkillGauge && (Input.GetMouseButtonUp(0)))
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                Transform hitTransform = null;
+
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+                {
+                    hitTransform = hit.transform;
+
+                    if (hit.transform.CompareTag("Tower"))
+                    {
+                        var specialAttack = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
+                    }
+                }
+            }
+
         }
     }
 

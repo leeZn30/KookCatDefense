@@ -10,7 +10,7 @@ public class Tower2SpecialSkill : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        transform.parent.GetComponent<Tower>().skillGague = 0.0f;
     }
 
     // Update is called once per frame
