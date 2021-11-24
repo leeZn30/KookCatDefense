@@ -55,9 +55,7 @@ GameObject:
   - component: {fileID: 5206933061407225457}
   - component: {fileID: 4727185181175592580}
   - component: {fileID: 5206933061407225358}
-  - component: {fileID: 9158068485925486798}
   m_Layer: 6
-
   m_Name: Tower2
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -272,10 +270,6 @@ PrefabInstance:
     - target: {fileID: 8645655646327911195, guid: a396ffe24ae182b428984c5324f8e659, type: 3}
       propertyPath: m_Layer
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8908616243972772204, guid: a396ffe24ae182b428984c5324f8e659, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a396ffe24ae182b428984c5324f8e659, type: 3}

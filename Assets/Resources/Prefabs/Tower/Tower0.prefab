@@ -1,8 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
-
---- !u!1 &5142691136182022108
-
+--- !u!1 &159942641123329676
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,50 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6721805253067736362}
-  - component: {fileID: 2705081767553907179}
+  - component: {fileID: 569802029348683389}
+  - component: {fileID: 8949721909265369540}
   m_Layer: 6
   m_Name: Collider
-  m_TagString: Tower
-
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-
---- !u!4 &6721805253067736362
-
+--- !u!4 &569802029348683389
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-
   m_GameObject: {fileID: 159942641123329676}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.32000005, y: 0.22999999, z: 0}
-
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5206933061407225457}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-
---- !u!65 &2705081767553907179
-
+--- !u!65 &8949721909265369540
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-
-  m_GameObject: {fileID: 5142691136182022108}
-
+  m_GameObject: {fileID: 159942641123329676}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-
   m_Size: {x: 1.9952743, y: 1.77497, z: 1}
   m_Center: {x: -0.00938952, y: -0.3064425, z: 0}
 --- !u!1 &5206933061407225356
@@ -67,9 +55,7 @@ GameObject:
   - component: {fileID: 5206933061407225457}
   - component: {fileID: 5206933061407225358}
   - component: {fileID: 7675231759144797902}
-
   m_Layer: 6
-
   m_Name: Tower0
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -87,8 +73,7 @@ Transform:
   m_LocalPosition: {x: 1.16, y: -0.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6721805253067736362}
-
+  - {fileID: 569802029348683389}
   - {fileID: 3748324428661999040}
   m_Father: {fileID: 0}
   m_RootOrder: 0

@@ -756,6 +756,7 @@ MonoBehaviour:
   maxSize: 11.5
   sensitivity: 10
   speed: 2
+  originPos: {x: 0, y: 0, z: 0}
 --- !u!81 &191947404
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1904,7 +1905,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasChild: []
   gameOverPanel: {fileID: 1500996175}
-  goButton: {fileID: 1722825746}
+  gameClearPanel: {fileID: 0}
+  goButton1: {fileID: 0}
+  goButton2: {fileID: 0}
 --- !u!222 &877142869
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2079,6 +2082,7 @@ MonoBehaviour:
   currentTowerObj: {fileID: 5206933061407225356, guid: 9e211f5dd8957ec4faf3ded019a6ad31, type: 3}
   maps:
   - {fileID: 1482456980663961910, guid: 40f96db87c973ab4aae1fe3b0f973822, type: 3}
+  - {fileID: 1482456980663961910, guid: 0c48019fe91a4274ead219b2afe1df90, type: 3}
   mapIdx: 0
   coin: 0
   waveNum: -1
@@ -2312,7 +2316,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uB098\uAC00\uAE30"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d7dc2f3afc941004da309df21ccb72d9, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 7993244108547963931, guid: d7dc2f3afc941004da309df21ccb72d9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2632,7 +2636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
       propertyPath: selectedStage
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
       propertyPath: selectedSkills.Array.size
@@ -3856,7 +3860,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: goto home
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d7dc2f3afc941004da309df21ccb72d9, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 7993244108547963931, guid: d7dc2f3afc941004da309df21ccb72d9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4066,7 +4070,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uB3CC\uC544\uAC00\uAE30\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d7dc2f3afc941004da309df21ccb72d9, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 7993244108547963931, guid: d7dc2f3afc941004da309df21ccb72d9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
