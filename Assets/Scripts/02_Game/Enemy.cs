@@ -133,7 +133,7 @@ public class Enemy : MonoBehaviour
                 transform.position += speed * dir * Time.deltaTime;
                 if (Vector3.Distance(transform.position, wayPoints[currentWayPointIdx].position) < 0.02f * speed)
                 {
-                    if (currentWayPointIdx == wayPoints.Length - 1)
+                    if (currentWayPointIdx == wayPoints.Length - 1)//마지막 위치일때
                     {
                         ////���߿� ����
                         Die();
