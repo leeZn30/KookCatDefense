@@ -215,7 +215,7 @@ public class Tower : MonoBehaviour
                 {
                     hitTransform = hit.transform;
 
-                    if (hit.transform.CompareTag("Tower"))
+                    if (hit.transform.parent == transform)
                     {
                         var specialAttack = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
                     }
