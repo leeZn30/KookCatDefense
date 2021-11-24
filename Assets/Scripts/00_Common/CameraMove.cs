@@ -55,6 +55,10 @@ public class CameraMove : MonoBehaviour
             {
                 Vector3 pos = camera.ScreenToViewportPoint(Input.mousePosition) - panOrigin; //moveSpeed로 움직이는 속도 조절 
                 transform.position = oldPos + -pos * sensitivity; //(카메라 사이즈가 줄어든 값) * 10 
+
+
+
+
             }
         }
                
