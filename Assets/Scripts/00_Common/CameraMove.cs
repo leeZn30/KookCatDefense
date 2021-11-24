@@ -94,7 +94,6 @@ public class CameraMove : MonoBehaviour
 
     }
 
-    // 카메라 흔들기 기능 만들고 싶은데 인스턴스화가 안됨
     public IEnumerator Shake(float _amount, float _duration)
     {
         float timer = 0;

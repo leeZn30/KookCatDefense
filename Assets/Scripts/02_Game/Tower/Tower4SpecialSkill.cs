@@ -13,7 +13,8 @@ public class Tower4SpecialSkill : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine(camera.GetComponent<CameraMove>().Shake(3f, 3f));
+
+        StartCoroutine (Camera.main.GetComponent<CameraMove>().Shake(0.5f, 0.5f));
         stage = GameManager.Instance.Stage;
         enemies = stage.enemies;
 
@@ -26,7 +27,7 @@ public class Tower4SpecialSkill : MonoBehaviour
         {
             enemy.SpeedDownAndReset(0.5f, 4.0f);
         }
-        Destroy(gameObject);
+        Destroy(gameObject, 0.5f);
     }
 
     private void OnDestroy()
