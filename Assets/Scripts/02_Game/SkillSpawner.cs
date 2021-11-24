@@ -75,7 +75,7 @@ public class SkillSpawner : MonoBehaviour
         //if 
         //skill script에 소멸시간 받아서 코루틴으로 짜기(자체 소멸하지않는 것 이랑 구분 )
         //스킬 3은 애니메이션 이벤트로 코루틴 없이 소멸해서 여기서 먼저 사라지면 안될 것 같아요
-        if(skill.info.id==0 || skill.info.id == 1)//임시
+        if(skill.info.id==0 || skill.info.id == 1 || skill.info.id == 2)//임시
             Destroy(skillClone, 5);
     }
 

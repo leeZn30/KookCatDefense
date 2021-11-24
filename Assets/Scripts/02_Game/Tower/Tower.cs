@@ -47,7 +47,7 @@ public class Tower : MonoBehaviour
 
     public void Sell()
     {
-        GameManager.Instance.coin += (int)Price;
+        GameManager.Instance.coin += (int)(Price * 0.5);
         Destroy(gameObject);
     }
 
