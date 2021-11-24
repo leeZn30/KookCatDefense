@@ -45,7 +45,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 61d184bb74321b644be655e37583b991, type: 2}
+  m_Motion: {fileID: 7400000, guid: 3e5ccbadf645c764c83d5d55daef64d9, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -87,7 +87,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: cb12323aabedbaf4e97a27f94befb2ab, type: 2}
+    m_Motion: {fileID: 7400000, guid: 53c3ffd06309c2d45858a7e21d9b4bec, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 1}
     m_TimeScale: 1
@@ -95,7 +95,7 @@ BlendTree:
     m_DirectBlendParameter: MoveX
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 2d0f57b00474cb347a955efd564d68ca, type: 2}
+    m_Motion: {fileID: 7400000, guid: f8e76bdb5dd4ad543a042974a1664321, type: 2}
     m_Threshold: 0.33333334
     m_Position: {x: 0, y: -1}
     m_TimeScale: 1
@@ -103,7 +103,7 @@ BlendTree:
     m_DirectBlendParameter: MoveX
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: c0601b5d731d4e348865e7217bd5d61b, type: 2}
+    m_Motion: {fileID: 7400000, guid: 1b7d1fbbc414c2445bea77a627cdff4e, type: 2}
     m_Threshold: 0.6666667
     m_Position: {x: -1, y: 0}
     m_TimeScale: 1
@@ -111,7 +111,7 @@ BlendTree:
     m_DirectBlendParameter: MoveX
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: bcc8360ee0b2f0a4a94945d35ef9ea4d, type: 2}
+    m_Motion: {fileID: 7400000, guid: 576872f574cd96b4e8f65bde843cfd31, type: 2}
     m_Threshold: 1
     m_Position: {x: 1, y: 0}
     m_TimeScale: 1
@@ -171,7 +171,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 6c528c4eb71dd7c47975892d12350104, type: 2}
+  m_Motion: {fileID: 7400000, guid: 5c27210db9969b4418e1b3b22119c5f4, type: 2}
   m_Tag: 
   m_SpeedParameter: attackSpeed
   m_MirrorParameter: 
@@ -183,7 +183,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Circle
+  m_Name: Circle 1
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: MoveX

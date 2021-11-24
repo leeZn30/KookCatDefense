@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: f1a1a452cd273784fb76942c84edb827
+guid: 851670f4f58d76b4ca4f74b0c6560bc7
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: 21300000
-    second: White_Attack_0
+    second: White_relax_0
   - first:
       213: 21300002
-    second: White_Attack_1
+    second: White_relax_1
   - first:
       213: 21300004
-    second: White_Attack_2
+    second: White_relax_2
   - first:
       213: 21300006
-    second: White_Attack_3
+    second: White_relax_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -58,7 +58,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 8
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -86,7 +86,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -98,12 +98,12 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: White_Attack_0
+      name: White_relax_0
       rect:
         serializedVersion: 2
         x: 0
@@ -117,14 +117,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42229099251e01042b69f2c193f1d688
+      spriteID: 409ef0d02b8ba994bb9cef241c06b06f
       internalID: 21300000
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: White_Attack_1
+      name: White_relax_1
       rect:
         serializedVersion: 2
         x: 32
@@ -138,14 +138,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3ee49a76887daf4a9b01155e13c2dc2
+      spriteID: 9c204f31eee9576479e3b4f7d3abc6c9
       internalID: 21300002
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: White_Attack_2
+      name: White_relax_2
       rect:
         serializedVersion: 2
         x: 64
@@ -159,14 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 222dc6e4edb80a54a9fd7bfbadc1c6ca
+      spriteID: a51900aa7e5606240962c85f7e7eb7b3
       internalID: 21300004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: White_Attack_3
+      name: White_relax_3
       rect:
         serializedVersion: 2
         x: 96
@@ -180,7 +180,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 528b11bcc922aba45a9cb0781c023994
+      spriteID: 8f74e06420e1e6d40990d27f1b071a1c
       internalID: 21300006
       vertices: []
       indices: 
@@ -189,7 +189,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 338845031753722418fa04c6f0b1fe64
+    spriteID: 643f072c2a09cae44956e5cd313c3d0e
     internalID: 0
     vertices: []
     indices: 

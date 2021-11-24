@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 0c22328316b070e4c805dedcbdc6a9f8
+guid: e17a0078cd130c34ab67377d516aac06
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: 21300000
-    second: Glay_Attack_0
+    second: Glay_relax_0
   - first:
       213: 21300002
-    second: Glay_Attack_1
+    second: Glay_relax_1
   - first:
       213: 21300004
-    second: Glay_Attack_2
+    second: Glay_relax_2
   - first:
       213: 21300006
-    second: Glay_Attack_3
+    second: Glay_relax_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -58,7 +58,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 8
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -86,7 +86,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -98,12 +98,12 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Glay_Attack_0
+      name: Glay_relax_0
       rect:
         serializedVersion: 2
         x: 0
@@ -117,14 +117,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8439b00208ee16e46a661cf0f1b0f84e
+      spriteID: c722e4ad1bcad774386401bd57f24071
       internalID: 21300000
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Glay_Attack_1
+      name: Glay_relax_1
       rect:
         serializedVersion: 2
         x: 32
@@ -138,14 +138,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0267a9b5016998349b51ec9188d08316
+      spriteID: 0c4723ed8a7f9b4438c48f1bbc9c337f
       internalID: 21300002
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Glay_Attack_2
+      name: Glay_relax_2
       rect:
         serializedVersion: 2
         x: 64
@@ -159,14 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e75ee6d99ba93194892aede99b3f07fe
+      spriteID: 26f23bf7209e1814e8d2c9d60b9a1b41
       internalID: 21300004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Glay_Attack_3
+      name: Glay_relax_3
       rect:
         serializedVersion: 2
         x: 96
@@ -180,7 +180,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fad6e1c2e066a44e9dc9a5f04d152fd
+      spriteID: dbd86073e12e56245a48bbe115321e10
       internalID: 21300006
       vertices: []
       indices: 
@@ -189,7 +189,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 51cf0f944cc899248bd357628b0a34c0
+    spriteID: e5f0dac613de54d4e8115326eaa0f35e
     internalID: 0
     vertices: []
     indices: 
