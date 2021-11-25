@@ -52,7 +52,7 @@ public class SkillSpawner : MonoBehaviour
     {
         if (isOnSkillButton == false)
         {
-            yield return null;
+            yield break;
         }
 
         //Tile tile = tileTransform.GetComponent<Tile>();
