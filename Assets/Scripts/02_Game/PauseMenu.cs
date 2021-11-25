@@ -5,16 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject PauseUI;
-    public GameObject NormalUI;
-    public GameObject BuildTowerUI;
-    public GameObject TowerInfoUI;
+    public List<GameObject> canvasChild;
+    GameObject canvas;
+    public GameObject pauseUI;
+    public GameObject towerInfoUI;
 
     private bool paused = false;
     // Start is called before the first frame update
     void Start()
     {
-        PauseUI.SetActive(false);
+        canvas = pauseUI.transform.parent.gameObject;
+        canvasChild = new List<GameObject>();
+        for (int i = 0; i < canvas.transform.childCount; i++)
+        {
+            canvasChild.Add(canvas.transform.GetChild(i).gameObject);
+        }
+        pauseUI.SetActive(false);
+        towerInfoUI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -29,16 +36,35 @@ public class PauseMenu : MonoBehaviour
         paused = !paused;
 
         if(paused){
-            PauseUI.SetActive(true);
-            NormalUI.SetActive(false);
-            BuildTowerUI.SetActive(false);
-            TowerInfoUI.SetActive(false);
+            for (int i = 0; i < canvas.transform.childCount; i++)
+            {
+                if (canvasChild[i] != pauseUI)
+                {
+                    canvasChild[i].SetActive(false);
+                }
+                else
+                {
+                    canvasChild[i].SetActive(true);
+                }
+
+            }
+
             Time.timeScale = 0;
         }
         if(!paused){
-            PauseUI.SetActive(false);
-            NormalUI.SetActive(true);
-            BuildTowerUI.SetActive(true);
+            for (int i = 0; i < canvas.transform.childCount; i++)
+            {
+                if (canvasChild[i] == pauseUI || canvasChild[i] == towerInfoUI)
+                {
+                    canvasChild[i].SetActive(false);
+                }
+                else 
+                {
+                    canvasChild[i].SetActive(true);
+                }
+
+
+            }
             Time.timeScale = 1f;
         }
     }
