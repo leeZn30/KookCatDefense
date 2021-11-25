@@ -6737,7 +6737,7 @@ MonoBehaviour:
   towerTilesParent: {fileID: 3238438896358673621}
   lastWall: {fileID: 5237650992077245632}
   startCoin: 1000
-  waveTIme: 5
+  waveTime: 10
   waves:
   - spawnTime: 1
     enemyCnt: 0

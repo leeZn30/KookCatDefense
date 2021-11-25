@@ -48,8 +48,20 @@ public class GameManager : Singleton<GameManager>
         SoundManager.Instance.PlayBGM((BGM)mapIdx + 1);
         stage = Instantiate(maps[mapIdx]);
         stage.LoadMap();
+        stage.OnCount += ShowCount;
         coin = stage.startCoin;
         
+
+    }
+    void ShowCount(int i)
+    {
+        textWaveCounter.enabled = true;
+        if(i==-1)
+            textWaveCounter.enabled = false;
+        if (i==0)
+            textWaveCounter.text = "Wave " + (waveNum + 1);
+        else
+            textWaveCounter.text = "" + i;
 
     }
     public void ClearGame()
@@ -89,28 +101,16 @@ public class GameManager : Singleton<GameManager>
             isWaveFinish = true;
         }
 
-        textWaveCounter.text = "5";
-        textWaveCounter.enabled = true;
-        yield return new WaitForSeconds(1);
-        textWaveCounter.text = "4";
-        yield return new WaitForSeconds(1);
-        textWaveCounter.text = "3";
-        yield return new WaitForSeconds(1);
-        textWaveCounter.text = "2";
-        yield return new WaitForSeconds(1);
-        textWaveCounter.text = "1";
-        yield return new WaitForSeconds(1);
-        textWaveCounter.text = "Wave " + (waveNum+1);
+        
 
         //���� ���̺�
         stage.StartWave(waveNum);
         enemyCnt += stage.currentWave.enemyCnt;
 
-        yield return new WaitForSeconds(1);
-        textWaveCounter.enabled = false;
 
         Debug.Log("in GameManager.cs NextWave() - wave Num :" + waveNum+" enemyCnt :"+enemyCnt);
         //ui����
+        yield return new WaitForSeconds(0.1f);
     }
     public void UpdateEnemyDeath(Enemy enemy)
     {

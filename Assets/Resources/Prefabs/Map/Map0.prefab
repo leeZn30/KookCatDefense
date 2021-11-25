@@ -10889,7 +10889,7 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {r: 0, g: 0, b: 0, a: 0}
   - m_RefCount: 1
-    m_Data: {r: 0.96646583, g: 0.67336625, b: 0.70508975, a: 1}
+    m_Data: {r: 0.969335, g: 0.5784977, b: 0.60958445, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -11194,7 +11194,7 @@ MonoBehaviour:
   towerTilesParent: {fileID: 3238438896358673621}
   lastWall: {fileID: 5237650992077245632}
   startCoin: 1000
-  waveTIme: 5
+  waveTime: 10
   waves:
   - spawnTime: 1
     enemyCnt: 0

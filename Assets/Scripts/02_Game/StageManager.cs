@@ -16,12 +16,14 @@ public class StageManager : MonoBehaviour
     public Wall lastWall;
     public int startCoin;
 
-    public float waveTIme;
+    public float waveTime;
     public List<Wave> waves;
     public Wave currentWave;
 
     public  List<Enemy> enemies=new List<Enemy>();//생성한 적들
 
+    public delegate void DeleteHandler(int num);
+    public event DeleteHandler OnCount;
 
     void Start()
     {
@@ -47,8 +49,16 @@ public class StageManager : MonoBehaviour
     }
     private IEnumerator WaitNextWave()
     {
-        yield return new WaitForSeconds(waveTIme);
+        for(int i=0; i<(int)waveTime; i++)
+        {
+            if (waveTime - i <= 5) OnCount((int)waveTime - i);
+            yield return new WaitForSeconds(1.0f);
+        }
+        OnCount(0);
         StartCoroutine(SpawnEnemy());
+        yield return new WaitForSeconds(1.0f);
+        OnCount(-1);
+
     }
     public void LoadMap()
     {
