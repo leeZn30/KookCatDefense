@@ -18,7 +18,7 @@ public class Skill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (info.id==0) GetComponentInChildren<Animator>().enabled = true;
     }
     public void DestroyThis()
     {
