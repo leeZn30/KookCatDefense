@@ -39,11 +39,18 @@ public class Tower6Passive : MonoBehaviour
     }
     */
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Tower")
         {
             other.transform.parent.GetComponent<Tower>().hitSize *= 1.5f;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Tower")
+        {
+            other.transform.parent.GetComponent<Tower>().hitSize *= 1/1.5f;
         }
     }
 
