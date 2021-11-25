@@ -3535,7 +3535,7 @@ GameObject:
   - component: {fileID: 478412521}
   - component: {fileID: 478412520}
   m_Layer: 0
-  m_Name: 'TowerSpawner '
+  m_Name: TowerSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3564,6 +3564,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  followTowerClone: {fileID: 0}
 --- !u!4 &478412521
 Transform:
   m_ObjectHideFlags: 0
@@ -9313,6 +9314,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  followSkillClone: {fileID: 0}
 --- !u!4 &1782403683
 Transform:
   m_ObjectHideFlags: 0

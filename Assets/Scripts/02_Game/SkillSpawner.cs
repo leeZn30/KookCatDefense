@@ -10,15 +10,17 @@ public class SkillSpawner : MonoBehaviour
     private GameObject[] skillPrefab;
     [SerializeField]
     private GameObject[] followskillPrefab;
+    private TowerSpawner towerSpawner;
     private bool isOnSkillButton = false;
-    private GameObject followSkillClone = null;
+    public GameObject followSkillClone = null;
     private GameObject skillClone = null;
     private int skillType;
 
-    ObjectDetector objectDetector;
+    //ObjectDetector objectDetector;
     private void Start()
     {
-        
+        towerSpawner = GameObject.Find("TowerSpawner").GetComponent<TowerSpawner>();
+               
         for (int i = 0; i < skillPrefab.Length; i++)
         {
             skillPrefab[i] = Resources.Load<GameObject>("Prefabs/Skill/Skill" + GameData.Instance.selectedSkills[i]);
@@ -26,7 +28,12 @@ public class SkillSpawner : MonoBehaviour
         }
     }
     public void ReadytoSpawnSkill(int type)
-    {
+    {       
+        isOnSkillButton = false;
+
+        Destroy(followSkillClone);
+        Destroy(towerSpawner.followTowerClone);
+
         skillType = type;
 
         towerDataViewer.OnPanelSkill(skillPrefab[skillType]);
