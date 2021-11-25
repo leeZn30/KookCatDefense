@@ -80,23 +80,29 @@ public class SkillSpawner : MonoBehaviour
         else if (skill.info.id == 1)
         {
             yield return new WaitForSeconds(5);
-            Enemy[] slowEnemyArr = skillClone.transform.Find("SlowCollider2D").GetComponent<Slow>().collidedEnemy.ToArray();
+            List<Enemy> slowEnemyList = skillClone.transform.Find("SlowCollider2D").GetComponent<Slow>().collidedEnemy;
             
             Destroy(skillClone);
 
-            for (int i=0; i<slowEnemyArr.Length; i++){
-                slowEnemyArr[i].ResetMoveSpeed();
+            if (slowEnemyList != null){
+                //Enemy[] slowEnemyArr = ToArray();
+                for (int i=0; i<slowEnemyList.Count; i++){
+                    slowEnemyList[i].ResetMoveSpeed();
+                }
             }
         }
         else if (skill.info.id == 2 || skill.info.id == 5)
         {
             yield return new WaitForSeconds(5);
-            Enemy[] stopEnemyArr = skillClone.transform.Find("StopCollider2D").GetComponent<Stop>().collidedEnemy.ToArray();
+            List<Enemy> stopEnemyList = skillClone.transform.Find("StopCollider2D").GetComponent<Stop>().collidedEnemy;
             
             Destroy(skillClone);
 
-            for (int i=0; i<stopEnemyArr.Length; i++){
-                stopEnemyArr[i].ResetMoveSpeed();
+            if (stopEnemyList != null){
+                //Enemy[] slowEnemyArr = ToArray();
+                for (int i=0; i<stopEnemyList.Count; i++){
+                    stopEnemyList[i].ResetMoveSpeed();
+                }
             }
         }
     }
