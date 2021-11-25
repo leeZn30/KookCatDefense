@@ -50,11 +50,11 @@ public class SkillSpawner : MonoBehaviour
         StartCoroutine("OnSkillCancelSystem");
     }
 
-    public IEnumerator SpawnSkill(Vector3 tileTransform)
+    public void SpawnSkill(Vector3 tileTransform)
     {
         if (isOnSkillButton == false)
         {
-            yield break;
+            return;
         }
 
         //Tile tile = tileTransform.GetComponent<Tile>();
@@ -79,39 +79,39 @@ public class SkillSpawner : MonoBehaviour
         //스킬 3은 애니메이션 이벤트로 코루틴 없이 소멸해서 여기서 먼저 사라지면 안될 것 같아요
         if(skill.info.id==0)//임시
         {
-            yield return new WaitForSeconds(5);
-            Destroy(skillClone);
+            //yield return new WaitForSeconds(5);
+            Destroy(skillClone, 5);
         }
         else if (skill.info.id == 1)
         {
-            yield return new WaitForSeconds(5);
-            List<Enemy> slowEnemyList = skillClone.transform.Find("SlowCollider2D").GetComponent<Slow>().collidedEnemy;
+            //yield return new WaitForSeconds(5);
+            //List<Enemy> slowEnemyList = skillClone.transform.Find("SlowCollider2D").GetComponent<Slow>().collidedEnemy;
             
-            Destroy(skillClone);
+            Destroy(skillClone, 5);
 
-            if (slowEnemyList != null){
+            /*if (slowEnemyList != null){
                 //Enemy[] slowEnemyArr = ToArray();
                 for (int i=0; i<slowEnemyList.Count; i++){
                     slowEnemyList[i].ResetMoveSpeed();
                 }
-            }
+            }*/
         }
         else if (skill.info.id == 2 || skill.info.id == 5)
         {
-            yield return new WaitForSeconds(5);
-            List<Enemy> stopEnemyList = skillClone.transform.Find("StopCollider2D").GetComponent<Stop>().collidedEnemy;
+            //yield return new WaitForSeconds(5);
+            //List<Enemy> stopEnemyList = skillClone.transform.Find("StopCollider2D").GetComponent<Stop>().collidedEnemy;
             
-            Destroy(skillClone);
+            Destroy(skillClone, 5);
 
-            if (stopEnemyList != null){
+            /*if (stopEnemyList != null){
                 //Enemy[] slowEnemyArr = ToArray();
                 for (int i=0; i<stopEnemyList.Count; i++){
                     stopEnemyList[i].ResetMoveSpeed();
                 }
-            }
+            }*/
         }
-        objectDetector = GameObject.Find("ObjectDetector").GetComponent<ObjectDetector>();
-        objectDetector.runningCoroutine = null;
+        //objectDetector = GameObject.Find("ObjectDetector").GetComponent<ObjectDetector>();
+        //objectDetector.runningCoroutine = null;
     }
 
     private IEnumerator OnSkillCancelSystem()

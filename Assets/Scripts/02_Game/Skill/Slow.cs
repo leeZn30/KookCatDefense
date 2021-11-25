@@ -38,8 +38,15 @@ public class Slow : MonoBehaviour
             return;
         }
 
-        collision.GetComponent<Enemy>().ResetMoveSpeed();
+        collision.GetComponent<Enemy>().ResetMoveSpeed();       
+    }
 
-        
+    void OnDestroy(){
+        if (collidedEnemy != null){
+            //Enemy[] slowEnemyArr = ToArray();
+            for (int i=0; i<collidedEnemy.Count; i++){
+                collidedEnemy[i].ResetMoveSpeed();
+            }
+        }
     }
 }
