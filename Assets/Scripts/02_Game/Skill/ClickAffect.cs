@@ -72,7 +72,8 @@ public class ClickAffect : MonoBehaviour
             yield return new WaitForSeconds(1.0f);
         }
         isStart = !isStart;
-        if(isStart==false) Destroy(gameObject);
+        if(isStart==false) 
+            Destroy(gameObject);
         else {
             timeSec = clickTime;
             renderer.sprite = imgs[2];
