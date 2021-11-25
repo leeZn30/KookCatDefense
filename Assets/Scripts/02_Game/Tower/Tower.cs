@@ -77,7 +77,7 @@ public class Tower : MonoBehaviour
         if (!isStop)
         {
             showGauge();
-            if (attackMode)
+            if (attackMode && ((TowerId != 0 && TowerId != 4) && TowerId !=  6))
             {
                 attack();
             }
@@ -151,7 +151,7 @@ public class Tower : MonoBehaviour
         Collider2D[] collEnemys = Physics2D.OverlapCircleAll(transform.position, hitSize);
 
         fTime += Time.deltaTime;
-        if (collEnemys.Length > 0 && (TowerId != 4 && TowerId != 0))
+        if (collEnemys.Length > 0)
         {
             GameObject target = targetSearch(collEnemys, TowerId);
             
@@ -194,9 +194,6 @@ public class Tower : MonoBehaviour
                         aRazer.transform.position += dir * 2f; // 거리
                         break;
 
-                    case 6:
-                        break;
-
                     default:
                         fTime = 0.0f;
                         var aBullet = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
@@ -219,7 +216,6 @@ public class Tower : MonoBehaviour
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
                 hitTransform = hit.transform;
-
                 if (hit.transform.parent == transform)
                 {
                     var specialAttack = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
@@ -262,6 +258,7 @@ public class Tower : MonoBehaviour
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, hitSize);
+            //Gizmos.DrawWireCube(transform.position, new Vector3(hitSize, hitSize));
         }
     }
 

@@ -7,14 +7,16 @@ public class TowerWall : MonoBehaviour
     public RectTransform rectTransform;
     Vector3 mousePos;
     bool move_flag;
+    float max_distance;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        max_distance = 7.0f;
         transform.parent.GetComponent<Tower>().skillGague = 0.0f;
         rectTransform = GetComponent<RectTransform>();
         move_flag = true;
+        
     }
 
     // Update is called once per frame
@@ -22,7 +24,7 @@ public class TowerWall : MonoBehaviour
     {
         moveObjcet();
         fixingObject();
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && move_flag)
         {
             Destroy(gameObject);
             transform.parent.GetComponent<Tower>().skillGague = transform.parent.GetComponent<Tower>().maxSkillGauge;
@@ -38,7 +40,13 @@ public class TowerWall : MonoBehaviour
             pos.z += 10.0f;
 
             mousePos = Camera.main.ScreenToWorldPoint(pos);
-            rectTransform.position = mousePos;
+
+            float curr_distance = Vector3.Distance(mousePos, transform.parent.position);
+
+            if (curr_distance <= max_distance)
+            {
+                rectTransform.position = mousePos;
+            }
         }
     }
 
