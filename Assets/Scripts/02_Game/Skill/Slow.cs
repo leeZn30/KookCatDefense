@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Slow : MonoBehaviour
 {
+    public List<Enemy> collidedEnemy = new List<Enemy>();
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +26,9 @@ public class Slow : MonoBehaviour
 
         Enemy enemy = collision.GetComponent<Enemy>();
 
-        enemy.SpeedDownAndReset(0.6f, 5.0f);
+        collidedEnemy.Add(enemy);
+
+        enemy.Speed *= 0.6f;
     }
 
     private void OnTriggerExit2D(Collider2D collision)

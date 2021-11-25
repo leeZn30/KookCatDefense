@@ -165,6 +165,12 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
     }
 
+    /*public IEnumerator MoveToTarget(GameObject targetPosition)
+    {
+        transform.position = Vector3.MoveTowards(gameObject.transform.position, targetPosition.transform.position, speed);
+        yield return new WaitForSeconds(0.1f);        
+    }*/
+
     public void Attack()
     {
 
