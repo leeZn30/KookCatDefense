@@ -224,6 +224,10 @@ public class Tower : MonoBehaviour
         }
 
     }
+    public void SetAttckTime(float value)
+    {
+        attackTime *= value; 
+    }
     public void changeAndresetattackTime(float duration, float change)
     {
         attackTime *= change;

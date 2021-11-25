@@ -46,5 +46,5 @@ MonoBehaviour:
   stageLocks: 00000000ffffffffffffffffffffffffffffffffffffffffffffffff
   stageStars: 
   selectedStage: -1
-  selectedTowers: 02000000030000000400000006000000
-  selectedSkills: 01000000
+  selectedTowers: ffffffffffffffffffffffffffffffff
+  selectedSkills: ffffffffffffffffffffffffffffffff

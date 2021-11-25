@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
     private Transform transformAttackRange;
     private EnemyAttackRange enemyAttackRange;
     private Rigidbody2D rigidbody2D;
-    private Animator animator;
+    protected Animator animator;
 
     public event System.Action OnDeath;
     protected Vector3 forwardDir;

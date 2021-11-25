@@ -34,20 +34,19 @@ public class ClickAffect : MonoBehaviour
             {
                 StartCoroutine( createClickImg());
                 spaceCnt++;
+                Attack();
             }
         }
         
     }
     void Attack()
     {
-        Debug.Log(spaceCnt);
-        Debug.Log(spaceCnt * oneTimeDmg);
+
         List<Enemy>es= GameManager.Instance.Stage.enemies;
         for(int i=0; i<es.Count; i++)
         {
-            es[i].AddAffection(spaceCnt * oneTimeDmg);
+            es[i].AddAffection(oneTimeDmg);
         }
-        Destroy(gameObject);
     }
     IEnumerator createClickImg()
     {
@@ -73,7 +72,7 @@ public class ClickAffect : MonoBehaviour
             yield return new WaitForSeconds(1.0f);
         }
         isStart = !isStart;
-        if(isStart==false) Attack();
+        if(isStart==false) Destroy(gameObject);
         else {
             timeSec = clickTime;
             renderer.sprite = imgs[2];
