@@ -6731,6 +6731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1df6958e87ff7340b060c563b37a146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapName: "\uC608\uC220\uAD00"
   tileMap: {fileID: 1482456978562849967}
   pointTilesParent: {fileID: 1482456979963454195}
   towerTilesParent: {fileID: 3238438896358673621}
@@ -6747,7 +6748,7 @@ MonoBehaviour:
     enemyCnt: 0
     enemyPrefabs:
     - amount: 4
-      type: {fileID: 1456442249226602773, guid: 8ed1780bc0b204043a92d97e9ee85e27, type: 3}
+      type: {fileID: 1456442249226602773, guid: 2f412c7ac0eedd24ba5a5f578e7b2695, type: 3}
     - amount: 4
       type: {fileID: 1456442249226602773, guid: db030c1b87f22e944802eb6c45a710b8, type: 3}
     - amount: 4
@@ -6756,7 +6757,7 @@ MonoBehaviour:
     enemyCnt: 0
     enemyPrefabs:
     - amount: 1
-      type: {fileID: 1456442249226602773, guid: 8d8cfbc4cc3c5c54db920bfdf0f13ff4, type: 3}
+      type: {fileID: 1456442249226602773, guid: 3d9b0d6f7a16bbc46a12c789672d8646, type: 3}
   currentWave:
     spawnTime: 0
     enemyCnt: 0

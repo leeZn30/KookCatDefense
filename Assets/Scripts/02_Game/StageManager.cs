@@ -5,6 +5,8 @@ using UnityEngine.Tilemaps;
 
 public class StageManager : MonoBehaviour
 {//enemyspowner나 다름없음
+
+    public string mapName;
     private Transform[] wayPoints;
     private TowerTile[] towerTiles;
 

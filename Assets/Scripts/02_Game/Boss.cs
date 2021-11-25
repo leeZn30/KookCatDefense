@@ -5,6 +5,7 @@ using UnityEngine;
 public class Boss :Enemy
 {
 
+    public Transform skillObj;
     public float viewRadius;
     [Range(0, 360)]
     public float viewAngle;
@@ -13,6 +14,7 @@ public class Boss :Enemy
     public LayerMask targetMask;
     public bool useGizmo;
     public List<Transform> visibleTargets = new List<Transform>();
+    private List<Transform> hitList = new List<Transform>();
 
     void Start()
     { //플레이 시 FindTargetsDelay 코루틴을 실행한다. 0.5초 간격으로 
@@ -29,8 +31,30 @@ public class Boss :Enemy
     }
     void useSkill(Tower tower)
     {
-        Debug.Log("Tower" + tower.info.name + " cut!");
+        if (tower != null)
+        {
+            animator.SetTrigger("UseSkill");
+            Debug.Log("Tower" + tower.info.name + " cut!");
+            tower.SetAttckTime(1.5f);
+            Vector3 dirToTarget = (tower.transform.position - transform.position).normalized;
+            StartCoroutine(MoveSkillObj(dirToTarget));
+        }
+
     }
+    IEnumerator MoveSkillObj(Vector3 dirToTarget)
+    {
+        skillObj.gameObject.SetActive(true);
+        float sec = 0.5f;
+        for(int i=0; i < (int)(sec*20); i++)
+        {
+            skillObj.Translate(dirToTarget * viewRadius/(sec*20), Space.World);
+            yield return new WaitForSeconds(0.05f);
+        }
+        skillObj.localPosition = Vector3.zero;
+        skillObj.gameObject.SetActive(false);
+    }
+    
+    
     IEnumerator FindTargetsDelay(float delay)
     {
         while (true)
@@ -70,13 +94,19 @@ public class Boss :Enemy
         int idx = 0;
         if (visibleTargets.Count > 0)
         {
-            idx = Random.Range(0, visibleTargets.Count);
-            return visibleTargets[idx].GetComponent<Tower>();
+            while (visibleTargets.Count > 0)
+            {
+                idx = Random.Range(0, visibleTargets.Count);
+                if (!hitList.Contains(visibleTargets[idx]))
+                {
+                    hitList.Add(visibleTargets[idx]);
+                    return visibleTargets[idx].GetComponent<Tower>();
+                }
+            }
+            
         }
-        else
-        {
-            return null;
-        }
+        return null;
+
 
     }
 }
