@@ -42,4 +42,12 @@ public class Stop : MonoBehaviour
 
         
     }
+    void OnDestroy(){
+        if (collidedEnemy != null){
+            //Enemy[] slowEnemyArr = ToArray();
+            for (int i=0; i<collidedEnemy.Count; i++){
+                collidedEnemy[i].ResetMoveSpeed();
+            }
+        }
+    }
 }
