@@ -28,7 +28,7 @@ Transform:
   m_LocalPosition: {x: 0.32000005, y: 0.22999999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 5206933061407225457}
+  m_Father: {fileID: 4535617631476266789}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8949721909265369540
@@ -52,7 +52,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5206933061407225457}
+  - component: {fileID: 4535617631476266789}
   - component: {fileID: 5206933061407225358}
   - component: {fileID: 7675231759144797902}
   m_Layer: 6
@@ -62,7 +62,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5206933061407225457
+--- !u!4 &4535617631476266789
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,7 +165,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 5206933061407225457}
+    m_TransformParent: {fileID: 4535617631476266789}
     m_Modifications:
     - target: {fileID: 990730588019255415, guid: a396ffe24ae182b428984c5324f8e659, type: 3}
       propertyPath: m_Name

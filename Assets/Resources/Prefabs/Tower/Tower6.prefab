@@ -104,10 +104,10 @@ MonoBehaviour:
   gauge_bar: {fileID: 6247659544577551999}
   Bullet: {fileID: 0}
   specialSkill: {fileID: 3771187067902564040, guid: 01255fee8840dc04a9228cfa577e3590, type: 3}
-  hitSize: 4
+  hitSize: 0
   attackMode: 0
   specialattackMode: 0
-  useGizmo: 0
+  useGizmo: 1
 --- !u!212 &5206933061407225358
 SpriteRenderer:
   m_ObjectHideFlags: 0
