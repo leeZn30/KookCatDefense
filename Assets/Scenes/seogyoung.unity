@@ -3598,16 +3598,8 @@ PrefabInstance:
       value: GameData
       objectReference: {fileID: 0}
     - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
-      propertyPath: selectedStage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
-      propertyPath: selectedSkills.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
       propertyPath: selectedSkills.Array.data[0]
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
       propertyPath: selectedSkills.Array.data[1]
@@ -3627,15 +3619,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
       propertyPath: selectedTowers.Array.data[1]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
-      propertyPath: selectedTowers.Array.data[2]
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
+      propertyPath: selectedTowers.Array.data[2]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
       propertyPath: selectedTowers.Array.data[3]
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}

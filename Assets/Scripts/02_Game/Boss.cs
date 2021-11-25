@@ -102,6 +102,7 @@ public class Boss :Enemy
                     hitList.Add(visibleTargets[idx]);
                     return visibleTargets[idx].GetComponent<Tower>();
                 }
+                visibleTargets.RemoveAt(idx);
             }
             
         }

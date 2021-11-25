@@ -29,7 +29,7 @@ public class GameData : Singleton<GameData>
         for(int i=0; i<4; i++)
         {
             selectedTowers[i] = -1;
-            //selectedSkills[i] = -1;
+            selectedSkills[i] = -1;
         }
     }
     void Update()
