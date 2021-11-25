@@ -49,7 +49,7 @@ public class ObjectDetector : MonoBehaviour
                 {
                     Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     pos.z = 0;                     
-                    skillSpawner.SpawnSkill(pos);
+                    StartCoroutine(skillSpawner.SpawnSkill(pos));
                 }
                 else if (hit.transform.CompareTag("Tower"))
                 {
