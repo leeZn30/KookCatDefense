@@ -766,6 +766,8 @@ MonoBehaviour:
   textEnemyCount: {fileID: 1464779519}
   textWaveCount: {fileID: 1811357311}
   textStage: {fileID: 1142700725}
+  textStageName: {fileID: 0}
+  textDoorHP: {fileID: 0}
 --- !u!114 &185516667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1291,6 +1293,7 @@ MonoBehaviour:
   bgmSlider: {fileID: 1599653740}
   gameSFXSlider: {fileID: 410543603}
   sfxSlider: {fileID: 658623676}
+  ResolutionDropdown: {fileID: 0}
 --- !u!1 &393513677
 GameObject:
   m_ObjectHideFlags: 0
@@ -6041,7 +6044,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
       propertyPath: selectedSkills.Array.data[3]
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
       propertyPath: selectedTowers.Array.data[0]
@@ -6841,10 +6844,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66cf4d0fd0e655a4584799f1d8573623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseUI: {fileID: 119680137}
-  NormalUI: {fileID: 577293533}
-  BuildTowerUI: {fileID: 331614454}
-  TowerInfoUI: {fileID: 706750857}
+  canvasChild: []
+  pauseUI: {fileID: 0}
+  towerInfoUI: {fileID: 0}
 --- !u!4 &1368444503
 Transform:
   m_ObjectHideFlags: 0

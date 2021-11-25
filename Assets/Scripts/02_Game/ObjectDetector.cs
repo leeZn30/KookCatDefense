@@ -18,6 +18,7 @@ public class ObjectDetector : MonoBehaviour
     private RaycastHit hit;
     private Transform hitTransform = null;
 
+    public Coroutine runningCoroutine = null;
 
     // Start is called before the first frame update
     private void Start()
@@ -49,7 +50,11 @@ public class ObjectDetector : MonoBehaviour
                 {
                     Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     pos.z = 0;                     
-                    StartCoroutine(skillSpawner.SpawnSkill(pos));
+                    if(runningCoroutine != null)
+                    {
+                        return;
+                    }
+                    runningCoroutine = StartCoroutine(skillSpawner.SpawnSkill(pos));
                 }
                 else if (hit.transform.CompareTag("Tower"))
                 {

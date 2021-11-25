@@ -14,6 +14,8 @@ public class SkillSpawner : MonoBehaviour
     private GameObject followSkillClone = null;
     private GameObject skillClone = null;
     private int skillType;
+
+    ObjectDetector objectDetector;
     private void Start()
     {
         
@@ -76,7 +78,10 @@ public class SkillSpawner : MonoBehaviour
         //skill script에 소멸시간 받아서 코루틴으로 짜기(자체 소멸하지않는 것 이랑 구분 )
         //스킬 3은 애니메이션 이벤트로 코루틴 없이 소멸해서 여기서 먼저 사라지면 안될 것 같아요
         if(skill.info.id==0)//임시
-            Destroy(skillClone, 5);
+        {
+            yield return new WaitForSeconds(5);
+            Destroy(skillClone);
+        }
         else if (skill.info.id == 1)
         {
             yield return new WaitForSeconds(5);
@@ -105,6 +110,8 @@ public class SkillSpawner : MonoBehaviour
                 }
             }
         }
+        objectDetector = GameObject.Find("ObjectDetector").GetComponent<ObjectDetector>();
+        objectDetector.runningCoroutine = null;
     }
 
     private IEnumerator OnSkillCancelSystem()
