@@ -55,7 +55,7 @@ public class CameraMove : MonoBehaviour
             {
                 Vector3 pos = camera.ScreenToViewportPoint(Input.mousePosition) - panOrigin; //moveSpeed로 움직이는 속도 조절 
 
-                float pixelRatio = (11.5f - camera.orthographicSize) * 1.2f;
+                float pixelRatio = (11.5f - camera.orthographicSize) * 1.5f;
                 Vector3 newPos= oldPos + -pos * sensitivity;
                 transform.position = new Vector3(Mathf.Clamp(newPos.x, -(pixelRatio), (pixelRatio)), Mathf.Clamp(newPos.y, -(0.5f * pixelRatio), (0.5f * pixelRatio)), -10);
 

@@ -3598,6 +3598,10 @@ PrefabInstance:
       value: GameData
       objectReference: {fileID: 0}
     - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
+      propertyPath: selectedStage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
       propertyPath: selectedSkills.Array.data[0]
       value: 0
       objectReference: {fileID: 0}

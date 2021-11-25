@@ -27,7 +27,7 @@ public class DataParser : MonoBehaviour
 
             stageInfos[i-1].num= int.Parse(row[0]);
             stageInfos[i-1].stageName = row[1];
-            stageInfos[i-1].content = row[2];
+            stageInfos[i-1].content = row[2].Replace("'",",").Replace(";","\n");
             stageInfos[i-1].Image = row[3];
 
 
