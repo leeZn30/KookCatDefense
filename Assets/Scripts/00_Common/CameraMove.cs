@@ -22,7 +22,11 @@ public class CameraMove : MonoBehaviour
     {
         originPos = transform.localPosition;
         camera = GetComponent<Camera>();
-        
+
+        if (GameData.Instance.isResolutionChanged)
+        {
+            Camera.main.GetComponent<ResolutionFixed>().SetResolution(GameData.Instance.width, GameData.Instance.height);
+        }
     }
 
     // Update is called once per frame
