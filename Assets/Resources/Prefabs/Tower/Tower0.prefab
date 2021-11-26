@@ -117,7 +117,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1634080529
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 0f6aebf692297ca40ad51ea1f643b11b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -157,7 +157,6 @@ MonoBehaviour:
   gauge_bar: {fileID: 6907233657957098290}
   Bullet: {fileID: 0}
   specialSkill: {fileID: 2725644488396490201, guid: 1af08cb73ecd42742989a0fca677d821, type: 3}
-  wallRange: {fileID: 6787247169102789450, guid: ae25183bfad50de48b84c75cc6f7b08d, type: 3}
   hitSize: 0
   attackMode: 0
   specialattackMode: 0

@@ -102,6 +102,7 @@ MonoBehaviour:
   attackDmg: 3
   baseAttackTime: 0
   baseAttackDmg: 0
+  baseHitSize: 0
   gauge_bar: {fileID: 5609650389865936967}
   Bullet: {fileID: 3771187067902564040, guid: 270dd4b1149740c49a333bbd223ca3c1, type: 3}
   specialSkill: {fileID: 530769403481947189, guid: c0bce100a81d1374399127fc42939718, type: 3}
@@ -148,7 +149,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1634080529
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: a6ef885876f0a0b44a3554d353046044, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
