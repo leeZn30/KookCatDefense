@@ -225,6 +225,12 @@ public class Tower : MonoBehaviour
                 if (hit.transform.parent == transform)
                 {
                     var specialAttack = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
+
+                    if (TowerId == 0)
+                    {
+                        GetComponent<TowerWallRange>().makeTowerRange();
+                    }
+
                 }
             }
         }

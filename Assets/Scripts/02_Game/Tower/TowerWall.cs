@@ -66,8 +66,8 @@ public class TowerWall : MonoBehaviour
                 if (hit.transform.CompareTag("Road"))
                 {
                     move_flag = false;
-
                     gameObject.tag = "Wall";
+                    transform.parent.GetComponentInChildren<TowerWallRange>().DestoryTowerRange();
                 }
             }
         }

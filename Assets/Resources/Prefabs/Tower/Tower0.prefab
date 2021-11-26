@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 4535617631476266789}
   - component: {fileID: 5206933061407225358}
   - component: {fileID: 7675231759144797902}
+  - component: {fileID: 6177071283387877793}
   m_Layer: 6
   m_Name: Tower0
   m_TagString: Tower
@@ -155,13 +156,26 @@ MonoBehaviour:
   baseAttackDmg: 0
   baseHitSize: 0
   gauge_bar: {fileID: 6907233657957098290}
+  isBuffed: 0
   Bullet: {fileID: 0}
   specialSkill: {fileID: 2725644488396490201, guid: 1af08cb73ecd42742989a0fca677d821, type: 3}
-  wallRange: {fileID: 6787247169102789450, guid: ae25183bfad50de48b84c75cc6f7b08d, type: 3}
   hitSize: 0
   attackMode: 0
   specialattackMode: 0
   useGizmo: 0
+--- !u!114 &6177071283387877793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5206933061407225356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c367ce710d52344820e1904a004486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerWallRange: {fileID: 9003512348584810233, guid: ac49d197b88d8174daba168b9d134f85, type: 3}
 --- !u!1001 &5912536234952067055
 PrefabInstance:
   m_ObjectHideFlags: 0
