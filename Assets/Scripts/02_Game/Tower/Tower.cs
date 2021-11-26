@@ -185,6 +185,7 @@ public class Tower : MonoBehaviour
                         break;
 
                     case 5:
+                        /*
                         fTime = 0.0f;
                         var aRazer = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
                         aRazer.GetComponent<Razer>().attackDmg = attackDmg;
@@ -194,6 +195,7 @@ public class Tower : MonoBehaviour
                         qut.eulerAngles = new Vector3(0, 0, angle);
                         aRazer.transform.rotation = qut;
                         aRazer.transform.position += dir * 2f; // 거리
+                        */
                         break;
 
                     default:

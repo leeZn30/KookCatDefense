@@ -201,7 +201,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   start: {x: 0, y: 0, z: 0}
   target: {x: 0, y: 0, z: 0}
-  attackDmg: 0.2
+  attackDmg: 0.1
+  collEnemies: []
 --- !u!61 &-7442909361569753155
 BoxCollider2D:
   m_ObjectHideFlags: 0

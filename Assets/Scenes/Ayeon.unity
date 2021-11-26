@@ -1193,7 +1193,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 7.039978, y: 7.2299805}
+  m_AnchoredPosition: {x: 7.040039, y: 7.2299805}
   m_SizeDelta: {x: 130, y: 130}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &177782344
@@ -3026,7 +3026,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 117, y: -109.8}
+  m_AnchoredPosition: {x: 117.00003, y: -109.8}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &462270596
@@ -3677,11 +3677,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
       propertyPath: selectedTowers.Array.data[2]
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
       propertyPath: selectedTowers.Array.data[3]
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
