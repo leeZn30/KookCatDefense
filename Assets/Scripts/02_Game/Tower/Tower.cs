@@ -19,6 +19,7 @@ public class Tower : MonoBehaviour
 
     public float baseAttackTime;
     public float baseAttackDmg;
+    public float baseHitSize;
 
     public Canvas gauge_bar;
 
@@ -56,6 +57,7 @@ public class Tower : MonoBehaviour
         skillGague = 0;
         baseAttackTime = attackTime;
         baseAttackDmg = attackDmg;
+        baseHitSize = hitSize;
         GameManager.Instance.GameOverEvent += () => isStop = true; //게임오버면 멈추기
         GameManager.Instance.GameClearEvent += () => isStop = true; //게임오버면 멈추기
         // maxSkillGauge���� skillGauge�� �۴ٸ�, �ð����� �������ֱ�
@@ -262,7 +264,6 @@ public class Tower : MonoBehaviour
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, hitSize);
-            //Gizmos.DrawWireCube(transform.position, new Vector3(hitSize, hitSize));
         }
     }
 

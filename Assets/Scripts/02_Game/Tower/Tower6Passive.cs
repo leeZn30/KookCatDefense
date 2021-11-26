@@ -5,11 +5,6 @@ using UnityEngine;
 public class Tower6Passive : MonoBehaviour
 {
     // Start is called before the first frame update
-    public bool isUpActive = true;
-    public bool isDownActive = true;
-    public bool isRightActive = true;
-    public bool isLeftActive = true;
-
     public float viewRadius;
     public LayerMask targetMask;
     public List<Transform> Targets = new List<Transform>();
@@ -22,6 +17,7 @@ public class Tower6Passive : MonoBehaviour
     void Update()
     {
         FindTargets();
+        ActivePassive();
     }
 
     
@@ -37,13 +33,29 @@ public class Tower6Passive : MonoBehaviour
             {
                 transforms.Add(hitinfo.transform);
                 Tower t = hitinfo.transform.parent.gameObject.GetComponent<Tower>();
+                Debug.Log(t);
+                
             }
         }
         Targets = transforms;
     }
+
+    void ActivePassive()
+    {
+        foreach(Transform target in Targets)
+        {
+            Tower t = target.transform.parent.gameObject.GetComponent<Tower>();
+            t.hitSize = t.baseHitSize + 1f;
+        }
+    }
+
     private void OnDestroy()
     {
-        //여기다 타워 버프줬던것들 다시 돌려놓는 코드 적으면 될듯?
+        foreach (Transform target in Targets)
+        {
+            Tower t = target.transform.parent.gameObject.GetComponent<Tower>();
+            t.hitSize = t.baseHitSize;
+        }
 
     }
 

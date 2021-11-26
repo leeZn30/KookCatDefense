@@ -14,10 +14,10 @@ public class Enemy : MonoBehaviour
     public float attackDmg;
     public float attackSpeed;
 
-    public float baseSpeed;
+    public float speed;
 
     [SerializeField]
-    private float speed;
+    private float currentSpeed;
     [SerializeField]
     private float currentAtkSpeed;
     [SerializeField]
@@ -47,8 +47,8 @@ public class Enemy : MonoBehaviour
     }
     public float Speed
     {
-        set => speed = Mathf.Max(0, value);
-        get => speed;
+        set => currentSpeed = Mathf.Max(0, value);
+        get => currentSpeed;
     }
 
     void Start()
@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour
     }
     public void SetUp(List<Transform> wps)
     {
-        speed = baseSpeed;
+        currentSpeed = speed;
         currentAtkSpeed = attackSpeed;
 
         transformAttackRange = enemyAttackRangeObj.GetComponent<Transform>();
@@ -146,8 +146,8 @@ public class Enemy : MonoBehaviour
                 animator.SetFloat("MoveY", dir.y);
 
 
-                transform.position += speed * dir * Time.deltaTime;
-                if (Vector3.Distance(transform.position, wayPoints[currentWayPointIdx].position) < 0.02f * speed)
+                transform.position += currentSpeed * dir * Time.deltaTime;
+                if (Vector3.Distance(transform.position, wayPoints[currentWayPointIdx].position) < 0.02f * currentSpeed)
                 {
                     if (currentWayPointIdx == wayPoints.Count - 1)//마지막 위치일때
                     {
@@ -220,7 +220,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetFloat("Speed", speed);
+        animator.SetFloat("Speed", currentSpeed);
  
     }
 
@@ -230,9 +230,10 @@ public class Enemy : MonoBehaviour
     }
     public void ResetMoveSpeed()
     {
-        speed = baseSpeed;
+        currentSpeed = speed;
         if (Speed > 0) isMoving = true;
     }
+    
     public void SpeedDownAndReset(float downWeight, float waitTime)
     {
         Speed *= downWeight;
