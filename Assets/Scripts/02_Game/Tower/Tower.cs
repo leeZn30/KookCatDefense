@@ -23,6 +23,8 @@ public class Tower : MonoBehaviour
 
     public Canvas gauge_bar;
 
+    public bool isBuffed = false;
+
     // �Ѿ�
     public GameObject Bullet = null;
 
@@ -79,6 +81,8 @@ public class Tower : MonoBehaviour
         if (!isStop)
         {
             showGauge();
+            showBuffed();
+
             if (attackMode && ((TowerId != 0 && TowerId != 4) && TowerId !=  6))
             {
                 attack();
@@ -185,7 +189,6 @@ public class Tower : MonoBehaviour
                         break;
 
                     case 5:
-                        /*
                         fTime = 0.0f;
                         var aRazer = Instantiate(Bullet, transform.position, Quaternion.identity, transform);
                         aRazer.GetComponent<Razer>().attackDmg = attackDmg;
@@ -195,7 +198,6 @@ public class Tower : MonoBehaviour
                         qut.eulerAngles = new Vector3(0, 0, angle);
                         aRazer.transform.rotation = qut;
                         aRazer.transform.position += dir * 2f; // 거리
-                        */
                         break;
 
                     default:
@@ -242,6 +244,7 @@ public class Tower : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         attackTime = baseAttackTime;
+        isBuffed = false;
     }
 
     public void changeAndresetattackDmg(float duration, float change)
@@ -253,12 +256,26 @@ public class Tower : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         attackDmg = baseAttackDmg;
+        isBuffed = false;
     }
 
     public void onSpecialSkillMode()
     {
         if (!specialattackMode)
             specialattackMode = true;
+    }
+
+    void showBuffed()
+    {
+        if (isBuffed)
+        {
+            // 여기에 표시할거 추가
+            GetComponent<SpriteRenderer>().color = Color.black;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().color = Color.white;
+        }
     }
 
     void OnDrawGizmos()

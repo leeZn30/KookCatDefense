@@ -33,7 +33,7 @@ public class Tower6Passive : MonoBehaviour
             {
                 transforms.Add(hitinfo.transform);
                 Tower t = hitinfo.transform.parent.gameObject.GetComponent<Tower>();
-                Debug.Log(t);
+                t.isBuffed = true;
                 
             }
         }
@@ -55,6 +55,7 @@ public class Tower6Passive : MonoBehaviour
         {
             Tower t = target.transform.parent.gameObject.GetComponent<Tower>();
             t.hitSize = t.baseHitSize;
+            t.isBuffed = false;
         }
 
     }
