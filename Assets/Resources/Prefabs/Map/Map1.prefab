@@ -11072,6 +11072,7 @@ MonoBehaviour:
   lastWall: {fileID: 5237650992077245632}
   startCoin: 1000
   waveTime: 10
+  clearTime: 5000000064000000
   waves:
   - spawnTime: 1
     enemyCnt: 0

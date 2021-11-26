@@ -17,9 +17,10 @@ public class StageManager : MonoBehaviour
     public int startCoin;
 
     public float waveTime;
+    public int[] clearTime;
+
     public List<Wave> waves;
     public Wave currentWave;
-
     public  List<Enemy> enemies=new List<Enemy>();//생성한 적들
 
     public delegate void DeleteHandler(int num);
