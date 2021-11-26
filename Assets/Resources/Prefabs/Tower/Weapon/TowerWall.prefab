@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 1420672702155115752}
   - component: {fileID: 2725644488396490202}
   - component: {fileID: 2511273820330525774}
-  - component: {fileID: 2725644488396490203}
+  - component: {fileID: 8048017462791175256}
   - component: {fileID: 2725644488396490200}
   m_Layer: 0
   m_Name: TowerWall
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rectTransform: {fileID: 1420672702155115752}
---- !u!114 &2725644488396490203
+--- !u!114 &8048017462791175256
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
