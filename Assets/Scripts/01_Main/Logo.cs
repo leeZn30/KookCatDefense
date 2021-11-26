@@ -11,16 +11,40 @@ public class Logo : MonoBehaviour
     public GameObject creditBack;
     public GameObject credit;
 
+    public GameObject cat1;
+    private Animator catAnim;
+
     // Start is called before the first frame update
     void Start()
     {
-        startButton.onClick.AddListener(delegate { SoundManager.Instance.PlaySFX(SFX.ButtonClick); SceneManager.LoadScene("01_Main"); });
+        catAnim = cat1.GetComponent<Animator>();
+
+        startButton.onClick.AddListener(delegate { StopAllCoroutines(); SoundManager.Instance.PlaySFX(SFX.ButtonClick); SceneManager.LoadScene("01_Main"); });
         creditButton.onClick.AddListener(OpenCredit);
         creditExitButton.onClick.AddListener(CloseCredit);
         SoundManager.Instance.PlayBGM();
+        StartCoroutine(CatMoveX());
     }
 
+    IEnumerator CatMoveX()
+    {
+        int dir = -1;
+        int cnt = 0;
+        catAnim.SetFloat("MoveX", dir);
+        while (true)
+        {
+            if (++cnt > 50)
+            {
+                cnt = 0;
+                dir = -dir;
+                catAnim.SetFloat("MoveX", dir);
+            }
+            cat1.transform.position += new Vector3(dir*0.05f, 0, 0);
+            
+            yield return new WaitForSeconds(0.05f);
 
+        }
+    }
     void OpenCredit()
     {
         SoundManager.Instance.PlaySFX(SFX.ButtonClick);

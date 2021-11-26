@@ -10,7 +10,9 @@ public class Tower6Passive : MonoBehaviour
     public bool isRightActive = true;
     public bool isLeftActive = true;
 
-
+    public float viewRadius;
+    public LayerMask targetMask;
+    public List<Transform> Targets = new List<Transform>();
     void Start()
     {
         
@@ -19,39 +21,30 @@ public class Tower6Passive : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        FindTargets();
     }
 
-    /*
-    void UpTowerCheck()
+    
+    void FindTargets()
     {
-        Vector2 a = new Vector2(transform.position.x, transform.position.y + 2.5f);
-        Vector2 b = new Vector2(transform.position.x, transform.position.y);
-        Collider[] Towers = Physics.OverlapCapsule(a, b, transform.localScale.x/2);
-
-        foreach (Collider coll in Towers)
+        List<Transform> transforms = new List<Transform>();
+        Vector3[] dirList = { Vector3.up, Vector3.down, Vector3.left, Vector3.right };
+        for(int i=0; i<dirList.Length; i++)
         {
-            if (coll.tag == "Tower")
+            RaycastHit hitinfo;
+            Debug.DrawRay(transform.position, dirList[i] * viewRadius, Color.green);
+            if (Physics.Raycast(transform.position, dirList[i], out hitinfo, viewRadius, targetMask))
             {
-                coll.transform.parent.GetComponent<Tower>().hitSize *= 1.5f;
-                isUpActive = false;
+                transforms.Add(hitinfo.transform);
+                Tower t = hitinfo.transform.parent.gameObject.GetComponent<Tower>();
             }
         }
+        Targets = transforms;
     }
-    */
+    private void OnDestroy()
+    {
+        //여기다 타워 버프줬던것들 다시 돌려놓는 코드 적으면 될듯?
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Tower")
-        {
-            other.transform.parent.GetComponent<Tower>().hitSize *= 1.5f;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.tag == "Tower")
-        {
-            other.transform.parent.GetComponent<Tower>().hitSize *= 1/1.5f;
-        }
     }
 
 }

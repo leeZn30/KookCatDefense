@@ -855,6 +855,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  followSkillClone: {fileID: 0}
 --- !u!4 &208232036
 Transform:
   m_ObjectHideFlags: 0
@@ -2668,10 +2669,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66cf4d0fd0e655a4584799f1d8573623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseUI: {fileID: 214930222}
-  NormalUI: {fileID: 293348902}
-  BuildTowerUI: {fileID: 755873943}
-  TowerInfoUI: {fileID: 638114365}
+  canvasChild: []
+  pauseUI: {fileID: 0}
+  towerInfoUI: {fileID: 0}
 --- !u!4 &567012220
 Transform:
   m_ObjectHideFlags: 0
@@ -6596,6 +6596,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  followTowerClone: {fileID: 0}
 --- !u!4 &1229106392
 Transform:
   m_ObjectHideFlags: 0
@@ -9730,6 +9731,7 @@ MonoBehaviour:
   bgmSlider: {fileID: 1980029970}
   gameSFXSlider: {fileID: 922998033}
   sfxSlider: {fileID: 1710118801}
+  ResolutionDropdown: {fileID: 0}
 --- !u!1 &1837596644
 GameObject:
   m_ObjectHideFlags: 0
