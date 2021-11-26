@@ -8,6 +8,8 @@ public class GameManager : Singleton<GameManager>
     //���� �� 
     //�÷��̾� ���ӿ��� ���°���
     //ui ����
+    public float currentTime;
+
     public GameObject currentTowerObj;
 
     public StageManager[] maps;
@@ -24,7 +26,7 @@ public class GameManager : Singleton<GameManager>
 
     private bool isWaveFinish = false;//���̺갡 �ٳ�������
     private bool isGameOver = false;
-
+    
     public event System.Action GameOverEvent;
     public event System.Action GameClearEvent;
 
@@ -33,14 +35,32 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField]
     private TextMeshProUGUI textWaveCounter;
+    private int currentStar;
 
-    // Start is called before the first frame update
+    System.Diagnostics.Stopwatch watch;
     void Start()
     {
         mapIdx = GameData.Instance.selectedStage;
         InitMap();
         textWaveCounter.enabled = false;
         StartCoroutine(NextWave());
+
+        currentStar = 3;
+        watch = new System.Diagnostics.Stopwatch();
+        watch.Start();
+
+    }
+
+    void Update()
+    {
+        currentTime = (int)watch.ElapsedMilliseconds/1000;
+        if (currentStar > 1)
+        {
+            if (currentTime > stage.clearTime[3-currentStar])
+            {
+                currentStar--;
+            }
+        }
 
     }
     void InitMap()
@@ -51,26 +71,36 @@ public class GameManager : Singleton<GameManager>
         stage.OnCount += ShowCount;
         coin = stage.startCoin;
         
-
     }
     void ShowCount(int i)
     {
         textWaveCounter.enabled = true;
         if(i==-1)
             textWaveCounter.enabled = false;
-        if (i==0)
-            textWaveCounter.text = "Wave " + (waveNum + 1);
+        if (i == 0)
+        {
+            if (isWaveFinish == true)
+            {
+                textWaveCounter.text = "Boss Wave";
+            }
+            else 
+                textWaveCounter.text = "Wave " + (waveNum + 1);
+        }           
         else
             textWaveCounter.text = "" + i;
 
     }
     public void ClearGame()
     {
+
+        watch.Stop();
+        Debug.Log(currentTime+"s");
         Debug.Log("GameClear");
 
         GameData.Instance.ClearSelectedThings();
         
-        GameData.Instance.stageLocks[mapIdx] = 1;//1,2,3 이렇게 별 구분 나중에 가능 
+
+        GameData.Instance.stageLocks[mapIdx] = Mathf.Max(GameData.Instance.stageLocks[mapIdx], currentStar);//1,2,3 이렇게 별 구분 
 
         if (GameData.Instance.stageLocks.Length>mapIdx+1)//다음맵 개방
             GameData.Instance.stageLocks[mapIdx+1] = 0;
@@ -85,6 +115,8 @@ public class GameManager : Singleton<GameManager>
         {
             GameData.Instance.ClearSelectedThings();
             isGameOver = true;
+            watch.Stop();
+            Debug.Log(currentTime + "s");
             Debug.Log("GameOver");
             if (GameOverEvent != null)
             {
@@ -126,14 +158,14 @@ public class GameManager : Singleton<GameManager>
             StartCoroutine(NextWave());;
         }
     }
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
 
     public StageManager Stage
     {
         get => stage;
+    }
+    public int GetStar()
+    {
+        return currentStar;
     }
 }

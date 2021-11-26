@@ -14,9 +14,12 @@ public class FinishUI : MonoBehaviour
     public Button goButton1;
     public Button goButton2;
 
+    public GameObject Star;
+    private GameObject[] stars = new GameObject[3];
     Animator animator;
     void Start()
     {
+
         animator = GetComponent<Animator>();
         goButton1.onClick.AddListener(delegate { SceneManager.LoadScene("01_Main"); });
         goButton2.onClick.AddListener(delegate { SceneManager.LoadScene("01_Main"); });
@@ -27,19 +30,29 @@ public class FinishUI : MonoBehaviour
         {
             canvasChild.Add(canvas.transform.GetChild(i).gameObject);
         }
+
+        for(int i=0; i<3; i++)
+        {
+            stars[i] = Star.transform.GetChild(i).gameObject;
+            stars[i].SetActive(false);
+        }
         //CleanUI();
         GameManager.Instance.GameOverEvent += StartGameOverAct;
         GameManager.Instance.GameClearEvent += StartGameClearAct;
     }
     public void OpenClearPanel()
     {
+        animator.SetInteger("Star", GameManager.Instance.GetStar());
         gameClearPanel.SetActive(true);
+    }
+    public void SetActiveStar(int num)
+    {
+        SoundManager.Instance.PlaySFX(SFX.CatSoundClick);
     }
     void StartGameClearAct()
     {
         animator.SetTrigger("Clear");
         CleanUI();
-        Debug.Log(Time.timeScale);
     }
     void StartGameOverAct()
     {
