@@ -28,7 +28,7 @@ public class Tower5SpecialSkill : MonoBehaviour
         moveObjcet();
         fixingObject();
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && move_flag)
         {
             Destroy(gameObject);
             transform.parent.GetComponent<Tower>().skillGague = transform.parent.GetComponent<Tower>().maxSkillGauge;
