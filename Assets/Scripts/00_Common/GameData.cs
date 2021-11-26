@@ -16,6 +16,7 @@ public class GameData : Singleton<GameData>
 
     public int width;
     public int height;
+    public bool isFull;
     public bool isResolutionChanged = false;
 
 
