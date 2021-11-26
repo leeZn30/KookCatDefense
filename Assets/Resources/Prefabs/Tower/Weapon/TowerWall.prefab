@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rectTransform: {fileID: 1420672702155115752}
+  wallRange: {fileID: 6787247169102789450, guid: ae25183bfad50de48b84c75cc6f7b08d, type: 3}
 --- !u!114 &8048017462791175256
 MonoBehaviour:
   m_ObjectHideFlags: 0

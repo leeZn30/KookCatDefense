@@ -153,9 +153,11 @@ MonoBehaviour:
   attackDmg: 0
   baseAttackTime: 0
   baseAttackDmg: 0
+  baseHitSize: 0
   gauge_bar: {fileID: 6907233657957098290}
   Bullet: {fileID: 0}
   specialSkill: {fileID: 2725644488396490201, guid: 1af08cb73ecd42742989a0fca677d821, type: 3}
+  wallRange: {fileID: 6787247169102789450, guid: ae25183bfad50de48b84c75cc6f7b08d, type: 3}
   hitSize: 0
   attackMode: 0
   specialattackMode: 0
