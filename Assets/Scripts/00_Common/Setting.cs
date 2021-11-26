@@ -26,7 +26,7 @@ public class Setting : MonoBehaviour
         bgmSlider.value = SoundManager.Instance.BGMVolume;
         gameSFXSlider.value = SoundManager.Instance.GameSFXVolume;
         sfxSlider.value = SoundManager.Instance.SFXVolume;
-        ResolutionDropdown.value = 1;
+        ResolutionDropdown.value = 0;
         ResolutionDropdown.onValueChanged.AddListener(delegate {
             ResolutionDropDownAct(ResolutionDropdown);
         });
@@ -50,15 +50,27 @@ public class Setting : MonoBehaviour
         switch (select.value)
         {
             case 0:
-                Camera.main.GetComponent<ResolutionFixed>().SetResolution(1920, 1080);
+                Camera.main.GetComponent<ResolutionFixed>().SetResolution(1920, 1080, true);
                 break;
 
             case 1:
-                Camera.main.GetComponent<ResolutionFixed>().SetResolution(1270, 720);
+                Camera.main.GetComponent<ResolutionFixed>().SetResolution(1270, 720, true);
                 break;
 
             case 2:
-                Camera.main.GetComponent<ResolutionFixed>().SetResolution(1270, 960);
+                Camera.main.GetComponent<ResolutionFixed>().SetResolution(1920, 1080, true);
+                break;
+
+            case 3:
+                Camera.main.GetComponent<ResolutionFixed>().SetResolution(1270, 720, false);
+                break;
+
+            case 4:
+                Camera.main.GetComponent<ResolutionFixed>().SetResolution(1270, 960, false);
+                break;
+
+            case 5:
+                Camera.main.GetComponent<ResolutionFixed>().SetResolution(1270, 960, false);
                 break;
 
             default:

@@ -11,7 +11,6 @@ public class ResolutionFixed : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //SetResolution(1270, 960);
     }
 
     // Update is called once per frame
@@ -19,7 +18,7 @@ public class ResolutionFixed : MonoBehaviour
     {
     }
 
-    public void SetResolution(int width, int height)
+    public void SetResolution(int width, int height, bool isFull)
     {
         int setWidth = width;
         int setHeight = height;
@@ -31,7 +30,8 @@ public class ResolutionFixed : MonoBehaviour
         int deviceWidth = Screen.width;
         int deviceHeight = Screen.height;
 
-        Screen.SetResolution(setWidth, (int)(((float)deviceHeight / deviceWidth) * setWidth), true);
+        if (isFull) Screen.SetResolution(setWidth, (int)(((float)deviceHeight / deviceWidth) * setWidth), true);
+        else Screen.SetResolution(setWidth, (int)(((float)deviceHeight / deviceWidth) * setWidth), false);
 
 
         if ((float)setWidth / setHeight < (float)deviceWidth / deviceHeight)
