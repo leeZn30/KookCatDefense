@@ -24,6 +24,9 @@ public class ResolutionFixed : MonoBehaviour
         int setWidth = width;
         int setHeight = height;
 
+        GameData.Instance.width = width;
+        GameData.Instance.height = height;
+
 
         int deviceWidth = Screen.width;
         int deviceHeight = Screen.height;
@@ -41,6 +44,8 @@ public class ResolutionFixed : MonoBehaviour
             float newHeight = ((float)deviceWidth / deviceHeight) / ((float)setWidth / setHeight);
             Camera.main.rect = new Rect(0f, (1f - newHeight) / 2f, 1f, newHeight);
         }
+
+        GameData.Instance.isResolutionChanged = true;
 
     }
 
