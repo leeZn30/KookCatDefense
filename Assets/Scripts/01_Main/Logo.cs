@@ -8,6 +8,7 @@ public class Logo : MonoBehaviour
     public Button startButton;
     public Button creditButton;
     public Button creditExitButton;
+    public Button quitButton;
     public GameObject creditBack;
     public GameObject credit;
 
@@ -24,6 +25,7 @@ public class Logo : MonoBehaviour
         creditExitButton.onClick.AddListener(CloseCredit);
         SoundManager.Instance.PlayBGM();
         StartCoroutine(CatMoveX());
+        quitButton.onClick.AddListener(delegate { Application.Quit(); });
     }
 
     IEnumerator CatMoveX()
