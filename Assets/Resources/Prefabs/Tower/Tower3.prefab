@@ -98,7 +98,7 @@ MonoBehaviour:
     price: 120
   skillGague: 0
   maxSkillGauge: 100
-  attackTime: 2
+  attackTime: 4
   attackDmg: 0
   baseAttackTime: 0
   baseAttackDmg: 0

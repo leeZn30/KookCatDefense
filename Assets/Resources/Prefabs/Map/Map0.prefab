@@ -11013,7 +11013,7 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {r: 0, g: 0, b: 0, a: 0}
   - m_RefCount: 1
-    m_Data: {r: 0.758639, g: 0.42594007, b: 0.5069855, a: 1}
+    m_Data: {r: 0.8996033, g: 0.36824358, b: 0.49055693, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -11955,7 +11955,7 @@ Tilemap:
   - m_RefCount: 45
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 1
-    m_Data: {r: 0.9378631, g: 0.5514448, b: 0.5717195, a: 1}
+    m_Data: {r: 0.8591245, g: 0.52624667, b: 0.5932787, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -12456,7 +12456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c597692879539459c1a36fa493df1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 30
+  hp: 10
 --- !u!65 &7195276446893357696
 BoxCollider:
   m_ObjectHideFlags: 0
