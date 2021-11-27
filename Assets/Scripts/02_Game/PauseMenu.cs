@@ -10,10 +10,16 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseUI;
     public GameObject towerInfoUI;
 
+    private TowerSpawner towerSpawner;
+    private SkillSpawner skillSpawner;
+
     private bool paused = false;
     // Start is called before the first frame update
     void Start()
     {
+        towerSpawner = GameObject.Find("TowerSpawner").GetComponent<TowerSpawner>();
+        skillSpawner = GameObject.Find("SkillSpawner").GetComponent<SkillSpawner>();
+        
         canvas = pauseUI.transform.parent.gameObject;
         canvasChild = new List<GameObject>();
         for (int i = 0; i < canvas.transform.childCount; i++)
@@ -37,6 +43,12 @@ public class PauseMenu : MonoBehaviour
         paused = !paused;
 
         if(paused){
+            towerSpawner.isOnTowerButton = false;
+            skillSpawner.isOnSkillButton = false;
+
+            Destroy(towerSpawner.followTowerClone);
+            Destroy(skillSpawner.followSkillClone);
+
             for (int i = 0; i < canvas.transform.childCount; i++)
             {
                 if (canvasChild[i] != pauseUI)
