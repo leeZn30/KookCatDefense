@@ -79,15 +79,19 @@ public class GameManager : Singleton<GameManager>
             textWaveCounter.enabled = false;
         if (i == 0)
         {
+            SoundManager.Instance.PlaySFX(SFX.WaveStart);
             if (isWaveFinish == true)
             {
                 textWaveCounter.text = "Boss Wave";
             }
-            else 
+            else
                 textWaveCounter.text = "Wave " + (waveNum + 1);
-        }           
+        }
         else
+        {
+            SoundManager.Instance.PlaySFX(SFX.Pop);
             textWaveCounter.text = "" + i;
+        }
 
     }
     public void ClearGame()
@@ -97,6 +101,7 @@ public class GameManager : Singleton<GameManager>
         Debug.Log(currentTime+"s");
         Debug.Log("GameClear");
 
+        SoundManager.Instance.PlaySFX(SFX.GameClear);
         GameData.Instance.ClearSelectedThings();
         
 
@@ -113,6 +118,7 @@ public class GameManager : Singleton<GameManager>
     {
         if (isGameOver == false)
         {
+            SoundManager.Instance.PlaySFX(SFX.nang);
             GameData.Instance.ClearSelectedThings();
             isGameOver = true;
             watch.Stop();
@@ -148,7 +154,7 @@ public class GameManager : Singleton<GameManager>
     {
         coin += enemy.coin;
         enemyCnt--;
-
+        SoundManager.Instance.PlayGameSFX(GameSFX.CatHappy);
         if (isWaveFinish == true && enemyCnt<=0)
         {
             ClearGame();

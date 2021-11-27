@@ -21,7 +21,7 @@ public class Tower2SpecialSkill : MonoBehaviour
 
     void attack()
     {
-
+        SoundManager.Instance.PlayGameSFX(GameSFX.ChewSkill, 0.1f);
         if (collEnemys.Count > 0)
         {
             foreach (GameObject go in collEnemys)

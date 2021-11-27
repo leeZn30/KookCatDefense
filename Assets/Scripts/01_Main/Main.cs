@@ -26,7 +26,7 @@ public class Main : MonoBehaviour
         mainCamera = Camera.main;
         GetStageInfo();
         SoundManager.Instance.PlayBGM();
-        backButton.onClick.AddListener(delegate { SceneManager.LoadScene("00_Logo"); });
+        backButton.onClick.AddListener(delegate { SoundManager.Instance.PlaySFX(SFX.CatSoundClick); SceneManager.LoadScene("00_Logo"); });
 
     }
     private void Update()

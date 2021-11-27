@@ -34,7 +34,11 @@ public enum SFX
     GameOver,
     GameClear,
     Pop,
-    WaveStart
+    WaveStart,
+    bbibbi,
+    Shine,
+    coin,
+    nang
 }
 public class SoundManager : Singleton<SoundManager>
 

@@ -43,6 +43,7 @@ public class TowerSpawner : MonoBehaviour
 
         if (tower.Price > GameManager.Instance.coin)
         {
+            SoundManager.Instance.PlaySFX(SFX.bbibbi);
             Debug.Log("돈 부족");
             return;
         }
@@ -51,6 +52,7 @@ public class TowerSpawner : MonoBehaviour
         {
             return;
         }
+        SoundManager.Instance.PlaySFX(SFX.ButtonClick);
         
         isOnTowerButton = true;
 
@@ -65,27 +67,17 @@ public class TowerSpawner : MonoBehaviour
         {
             return;
         }
-        
         TowerTile towerTile = tileTransform.GetComponent<TowerTile>();
-        //Tile tile = tileTransform.GetComponent<Tile>();
-        /*
-        if (tile.IsBuildTower == true)
-        {
-            return;
-        }
 
-        
-
-        tile.IsBuildTower = true;
-        */
         Tower tower = towerPrefab[towerType].GetComponent<Tower>();
 
         if (towerTile.BulidTower(towerPrefab[towerType]))
         {
+            SoundManager.Instance.PlayGameSFX(GameSFX.Pang);
             GameManager.Instance.coin -= (int)tower.Price;
 
         }
-        else Debug.Log("Ÿ�� �Ǽ� ����");
+        else SoundManager.Instance.PlaySFX(SFX.bbibbi);
 
         isOnTowerButton = false;
 

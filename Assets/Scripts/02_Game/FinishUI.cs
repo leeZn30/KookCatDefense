@@ -21,8 +21,8 @@ public class FinishUI : MonoBehaviour
     {
 
         animator = GetComponent<Animator>();
-        goButton1.onClick.AddListener(delegate { SceneManager.LoadScene("01_Main"); });
-        goButton2.onClick.AddListener(delegate { SceneManager.LoadScene("01_Main"); });
+        goButton1.onClick.AddListener(delegate { SoundManager.Instance.PlaySFX(SFX.CatSoundClick); SceneManager.LoadScene("01_Main"); });
+        goButton2.onClick.AddListener(delegate { SoundManager.Instance.PlaySFX(SFX.CatSoundClick); SceneManager.LoadScene("01_Main"); });
 
         canvas = transform.parent.gameObject;
         canvasChild = new List<GameObject>();
@@ -47,7 +47,7 @@ public class FinishUI : MonoBehaviour
     }
     public void SetActiveStar(int num)
     {
-        SoundManager.Instance.PlaySFX(SFX.CatSoundClick);
+        SoundManager.Instance.PlaySFX(SFX.Shine);
     }
     void StartGameClearAct()
     {
@@ -73,9 +73,10 @@ public class FinishUI : MonoBehaviour
     IEnumerator Wait()
     {
         Time.timeScale = 3;
-        yield return new WaitForSecondsRealtime(5.0f);
+        yield return new WaitForSecondsRealtime(7.0f);
         Time.timeScale = 1;
         gameOverPanel.SetActive(true);
+        SoundManager.Instance.PlaySFX(SFX.GameOver);
     }
     // Update is called once per frame
     void Update()

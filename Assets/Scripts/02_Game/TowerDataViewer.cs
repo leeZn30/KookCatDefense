@@ -84,6 +84,7 @@ public class TowerDataViewer : MonoBehaviour
 
     public void OnClickEventTowerSell()
     {
+        SoundManager.Instance.PlaySFX(SFX.coin);
         currentTower.Sell();
         OffPanel();
     }

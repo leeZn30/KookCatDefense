@@ -20,12 +20,12 @@ public class Logo : MonoBehaviour
     {
         catAnim = cat1.GetComponent<Animator>();
 
-        startButton.onClick.AddListener(delegate { StopAllCoroutines(); SoundManager.Instance.PlaySFX(SFX.ButtonClick); SceneManager.LoadScene("01_Main"); });
+        startButton.onClick.AddListener(delegate { StopAllCoroutines(); SoundManager.Instance.PlaySFX(SFX.CatSoundClick); SceneManager.LoadScene("01_Main"); });
         creditButton.onClick.AddListener(OpenCredit);
         creditExitButton.onClick.AddListener(CloseCredit);
         SoundManager.Instance.PlayBGM();
         StartCoroutine(CatMoveX());
-        quitButton.onClick.AddListener(delegate { Application.Quit(); });
+        quitButton.onClick.AddListener(delegate { SoundManager.Instance.PlaySFX(SFX.CatSoundClick); Application.Quit(); });
     }
 
     IEnumerator CatMoveX()

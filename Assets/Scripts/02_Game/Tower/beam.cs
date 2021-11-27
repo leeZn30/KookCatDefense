@@ -15,6 +15,7 @@ public class beam : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SoundManager.Instance.PlayGameSFX(GameSFX.RazerSkill,0.2f);
         Vector3 dir = (target - start).normalized;
         float angle = Vector2.SignedAngle(Vector2.down, dir);
         Quaternion qut = new Quaternion();

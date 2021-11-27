@@ -15,6 +15,7 @@ public class Catnip : MonoBehaviour
     {
         if (target != null)
         {
+            SoundManager.Instance.PlayGameSFX(GameSFX.Catnip,0.2f);
             targetPosition = (target.transform.position - transform.position).normalized;
         }
 

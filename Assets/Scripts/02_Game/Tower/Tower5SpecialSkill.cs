@@ -78,6 +78,7 @@ public class Tower5SpecialSkill : MonoBehaviour
 
     void attack()
     {
+        SoundManager.Instance.PlayGameSFX(GameSFX.RazerSkill, 0.1f);
         var beamObj = Instantiate(beam, transform.position, Quaternion.identity, transform);
 
         beamObj.GetComponent<beam>().target = transform.parent.position;
