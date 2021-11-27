@@ -185,7 +185,7 @@ MonoBehaviour:
   id: 0
   enemyName: "\uB450\uBD80"
   coin: 1000
-  affection: 200
+  affection: 400
   attackDmg: 10
   attackSpeed: 0.7
   speed: 1

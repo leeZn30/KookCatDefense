@@ -94,8 +94,9 @@ MonoBehaviour:
   info:
     id: 6
     name: "\uAD6D\uB0E5 \uC218\uBE44\uB300"
-    content: "\uBC84\uD504"
-    price: 150
+    content: "\uC6B0\uB9AC\uB97C \uB3C4\uC640\uC8FC\uB294 \uAD6D\uB0E5 \uC218\uBE44\uB300\uC785\uB2C8\uB2E4!
+      4\uBC29\uD5A5 \uD0C0\uC6CC\uC758 \uC0AC\uC815\uAC70\uB9AC\uB97C \uB298\uB824\uC90D\uB2C8\uB2E4."
+    price: 80
   skillGague: 0
   maxSkillGauge: 100
   attackTime: 0

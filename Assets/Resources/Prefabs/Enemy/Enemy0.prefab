@@ -266,8 +266,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   enemyName: "\uB0E5\uC774"
-  coin: 30
-  affection: 10
+  coin: 40
+  affection: 20
   attackDmg: 1
   attackSpeed: 1
   speed: 2

@@ -11013,7 +11013,7 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {r: 0, g: 0, b: 0, a: 0}
   - m_RefCount: 1
-    m_Data: {r: 0.8866141, g: 0.5403436, b: 0.65468514, a: 1}
+    m_Data: {r: 0.758639, g: 0.42594007, b: 0.5069855, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -11317,7 +11317,7 @@ MonoBehaviour:
   pointTilesParent: {fileID: 1482456979963454195}
   towerTilesParent: {fileID: 3238438896358673621}
   lastWall: {fileID: 5237650992077245632}
-  startCoin: 1000
+  startCoin: 800
   waveTime: 10
   clearTime: 5000000064000000
   waves:
@@ -11335,14 +11335,14 @@ MonoBehaviour:
       type: {fileID: 1456442249226602773, guid: 2f412c7ac0eedd24ba5a5f578e7b2695, type: 3}
     - amount: 4
       type: {fileID: 1456442249226602773, guid: db030c1b87f22e944802eb6c45a710b8, type: 3}
-    - amount: 2
+    - amount: 1
       type: {fileID: 1456442249226602773, guid: 03780fcae054f6d4cbb8b7fdb74b30f1, type: 3}
   - spawnTime: 1
     enemyCnt: 0
     enemyPrefabs:
     - amount: 6
-      type: {fileID: 1456442249226602773, guid: db030c1b87f22e944802eb6c45a710b8, type: 3}
-    - amount: 4
+      type: {fileID: 1456442249226602773, guid: 8ed1780bc0b204043a92d97e9ee85e27, type: 3}
+    - amount: 3
       type: {fileID: 1456442249226602773, guid: 03780fcae054f6d4cbb8b7fdb74b30f1, type: 3}
   - spawnTime: 0.5
     enemyCnt: 0
@@ -11955,7 +11955,7 @@ Tilemap:
   - m_RefCount: 45
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 1
-    m_Data: {r: 0.77078104, g: 0.32942483, b: 0.36863723, a: 1}
+    m_Data: {r: 0.9378631, g: 0.5514448, b: 0.5717195, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}

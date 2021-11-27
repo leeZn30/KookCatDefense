@@ -11569,7 +11569,7 @@ MonoBehaviour:
   pointTilesParent: {fileID: 1482456979963454195}
   towerTilesParent: {fileID: 3238438896358673621}
   lastWall: {fileID: 5237650992077245632}
-  startCoin: 1000
+  startCoin: 800
   waveTime: 10
   clearTime: 5000000064000000
   waves:
