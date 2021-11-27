@@ -32,6 +32,8 @@ public class StageInfoPanel : MonoBehaviour
             else
                 stageInfos[i].GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
 
+            stageInfos[i].SetImage(GameData.Instance.stageLocks[i]);
+
         }
     }
 

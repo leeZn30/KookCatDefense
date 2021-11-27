@@ -39,6 +39,7 @@ public class PauseMenu : MonoBehaviour
 
     }
     public void Pause(){
+        SoundManager.Instance.PlaySFX(SFX.ButtonClick);
         paused = !paused;
 
         if(paused){
@@ -82,14 +83,17 @@ public class PauseMenu : MonoBehaviour
     }
     
     public void Resume(){
+       
         Pause();
     }
 
     public void Quit(){
+        SoundManager.Instance.PlaySFX(SFX.CatSoundClick);
         Application.Quit();
     }
     public void GoMain()
     {
+        
         Pause();
         GameData.Instance.ClearSelectedThings();
         SceneManager.LoadScene("01_Main");

@@ -41,7 +41,8 @@ public class ClickAffect : MonoBehaviour
     }
     void Attack()
     {
-
+        if(renderer.sprite==imgs[2]) renderer.sprite = imgs[3];
+        else renderer.sprite = imgs[2];
         List<Enemy>es= GameManager.Instance.Stage.enemies;
         for(int i=0; i<es.Count; i++)
         {

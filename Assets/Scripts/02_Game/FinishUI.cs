@@ -14,12 +14,15 @@ public class FinishUI : MonoBehaviour
     public Button goButton1;
     public Button goButton2;
 
+    public GameObject Star;
+    private GameObject[] stars = new GameObject[3];
     Animator animator;
     void Start()
     {
+
         animator = GetComponent<Animator>();
-        goButton1.onClick.AddListener(delegate { SceneManager.LoadScene("01_Main"); });
-        goButton2.onClick.AddListener(delegate { SceneManager.LoadScene("01_Main"); });
+        goButton1.onClick.AddListener(delegate { SoundManager.Instance.PlaySFX(SFX.CatSoundClick); SceneManager.LoadScene("01_Main"); });
+        goButton2.onClick.AddListener(delegate { SoundManager.Instance.PlaySFX(SFX.CatSoundClick); SceneManager.LoadScene("01_Main"); });
 
         canvas = transform.parent.gameObject;
         canvasChild = new List<GameObject>();
@@ -27,19 +30,29 @@ public class FinishUI : MonoBehaviour
         {
             canvasChild.Add(canvas.transform.GetChild(i).gameObject);
         }
+
+        for(int i=0; i<3; i++)
+        {
+            stars[i] = Star.transform.GetChild(i).gameObject;
+            stars[i].SetActive(false);
+        }
         //CleanUI();
         GameManager.Instance.GameOverEvent += StartGameOverAct;
         GameManager.Instance.GameClearEvent += StartGameClearAct;
     }
     public void OpenClearPanel()
     {
+        animator.SetInteger("Star", GameManager.Instance.GetStar());
         gameClearPanel.SetActive(true);
+    }
+    public void SetActiveStar(int num)
+    {
+        SoundManager.Instance.PlaySFX(SFX.Shine);
     }
     void StartGameClearAct()
     {
         animator.SetTrigger("Clear");
         CleanUI();
-        Debug.Log(Time.timeScale);
     }
     void StartGameOverAct()
     {
@@ -60,9 +73,10 @@ public class FinishUI : MonoBehaviour
     IEnumerator Wait()
     {
         Time.timeScale = 3;
-        yield return new WaitForSecondsRealtime(5.0f);
+        yield return new WaitForSecondsRealtime(7.0f);
         Time.timeScale = 1;
         gameOverPanel.SetActive(true);
+        SoundManager.Instance.PlaySFX(SFX.GameOver);
     }
     // Update is called once per frame
     void Update()

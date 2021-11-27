@@ -32,7 +32,7 @@ public class Tower6SpecialSkill : MonoBehaviour
     {
         moveObjcet();
         fixingObject();
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && move_flag)
         {
             Destroy(gameObject);
         }
@@ -106,10 +106,12 @@ public class Tower6SpecialSkill : MonoBehaviour
         switch (BuffType)
         {
             case "speedBuff":
+                tower.isBuffed = true;
                 tower.changeAndresetattackTime(5f, 0.5f);
                 break;
 
             case "DmgBuff":
+                tower.isBuffed = true;
                 tower.changeAndresetattackDmg(5f, 1.5f);
                 break;
 

@@ -38,7 +38,7 @@ public class Tower3SpecialSkill : MonoBehaviour
 
     void attack()
     {
-
+        SoundManager.Instance.PlayGameSFX(GameSFX.CatnipSkill, 0.1f);
         if (collEnemys.Count > 0)
         {
             foreach (GameObject go in collEnemys)

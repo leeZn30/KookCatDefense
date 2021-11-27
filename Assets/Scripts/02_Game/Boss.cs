@@ -33,6 +33,7 @@ public class Boss :Enemy
     {
         if (tower != null)
         {
+            SoundManager.Instance.PlayGameSFX(GameSFX.CatAngry, 0.1f);
             animator.SetTrigger("UseSkill");
             Debug.Log("Tower" + tower.info.name + " cut!");
             tower.SetAttckTime(1.5f);

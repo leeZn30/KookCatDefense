@@ -14,17 +14,18 @@ public class Enemy : MonoBehaviour
     public float attackDmg;
     public float attackSpeed;
 
-    public float baseSpeed;
+    public float speed;
+    public float hitRange;
+    public LayerMask layerMask;
 
     [SerializeField]
-    private float speed;
+    private float currentSpeed;
     [SerializeField]
     private float currentAtkSpeed;
     [SerializeField]
     private float curAffection = 0;
     public Transform affection_bar;
     public GameObject objAffection_bar;
-    public GameObject enemyAttackRangeObj;
 
     public bool isDead=false;
     
@@ -33,13 +34,14 @@ public class Enemy : MonoBehaviour
     private List<Transform> wayPoints;
     private int currentWayPointIdx=0;
     
-    private Transform transformAttackRange;
-    private EnemyAttackRange enemyAttackRange;
     private Rigidbody2D rigidbody2D;
     protected Animator animator;
 
     public event System.Action OnDeath;
     protected Vector3 forwardDir;
+
+    private Wall attackTarget;
+
     public float AttackSpeed
     {
         set => currentAtkSpeed = Mathf.Max(0, value);
@@ -47,23 +49,24 @@ public class Enemy : MonoBehaviour
     }
     public float Speed
     {
-        set => speed = Mathf.Max(0, value);
-        get => speed;
+        set => currentSpeed = Mathf.Max(0, value);
+        get => currentSpeed;
     }
 
     void Start()
     {
         
     }
+    void Update()
+    {
+        animator.SetFloat("Speed", currentSpeed);
+        FindTarget();
+    }
     public void SetUp(List<Transform> wps)
     {
-        speed = baseSpeed;
+        currentSpeed = speed;
         currentAtkSpeed = attackSpeed;
 
-        transformAttackRange = enemyAttackRangeObj.GetComponent<Transform>();
-        enemyAttackRange = enemyAttackRangeObj.GetComponent<EnemyAttackRange>();
-        enemyAttackRange.OnFindWall += Attack;
-        enemyAttackRange.OnMissWall += () => SetMoving(true);
 
         rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>(); animator.SetFloat("attackSpeed", currentAtkSpeed);
@@ -117,16 +120,7 @@ public class Enemy : MonoBehaviour
             }    
         }
     }
-    void OnTriggerEnter2D(Collider2D coll)
-    {
-        if (isDead == false)
-        {
-            if (coll.gameObject.tag == "Weapon")
-            {//�浹�� ������Ʈ�� weapon�϶�
-            }
-        }
-       
-    }
+
     IEnumerator Move()
     {
         while (currentWayPointIdx < wayPoints.Count)
@@ -135,19 +129,13 @@ public class Enemy : MonoBehaviour
             {
                 Vector3 dir = (wayPoints[currentWayPointIdx].position - transform.position).normalized;
                 forwardDir = dir;
-                //���ݹ��� �ö��̴� ���� ��ȯ
-                float roValue = 180;
-                if (dir.x <= 0) roValue = 90;
-                roValue += (90 * dir.x);
-                roValue += (90 * -dir.y);
-                transformAttackRange.rotation = Quaternion.Euler(new Vector3(0, 0,roValue));
 
                 animator.SetFloat("MoveX", dir.x);
                 animator.SetFloat("MoveY", dir.y);
 
 
-                transform.position += speed * dir * Time.deltaTime;
-                if (Vector3.Distance(transform.position, wayPoints[currentWayPointIdx].position) < 0.02f * speed)
+                transform.position += currentSpeed * dir * Time.deltaTime;
+                if (Vector3.Distance(transform.position, wayPoints[currentWayPointIdx].position) < 0.02f * currentSpeed)
                 {
                     if (currentWayPointIdx == wayPoints.Count - 1)//마지막 위치일때
                     {
@@ -171,18 +159,13 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(0.1f);        
     }*/
 
-    public void Attack()
-    {
 
-        SetMoving(false);
-        
-    }
     private void AttackEvent()
     {//attack �ִϸ��̼� ����� �̺�Ʈ �޼���� ȣ���
-        Wall wall = enemyAttackRange.GetAttckTarget();
-        if (wall != null)
+
+        if (attackTarget!= null)
         {
-            wall.AddHp(-attackDmg);   
+            attackTarget.AddHp(-attackDmg);   
         }
     }
     private void SetMoving(bool value)
@@ -206,22 +189,31 @@ public class Enemy : MonoBehaviour
             {
                 OnDeath();
             }
-        
-        
 
+    }
+    private void FindTarget()
+    {
+        RaycastHit hitinfo;
+        Debug.DrawRay(transform.position, forwardDir * hitRange, Color.green);
+        if (Physics.Raycast(transform.position, forwardDir, out hitinfo, hitRange, layerMask))
+        {
+            if (attackTarget == null)
+            {
+                attackTarget = hitinfo.transform.gameObject.GetComponent<Wall>();
+                SetMoving(false);
+            }
+        }
+        else
+        {
 
+            SetMoving(true);
+            
+        }
+        
     }
     private void DieEvent()
     {//death �ִϸ��̼� ����� �̺�Ʈ �޼���� ȣ���.
         Destroy(gameObject);
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        animator.SetFloat("Speed", speed);
- 
     }
 
     public void ResetAttackSpeed()
@@ -230,9 +222,10 @@ public class Enemy : MonoBehaviour
     }
     public void ResetMoveSpeed()
     {
-        speed = baseSpeed;
+        currentSpeed = speed;
         if (Speed > 0) isMoving = true;
     }
+    
     public void SpeedDownAndReset(float downWeight, float waitTime)
     {
         Speed *= downWeight;

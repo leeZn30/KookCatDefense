@@ -4,12 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class Main : MonoBehaviour
 {
     public GameObject backGround;
     public StageInfoPanel stageInfoPanel;
-
+    public Button backButton;
 
     private Ray ray;
     private RaycastHit hit;
@@ -25,6 +26,7 @@ public class Main : MonoBehaviour
         mainCamera = Camera.main;
         GetStageInfo();
         SoundManager.Instance.PlayBGM();
+        backButton.onClick.AddListener(delegate { SoundManager.Instance.PlaySFX(SFX.CatSoundClick); SceneManager.LoadScene("00_Logo"); });
 
     }
     private void Update()

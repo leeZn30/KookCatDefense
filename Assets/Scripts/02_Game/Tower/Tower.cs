@@ -19,8 +19,11 @@ public class Tower : MonoBehaviour
 
     public float baseAttackTime;
     public float baseAttackDmg;
+    public float baseHitSize;
 
     public Canvas gauge_bar;
+
+    public bool isBuffed = false;
 
     // �Ѿ�
     public GameObject Bullet = null;
@@ -56,6 +59,7 @@ public class Tower : MonoBehaviour
         skillGague = 0;
         baseAttackTime = attackTime;
         baseAttackDmg = attackDmg;
+        baseHitSize = hitSize;
         GameManager.Instance.GameOverEvent += () => isStop = true; //게임오버면 멈추기
         GameManager.Instance.GameClearEvent += () => isStop = true; //게임오버면 멈추기
         // maxSkillGauge���� skillGauge�� �۴ٸ�, �ð����� �������ֱ�
@@ -77,6 +81,8 @@ public class Tower : MonoBehaviour
         if (!isStop)
         {
             showGauge();
+            showBuffed();
+
             if (attackMode && ((TowerId != 0 && TowerId != 4) && TowerId !=  6))
             {
                 attack();
@@ -98,7 +104,7 @@ public class Tower : MonoBehaviour
     public void showGauge()
     {
         Image gauge_obj = gauge_bar.GetComponentInChildren<Image>();
-        gauge_obj.fillAmount = skillGague / 100;
+        gauge_obj.fillAmount = skillGague / maxSkillGauge;
     }
 
     public void Startco()
@@ -191,7 +197,10 @@ public class Tower : MonoBehaviour
                         Quaternion qut = new Quaternion();
                         qut.eulerAngles = new Vector3(0, 0, angle);
                         aRazer.transform.rotation = qut;
-                        aRazer.transform.position += dir * 2f; // 거리
+                        Vector3 scale = aRazer.GetComponent<Transform>().localScale;
+                        scale.y = hitSize / 4; // 1이 대략 4정도
+                        aRazer.GetComponent<Transform>().localScale = scale;
+                        aRazer.transform.position += dir * scale.y; // 거리
                         break;
 
                     default:
@@ -219,6 +228,12 @@ public class Tower : MonoBehaviour
                 if (hit.transform.parent == transform)
                 {
                     var specialAttack = Instantiate(specialSkill, transform.position, Quaternion.identity, transform);
+
+                    if (TowerId == 0)
+                    {
+                        GetComponent<TowerWallRange>().makeTowerRange();
+                    }
+
                 }
             }
         }
@@ -226,7 +241,8 @@ public class Tower : MonoBehaviour
     }
     public void SetAttckTime(float value)
     {
-        attackTime *= value; 
+        baseAttackTime *= value;
+        attackTime = baseAttackTime; 
     }
     public void changeAndresetattackTime(float duration, float change)
     {
@@ -237,6 +253,7 @@ public class Tower : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         attackTime = baseAttackTime;
+        isBuffed = false;
     }
 
     public void changeAndresetattackDmg(float duration, float change)
@@ -248,6 +265,7 @@ public class Tower : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         attackDmg = baseAttackDmg;
+        isBuffed = false;
     }
 
     public void onSpecialSkillMode()
@@ -256,13 +274,25 @@ public class Tower : MonoBehaviour
             specialattackMode = true;
     }
 
+    void showBuffed()
+    {
+        if (isBuffed)
+        {
+            // 여기에 표시할거 추가
+            GetComponent<SpriteRenderer>().color = Color.black;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().color = Color.white;
+        }
+    }
+
     void OnDrawGizmos()
     {
         if (useGizmo)
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, hitSize);
-            //Gizmos.DrawWireCube(transform.position, new Vector3(hitSize, hitSize));
         }
     }
 

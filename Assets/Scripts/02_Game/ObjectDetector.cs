@@ -59,6 +59,8 @@ public class ObjectDetector : MonoBehaviour
                 }
                 else if (hit.transform.CompareTag("Tower"))
                 {
+                    SoundManager.Instance.PlaySFX(SFX.ButtonClick);
+
                     towerDataViewer.OnPanel(hit.transform.parent);
                 }
             }

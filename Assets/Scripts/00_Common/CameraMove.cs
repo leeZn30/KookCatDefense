@@ -22,7 +22,7 @@ public class CameraMove : MonoBehaviour
     {
         originPos = transform.localPosition;
         camera = GetComponent<Camera>();
-        
+
     }
 
     // Update is called once per frame

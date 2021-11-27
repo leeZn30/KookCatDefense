@@ -15,6 +15,7 @@ public class Catnip : MonoBehaviour
     {
         if (target != null)
         {
+            SoundManager.Instance.PlayGameSFX(GameSFX.Catnip,0.2f);
             targetPosition = (target.transform.position - transform.position).normalized;
         }
 
@@ -29,7 +30,7 @@ public class Catnip : MonoBehaviour
         }
         else
         {
-            Destroy(transform.parent.gameObject);
+            Destroy(gameObject);
         }
 
         float distance = Vector3.Distance(transform.position, transform.parent.position);

@@ -27,7 +27,7 @@ public class Tower1SpecialSkill : MonoBehaviour
     {
         moveObjcet();
         fixingObject();
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && move_flag)
         {
             Destroy(gameObject);
 
@@ -70,7 +70,9 @@ public class Tower1SpecialSkill : MonoBehaviour
 
     void attack()
     {
-
+        SoundManager.Instance.PlayGameSFX(GameSFX.Meteor,0.1f);
+        SoundManager.Instance.PlayGameSFX(GameSFX.Meteor);
+        SoundManager.Instance.PlayGameSFX(GameSFX.Meteor, 0.3f);
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponentInChildren<Animator>().enabled = true;
 

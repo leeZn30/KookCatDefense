@@ -28,7 +28,7 @@ public class Wall : MonoBehaviour
     private void OnDestroy()
     {
         Tower tower = transform.parent.GetComponent<Tower>();
-        if (tower!=null)
+        if (tower != null && tower.isActiveAndEnabled)
             tower.Startco();
     }
 

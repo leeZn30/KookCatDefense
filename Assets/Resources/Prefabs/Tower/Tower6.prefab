@@ -94,15 +94,18 @@ MonoBehaviour:
   info:
     id: 6
     name: "\uAD6D\uB0E5 \uC218\uBE44\uB300"
-    content: "\uBC84\uD504"
-    price: 0
+    content: "\uC6B0\uB9AC\uB97C \uB3C4\uC640\uC8FC\uB294 \uAD6D\uB0E5 \uC218\uBE44\uB300\uC785\uB2C8\uB2E4!
+      4\uBC29\uD5A5 \uD0C0\uC6CC\uC758 \uC0AC\uC815\uAC70\uB9AC\uB97C \uB298\uB824\uC90D\uB2C8\uB2E4."
+    price: 80
   skillGague: 0
   maxSkillGauge: 100
   attackTime: 0
   attackDmg: 0
   baseAttackTime: 0
   baseAttackDmg: 0
+  baseHitSize: 0
   gauge_bar: {fileID: 6247659544577551999}
+  isBuffed: 0
   Bullet: {fileID: 0}
   specialSkill: {fileID: 3771187067902564040, guid: 01255fee8840dc04a9228cfa577e3590, type: 3}
   hitSize: 0
@@ -148,8 +151,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1634080529
   m_SortingLayer: 2
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 79537ae5c6455754db3902b353546f54, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: d032ef9181738924ea3f458c0df1a8ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -172,10 +175,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 009fb3a20f8dcce4f89459086a54b36e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUpActive: 1
-  isDownActive: 1
-  isRightActive: 1
-  isLeftActive: 1
+  viewRadius: 2
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 64
+  Targets: []
 --- !u!1001 &6585042528377604770
 PrefabInstance:
   m_ObjectHideFlags: 0

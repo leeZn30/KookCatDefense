@@ -5,12 +5,9 @@ using UnityEngine;
 public class Tower6Passive : MonoBehaviour
 {
     // Start is called before the first frame update
-    public bool isUpActive = true;
-    public bool isDownActive = true;
-    public bool isRightActive = true;
-    public bool isLeftActive = true;
-
-
+    public float viewRadius;
+    public LayerMask targetMask;
+    public List<Transform> Targets = new List<Transform>();
     void Start()
     {
         
@@ -19,39 +16,48 @@ public class Tower6Passive : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        FindTargets();
+        ActivePassive();
     }
 
-    /*
-    void UpTowerCheck()
+    
+    void FindTargets()
     {
-        Vector2 a = new Vector2(transform.position.x, transform.position.y + 2.5f);
-        Vector2 b = new Vector2(transform.position.x, transform.position.y);
-        Collider[] Towers = Physics.OverlapCapsule(a, b, transform.localScale.x/2);
-
-        foreach (Collider coll in Towers)
+        List<Transform> transforms = new List<Transform>();
+        Vector3[] dirList = { Vector3.up, Vector3.down, Vector3.left, Vector3.right };
+        for(int i=0; i<dirList.Length; i++)
         {
-            if (coll.tag == "Tower")
+            RaycastHit hitinfo;
+            Debug.DrawRay(transform.position, dirList[i] * viewRadius, Color.green);
+            if (Physics.Raycast(transform.position, dirList[i], out hitinfo, viewRadius, targetMask))
             {
-                coll.transform.parent.GetComponent<Tower>().hitSize *= 1.5f;
-                isUpActive = false;
+                transforms.Add(hitinfo.transform);
+                Tower t = hitinfo.transform.parent.gameObject.GetComponent<Tower>();
+                t.isBuffed = true;
+                
             }
         }
+        Targets = transforms;
     }
-    */
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void ActivePassive()
     {
-        if (other.tag == "Tower")
+        foreach(Transform target in Targets)
         {
-            other.transform.parent.GetComponent<Tower>().hitSize *= 1.5f;
+            Tower t = target.transform.parent.gameObject.GetComponent<Tower>();
+            t.hitSize = t.baseHitSize + 1f;
         }
     }
-    private void OnTriggerExit2D(Collider2D other)
+
+    private void OnDestroy()
     {
-        if (other.tag == "Tower")
+        foreach (Transform target in Targets)
         {
-            other.transform.parent.GetComponent<Tower>().hitSize *= 1/1.5f;
+            Tower t = target.transform.parent.gameObject.GetComponent<Tower>();
+            t.hitSize = t.baseHitSize;
+            t.isBuffed = false;
         }
+
     }
 
 }

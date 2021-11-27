@@ -14,6 +14,11 @@ public class GameData : Singleton<GameData>
     public int[] selectedTowers;  //사용자가 선택한 타워 id들
     public int[] selectedSkills;
 
+    public int width;
+    public int height;
+    public bool isFull;
+    public bool isResolutionChanged = false;
+
 
     void Awake()
     {
@@ -32,6 +37,7 @@ public class GameData : Singleton<GameData>
             selectedSkills[i] = -1;
         }
     }
+
     void Update()
     {
         

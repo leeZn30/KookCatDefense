@@ -28,7 +28,8 @@ public class SkillSpawner : MonoBehaviour
         }
     }
     public void ReadytoSpawnSkill(int type)
-    {       
+    {
+
         isOnSkillButton = false;
 
         Destroy(followSkillClone);
@@ -47,9 +48,10 @@ public class SkillSpawner : MonoBehaviour
 
         if (skill.Price > GameManager.Instance.coin)
         {
+            SoundManager.Instance.PlaySFX(SFX.bbibbi);
             return;
         }
-        
+        SoundManager.Instance.PlaySFX(SFX.ButtonClick);
         isOnSkillButton = true;
 
         followSkillClone = Instantiate(followskillPrefab[skillType]);
@@ -59,16 +61,18 @@ public class SkillSpawner : MonoBehaviour
 
     public void SpawnSkill(Vector3 tileTransform)
     {
+
         if (isOnSkillButton == false)
         {
             return;
         }
-
+        SoundManager.Instance.PlayGameSFX(GameSFX.Pang);
         //Tile tile = tileTransform.GetComponent<Tile>();
 
         isOnSkillButton = false;
 
         Skill skill = skillPrefab[skillType].GetComponent<Skill>();
+
 
         GameManager.Instance.coin -= (int)skill.Price;
 

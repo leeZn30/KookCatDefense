@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc353ee716bf7e749a0cf5ec88482ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBuff: {fileID: 21300000, guid: db037df994ccd824f925692498ad2607, type: 3}
-  DmgBuff: {fileID: 21300000, guid: d2cd94ea2f10268459bb9880adb05846, type: 3}
-  fillSkillGauge: {fileID: 21300000, guid: 7b330b422193f4042b19db9a9875e1ea, type: 3}
+  speedBuff: {fileID: 21300000, guid: 737c9e06b3eee924f851df8dd6a38620, type: 3}
+  DmgBuff: {fileID: 21300000, guid: d4402012ffd3d8343a9b10c82ba35d0e, type: 3}
+  fillSkillGauge: {fileID: 21300000, guid: affebeae8362d2a47a788f078d79918a, type: 3}
   rectTransform: {fileID: 3987091212331319572}
   renderer: {fileID: 6394382574310486939}

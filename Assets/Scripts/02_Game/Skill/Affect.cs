@@ -7,7 +7,9 @@ public class Affect : MonoBehaviour
 
     void Start()
     {
-        
+        SoundManager.Instance.PlayGameSFX(GameSFX.Meteor, 0.2f);
+        SoundManager.Instance.PlayGameSFX(GameSFX.Meteor,0.1f);
+        SoundManager.Instance.PlayGameSFX(GameSFX.Meteor, 0.5f);
     }
 
     // Update is called once per frame
@@ -28,7 +30,7 @@ public class Affect : MonoBehaviour
 
         Enemy enemy = collision.GetComponent<Enemy>();
 
-        enemy.AddAffection(10);
+        enemy.AddAffection(5);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
