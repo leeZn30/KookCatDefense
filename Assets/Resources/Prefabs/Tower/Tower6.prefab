@@ -95,7 +95,7 @@ MonoBehaviour:
     id: 6
     name: "\uAD6D\uB0E5 \uC218\uBE44\uB300"
     content: "\uBC84\uD504"
-    price: 0
+    price: 150
   skillGague: 0
   maxSkillGauge: 100
   attackTime: 0
@@ -104,6 +104,7 @@ MonoBehaviour:
   baseAttackDmg: 0
   baseHitSize: 0
   gauge_bar: {fileID: 6247659544577551999}
+  isBuffed: 0
   Bullet: {fileID: 0}
   specialSkill: {fileID: 3771187067902564040, guid: 01255fee8840dc04a9228cfa577e3590, type: 3}
   hitSize: 0

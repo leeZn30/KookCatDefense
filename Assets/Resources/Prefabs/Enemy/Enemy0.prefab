@@ -266,9 +266,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   enemyName: "\uB0E5\uC774"
-  coin: 50
+  coin: 30
   affection: 10
-  attackDmg: 2
+  attackDmg: 1
   attackSpeed: 1
   speed: 2
   hitRange: 0.5

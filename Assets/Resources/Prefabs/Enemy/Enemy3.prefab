@@ -266,11 +266,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   enemyName: "\uB0E5\uC774"
-  coin: 50
+  coin: 100
   affection: 10
-  attackDmg: 2
+  attackDmg: 3
   attackSpeed: 1
-  speed: 2
+  speed: 4
   hitRange: 0.5
   layerMask:
     serializedVersion: 2

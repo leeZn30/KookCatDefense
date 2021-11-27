@@ -50,15 +50,16 @@ MonoBehaviour:
     id: 4
     name: "\uCEA3\uD720"
     content: "\uBE59\uBE59"
-    price: 0
+    price: 300
   skillGague: 0
-  maxSkillGauge: 100
+  maxSkillGauge: 150
   attackTime: 0
   attackDmg: 0
   baseAttackTime: 0
   baseAttackDmg: 0
   baseHitSize: 0
   gauge_bar: {fileID: 3116770355983235234}
+  isBuffed: 0
   Bullet: {fileID: 5177973688369320540, guid: 90a42d8710a56ab428570a67e5adc082, type: 3}
   specialSkill: {fileID: 5177973688369320540, guid: 9e22fe7c9c5af924481f64a34b618846, type: 3}
   hitSize: 0

@@ -95,7 +95,7 @@ MonoBehaviour:
     name: "\uCEA3\uB2E2\uB300\uD3EC"
     content: "\uBA87\uCD08\uAC04 \uD589\uBCF5\uD6A8\uACFC\uB97C \uC870\uB294 \uCEA3\uB2E2\uC744
       \uBC1C\uC0AC\uD55C\uB2E4."
-    price: 0
+    price: 300
   skillGague: 0
   maxSkillGauge: 100
   attackTime: 2

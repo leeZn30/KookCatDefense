@@ -95,15 +95,16 @@ MonoBehaviour:
     name: "\uAC04\uC2DD\uC8FC\uB294\uC0AC\uB78C"
     content: "\uAC00\uAE4C\uC774\uC624\uB294 \uACE0\uC591\uC774\uC5D0\uAC8C \uCE04\uB974\uB97C
       \uBA39\uC778\uB2E4\n"
-    price: 100
+    price: 200
   skillGague: 0
-  maxSkillGauge: 100
+  maxSkillGauge: 300
   attackTime: 1
   attackDmg: 3
   baseAttackTime: 0
   baseAttackDmg: 0
   baseHitSize: 0
   gauge_bar: {fileID: 5609650389865936967}
+  isBuffed: 0
   Bullet: {fileID: 3771187067902564040, guid: 270dd4b1149740c49a333bbd223ca3c1, type: 3}
   specialSkill: {fileID: 530769403481947189, guid: c0bce100a81d1374399127fc42939718, type: 3}
   hitSize: 1.6

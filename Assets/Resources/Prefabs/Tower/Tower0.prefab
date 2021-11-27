@@ -147,9 +147,9 @@ MonoBehaviour:
     name: "\uCEA3\uD0C0\uC6CC"
     content: "\uACE0\uC591\uC774\uB4E4\uC774 \uC88B\uC544\uD558\uB294 \uC2A4\uD06C\uB798\uCE58
       \uC6A9\uD488\uC744 \uC18C\uD658\uD55C\uB2E4.\n"
-    price: 0
+    price: 400
   skillGague: 0
-  maxSkillGauge: 100
+  maxSkillGauge: 150
   attackTime: 0
   attackDmg: 0
   baseAttackTime: 0
