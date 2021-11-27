@@ -104,7 +104,7 @@ public class Tower : MonoBehaviour
     public void showGauge()
     {
         Image gauge_obj = gauge_bar.GetComponentInChildren<Image>();
-        gauge_obj.fillAmount = skillGague / 100;
+        gauge_obj.fillAmount = skillGague / maxSkillGauge;
     }
 
     public void Startco()
@@ -197,7 +197,10 @@ public class Tower : MonoBehaviour
                         Quaternion qut = new Quaternion();
                         qut.eulerAngles = new Vector3(0, 0, angle);
                         aRazer.transform.rotation = qut;
-                        aRazer.transform.position += dir * 2f; // 거리
+                        Vector3 scale = aRazer.GetComponent<Transform>().localScale;
+                        scale.y = hitSize / 4; // 1이 대략 4정도
+                        aRazer.GetComponent<Transform>().localScale = scale;
+                        aRazer.transform.position += dir * scale.y; // 거리
                         break;
 
                     default:

@@ -186,7 +186,7 @@ MonoBehaviour:
   enemyName: "\uB0E5\uC7743"
   coin: 50
   affection: 50
-  attackDmg: 0
+  attackDmg: 1
   attackSpeed: 1
   speed: 5
   hitRange: 0.5
