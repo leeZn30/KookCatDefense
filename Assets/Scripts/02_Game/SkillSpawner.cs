@@ -11,7 +11,7 @@ public class SkillSpawner : MonoBehaviour
     [SerializeField]
     private GameObject[] followskillPrefab;
     private TowerSpawner towerSpawner;
-    private bool isOnSkillButton = false;
+    public bool isOnSkillButton = false;
     public GameObject followSkillClone = null;
     private GameObject skillClone = null;
     private int skillType;
