@@ -17,7 +17,14 @@ public enum GameSFX
     Catnip,
     Razer,
     SkillCount,
-    Pang
+    Pang,
+    CatAngry,
+    CatnipSkill,
+    ChewSkill,
+    Chew,
+    RazerSkill,
+    Meteor
+
 
 }
 public enum SFX
@@ -26,6 +33,8 @@ public enum SFX
     CatSoundClick,
     GameOver,
     GameClear,
+    Pop,
+    WaveStart
 }
 public class SoundManager : Singleton<SoundManager>
 

@@ -344,13 +344,21 @@ MonoBehaviour:
   sfxAudioClips:
   - {fileID: 8300000, guid: 82e9a2a5fe73e2b4ebd96bbd60ef0486, type: 3}
   - {fileID: 8300000, guid: d071e266013614e499e2f7de57b6adca, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: a3fb4ed44e0da1b4884b7f307dd723fa, type: 3}
+  - {fileID: 8300000, guid: c25116fa48cfb1741a0ce1d947651adf, type: 3}
+  - {fileID: 8300000, guid: 577629d35ccac6947a2a518b32d420a6, type: 3}
+  - {fileID: 8300000, guid: c8eea703d5ee60f4fb874dd57adc39fc, type: 3}
   gameSFXAudioClips:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: df9ce0bf17cbd3c4eac4502264f37a50, type: 3}
   - {fileID: 0}
   - {fileID: 8300000, guid: fc761601ad5cfa24d8b310d137329394, type: 3}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: adce103e826cf134b94e5f01b107c2ff, type: 3}
   - {fileID: 8300000, guid: 6ac88a52e8374644aa4371c831696fc3, type: 3}
   - {fileID: 8300000, guid: d2136a51432914242b0ac787b124939a, type: 3}
   - {fileID: 8300000, guid: b51e497cd8378634c835451f75418197, type: 3}
+  - {fileID: 8300000, guid: 1eb4b9c7bd4da5f46a3b81cf33d8195b, type: 3}
+  - {fileID: 8300000, guid: 7d072428142ec1c42a4f22804798f442, type: 3}
+  - {fileID: 8300000, guid: acfb0998072884a49afce7991470f655, type: 3}
+  - {fileID: 8300000, guid: 525f377e873e46241aec025198fdcdfd, type: 3}
+  - {fileID: 8300000, guid: 89625145424cd984e9914cbb48e605b7, type: 3}
+  - {fileID: 8300000, guid: d476bcfa6122e864fb188952b5615ae1, type: 3}
