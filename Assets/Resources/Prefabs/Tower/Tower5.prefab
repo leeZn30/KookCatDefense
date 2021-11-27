@@ -93,13 +93,13 @@ MonoBehaviour:
   info:
     id: 5
     name: "\uACE0\uC591\uC774 \uC7A5\uB09C\uAC10"
-    content: "\uD55C\uBC88\uC5D0 \uC5EC\uB7EC\uB9C8\uB9AC\uB97C \uB180\uC544\uC904
-      \uC218 \uC788\uB294 \uACE0\uC591\uC774 \uC7A5\uB09C\uAC10"
-    price: 200
+    content: "\uC5EC\uB7EC\uB9C8\uB9AC\uC758 \uB0E5\uC774\uB4E4\uC5D0\uAC8C \uAD00\uD1B5\uC73C\uB85C
+      \uC560\uC815\uC744 \uCC44\uC6C1\uB2C8\uB2E4."
+    price: 150
   skillGague: 0
-  maxSkillGauge: 500
-  attackTime: 1
-  attackDmg: 1
+  maxSkillGauge: 300
+  attackTime: 2
+  attackDmg: 2
   baseAttackTime: 0
   baseAttackDmg: 0
   baseHitSize: 0

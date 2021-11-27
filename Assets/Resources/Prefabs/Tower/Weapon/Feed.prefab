@@ -114,5 +114,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   targetPosition: {x: 0, y: 0, z: 0}
-  attackDmg: 2
+  attackDmg: 0
   enterEnemys: []

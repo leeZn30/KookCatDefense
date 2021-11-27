@@ -117,7 +117,7 @@ MonoBehaviour:
     name: "\uC0AC\uB8CC\uD3ED\uD0C4"
     content: "\uC0AC\uB8CC \uD3ED\uD0C4\uC744 \uD22C\uD558\uD574 \uACE0\uC591\uC774\uB4E4\uC758
       \uC560\uC815\uB3C4\uB97C \uB192\uC778\uB2E4"
-    price: 50
+    price: 70
 --- !u!1 &1940617490173700413
 GameObject:
   m_ObjectHideFlags: 0

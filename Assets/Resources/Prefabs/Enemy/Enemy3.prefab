@@ -267,7 +267,7 @@ MonoBehaviour:
   id: 3
   enemyName: "\uB0E5\uC774"
   coin: 100
-  affection: 10
+  affection: 70
   attackDmg: 3
   attackSpeed: 1
   speed: 4

@@ -49,8 +49,9 @@ MonoBehaviour:
   info:
     id: 4
     name: "\uCEA3\uD720"
-    content: "\uBE59\uBE59"
-    price: 300
+    content: "\uCEA3\uD720\uC774 \uBE59\uBE59 \uB3CC\uBA74\uC11C \uBC94\uC704 \uB0B4
+      \uB0E5\uC774\uB4E4\uC758 \uC774\uB3D9\uC18D\uB3C4\uAC00 \uAC10\uC18C\uD569\uB2C8\uB2E4."
+    price: 120
   skillGague: 0
   maxSkillGauge: 150
   attackTime: 0

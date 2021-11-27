@@ -30,7 +30,7 @@ public class Catnip : MonoBehaviour
         }
         else
         {
-            Destroy(transform.parent.gameObject);
+            Destroy(gameObject);
         }
 
         float distance = Vector3.Distance(transform.position, transform.parent.position);
