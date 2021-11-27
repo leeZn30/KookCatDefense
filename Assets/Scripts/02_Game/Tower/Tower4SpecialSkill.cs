@@ -13,6 +13,7 @@ public class Tower4SpecialSkill : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SoundManager.Instance.PlayGameSFX(GameSFX.catwheelSkill);
         transform.parent.GetComponent<Tower>().skillGague = 0.0f;
         StartCoroutine (Camera.main.GetComponent<CameraMove>().Shake(0.5f, 0.5f));
         stage = GameManager.Instance.Stage;

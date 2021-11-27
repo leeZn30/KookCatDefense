@@ -348,6 +348,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c25116fa48cfb1741a0ce1d947651adf, type: 3}
   - {fileID: 8300000, guid: 577629d35ccac6947a2a518b32d420a6, type: 3}
   - {fileID: 8300000, guid: c8eea703d5ee60f4fb874dd57adc39fc, type: 3}
+  - {fileID: 8300000, guid: 92c0c1b1c7ba9274abb1487d78c0017c, type: 3}
+  - {fileID: 8300000, guid: dc108222bf717ed4dafcbfcaab02310c, type: 3}
+  - {fileID: 8300000, guid: 5fa97361f72b0ad4bbfbf07ee9b9ac76, type: 3}
+  - {fileID: 8300000, guid: 6f9a9bd8856216041af6418fb05be344, type: 3}
   gameSFXAudioClips:
   - {fileID: 8300000, guid: df9ce0bf17cbd3c4eac4502264f37a50, type: 3}
   - {fileID: 0}
@@ -362,3 +366,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 525f377e873e46241aec025198fdcdfd, type: 3}
   - {fileID: 8300000, guid: 89625145424cd984e9914cbb48e605b7, type: 3}
   - {fileID: 8300000, guid: d476bcfa6122e864fb188952b5615ae1, type: 3}
+  - {fileID: 8300000, guid: 08f346aee7783704ea40e2a411a0cbe1, type: 3}
+  - {fileID: 8300000, guid: 86bcdf874f6997148b388996eea2f824, type: 3}

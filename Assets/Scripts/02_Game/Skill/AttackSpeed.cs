@@ -7,7 +7,7 @@ public class AttackSpeed : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SoundManager.Instance.PlayGameSFX(GameSFX.DuDung,0.1f);
     }
 
     // Update is called once per frame

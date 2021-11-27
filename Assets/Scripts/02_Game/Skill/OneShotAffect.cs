@@ -8,7 +8,7 @@ public class OneShotAffect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SoundManager.Instance.PlayGameSFX(GameSFX.CatAngry, 0.05f);
     }
 
     // Update is called once per frame

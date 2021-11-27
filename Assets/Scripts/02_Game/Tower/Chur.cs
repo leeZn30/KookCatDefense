@@ -12,7 +12,7 @@ public class Chur : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SoundManager.Instance.PlayGameSFX(GameSFX.Chew,0.1f);
+        SoundManager.Instance.PlayGameSFX(GameSFX.Chur,0.1f);
         targetPosition = target.transform.position;
         transform.position = targetPosition;
     }

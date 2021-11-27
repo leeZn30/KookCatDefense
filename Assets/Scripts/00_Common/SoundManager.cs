@@ -20,10 +20,12 @@ public enum GameSFX
     Pang,
     CatAngry,
     CatnipSkill,
-    ChewSkill,
-    Chew,
+    catwheelSkill,
+    Chur,
     RazerSkill,
-    Meteor
+    Meteor,
+    ChurSkill,
+    DuDung
 
 
 }

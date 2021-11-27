@@ -4678,26 +4678,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8136181533671917880, guid: ba75817a7ff2666469d03fc5b4151e4d, type: 3}
-      propertyPath: sfxAudioClips.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8136181533671917880, guid: ba75817a7ff2666469d03fc5b4151e4d, type: 3}
-      propertyPath: sfxAudioClips.Array.data[6]
-      value: 
-      objectReference: {fileID: 8300000, guid: 92c0c1b1c7ba9274abb1487d78c0017c, type: 3}
-    - target: {fileID: 8136181533671917880, guid: ba75817a7ff2666469d03fc5b4151e4d, type: 3}
-      propertyPath: sfxAudioClips.Array.data[7]
-      value: 
-      objectReference: {fileID: 8300000, guid: dc108222bf717ed4dafcbfcaab02310c, type: 3}
-    - target: {fileID: 8136181533671917880, guid: ba75817a7ff2666469d03fc5b4151e4d, type: 3}
-      propertyPath: sfxAudioClips.Array.data[8]
-      value: 
-      objectReference: {fileID: 8300000, guid: 5fa97361f72b0ad4bbfbf07ee9b9ac76, type: 3}
-    - target: {fileID: 8136181533671917880, guid: ba75817a7ff2666469d03fc5b4151e4d, type: 3}
-      propertyPath: sfxAudioClips.Array.data[9]
-      value: 
-      objectReference: {fileID: 8300000, guid: 6f9a9bd8856216041af6418fb05be344, type: 3}
     - target: {fileID: 8136181533671917883, guid: ba75817a7ff2666469d03fc5b4151e4d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -10051,7 +10031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
       propertyPath: selectedSkills.Array.data[3]
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
       propertyPath: selectedTowers.Array.data[0]
@@ -10059,7 +10039,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
       propertyPath: selectedTowers.Array.data[1]
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
       propertyPath: selectedTowers.Array.data[2]
@@ -10067,7 +10047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
       propertyPath: selectedTowers.Array.data[3]
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
