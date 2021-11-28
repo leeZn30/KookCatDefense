@@ -10,6 +10,7 @@ public class Tower2SpecialSkill : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SoundManager.Instance.PlayGameSFX(GameSFX.ChurSkill);
         transform.parent.GetComponent<Tower>().skillGague = 0.0f;
     }
 
@@ -21,7 +22,7 @@ public class Tower2SpecialSkill : MonoBehaviour
 
     void attack()
     {
-        SoundManager.Instance.PlayGameSFX(GameSFX.ChurSkill, 0.1f);
+        
         if (collEnemys.Count > 0)
         {
             foreach (GameObject go in collEnemys)
