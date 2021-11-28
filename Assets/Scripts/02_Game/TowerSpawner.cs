@@ -28,6 +28,7 @@ public class TowerSpawner : MonoBehaviour
     public void ReadytoSpawnTower(int type)
     {
         isOnTowerButton = false;
+        skillSpawner.isOnSkillButton = false;
 
         Destroy(followTowerClone);
         Destroy(skillSpawner.followSkillClone);
