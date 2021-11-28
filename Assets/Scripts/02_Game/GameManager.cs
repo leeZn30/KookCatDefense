@@ -96,22 +96,24 @@ public class GameManager : Singleton<GameManager>
     }
     public void ClearGame()
     {
-
-        watch.Stop();
-        Debug.Log(currentTime+"s");
-        Debug.Log("GameClear");
-
-        SoundManager.Instance.PlaySFX(SFX.GameClear);
-        GameData.Instance.ClearSelectedThings();
-        
-
-        GameData.Instance.stageLocks[mapIdx] = Mathf.Max(GameData.Instance.stageLocks[mapIdx], currentStar);//1,2,3 이렇게 별 구분 
-
-        if (GameData.Instance.stageLocks.Length>mapIdx+1)//다음맵 개방
-            GameData.Instance.stageLocks[mapIdx+1] = 0;
-        if (GameClearEvent != null)
+        if (isGameOver == false)
         {
-            GameClearEvent();
+            watch.Stop();
+            Debug.Log(currentTime + "s");
+            Debug.Log("GameClear");
+
+            SoundManager.Instance.PlaySFX(SFX.GameClear);
+            GameData.Instance.ClearSelectedThings();
+
+
+            GameData.Instance.stageLocks[mapIdx] = Mathf.Max(GameData.Instance.stageLocks[mapIdx], currentStar);//1,2,3 이렇게 별 구분 
+
+            if (GameData.Instance.stageLocks.Length > mapIdx + 1)//다음맵 개방
+                GameData.Instance.stageLocks[mapIdx + 1] = 0;
+            if (GameClearEvent != null)
+            {
+                GameClearEvent();
+            }
         }
     }
     public void GameOver()
