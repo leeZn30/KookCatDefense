@@ -3564,6 +3564,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  isOnTowerButton: 0
   followTowerClone: {fileID: 0}
 --- !u!4 &478412521
 Transform:
@@ -4091,6 +4092,7 @@ MonoBehaviour:
   gameClearPanel: {fileID: 1765219284}
   goButton1: {fileID: 1538469449}
   goButton2: {fileID: 1746748862}
+  Star: {fileID: 0}
 --- !u!222 &557996541
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6944,6 +6946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b2c3aeb0efae8d40b5c8b046100f3f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTime: 0
   currentTowerObj: {fileID: 5206933061407225356, guid: 9e211f5dd8957ec4faf3ded019a6ad31, type: 3}
   maps:
   - {fileID: 1482456980663961910, guid: 40f96db87c973ab4aae1fe3b0f973822, type: 3}
@@ -9165,7 +9168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
       propertyPath: selectedSkills.Array.data[0]
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
       propertyPath: selectedSkills.Array.data[1]
@@ -9173,11 +9176,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
       propertyPath: selectedSkills.Array.data[2]
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
       propertyPath: selectedSkills.Array.data[3]
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6678782512302506393, guid: 83bbe7c643786c045961e8635c3d604a, type: 3}
       propertyPath: selectedTowers.Array.data[0]
@@ -9314,6 +9317,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  isOnSkillButton: 0
   followSkillClone: {fileID: 0}
 --- !u!4 &1782403683
 Transform:
