@@ -25,6 +25,7 @@ public class ResolutionFixed : MonoBehaviour
 
         GameData.Instance.width = width;
         GameData.Instance.height = height;
+        GameData.Instance.isFull = isFull;
 
 
         int deviceWidth = Screen.width;
