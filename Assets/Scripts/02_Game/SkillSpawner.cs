@@ -31,6 +31,7 @@ public class SkillSpawner : MonoBehaviour
     {
 
         isOnSkillButton = false;
+        towerSpawner.isOnTowerButton = false;
 
         Destroy(followSkillClone);
         Destroy(towerSpawner.followTowerClone);
