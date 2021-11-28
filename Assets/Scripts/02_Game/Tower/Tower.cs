@@ -25,6 +25,7 @@ public class Tower : MonoBehaviour
 
     public bool isBuffed = false;
 
+    public GameObject debuffObj;
     // �Ѿ�
     public GameObject Bullet = null;
 
@@ -241,6 +242,7 @@ public class Tower : MonoBehaviour
     }
     public void SetAttckTime(float value)
     {
+        debuffObj.SetActive(true);
         baseAttackTime *= value;
         attackTime = baseAttackTime; 
     }

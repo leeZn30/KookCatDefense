@@ -10,12 +10,27 @@ public class Tower2SpecialSkill : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SoundManager.Instance.PlayGameSFX(GameSFX.ChurSkill);
         transform.parent.GetComponent<Tower>().skillGague = 0.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        attack();
+    }
+
+    void attack()
+    {
+        
+        if (collEnemys.Count > 0)
+        {
+            foreach (GameObject go in collEnemys)
+            {
+                go.GetComponent<Enemy>().AddAffection(attackDmg);
+            }
+        }
+
         Destroy(gameObject, 1f);
     }
 
