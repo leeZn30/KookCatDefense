@@ -185,10 +185,10 @@ MonoBehaviour:
   id: 0
   enemyName: "\uB0E5\uC7742"
   coin: 60
-  affection: 30
+  affection: 20
   attackDmg: 3
   attackSpeed: 2
-  speed: 3
+  speed: 2
   hitRange: 0.5
   layerMask:
     serializedVersion: 2

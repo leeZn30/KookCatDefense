@@ -30,28 +30,23 @@ public class Tower2SpecialSkill : MonoBehaviour
                 go.GetComponent<Enemy>().AddAffection(attackDmg);
             }
         }
+
         Destroy(gameObject, 1f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        SoundManager.Instance.PlayGameSFX(GameSFX.ChurSkill, 0.1f);
         if (collision.tag == "Enemy")
-            collEnemys.Add(collision.gameObject);
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        foreach (GameObject go in collEnemys)
         {
-            if (go == collision.gameObject)
-            {
-                collEnemys.Remove(go);
-                break;
-            }
+            collision.transform.gameObject.GetComponent<Enemy>().AddAffection(attackDmg);
         }
     }
+
+
     private void OnDestroy()
     {
-        transform.parent.GetComponent<Tower>().Startco();
+        if (transform.parent.gameObject.GetComponent<Tower>().isActiveAndEnabled)
+            transform.parent.GetComponent<Tower>().Startco();
     }
 }
