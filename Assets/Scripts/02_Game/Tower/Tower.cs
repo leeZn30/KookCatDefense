@@ -281,7 +281,7 @@ public class Tower : MonoBehaviour
         if (isBuffed)
         {
             // 여기에 표시할거 추가
-            GetComponent<SpriteRenderer>().color = new Color(254, 156, 154, 255);
+            GetComponent<SpriteRenderer>().color = Color.magenta;
         }
         else
         {

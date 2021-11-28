@@ -10843,7 +10843,7 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {r: 0, g: 0, b: 0, a: 0}
   - m_RefCount: 1
-    m_Data: {r: 0.8678087, g: 0.36068508, b: 0.3834375, a: 1}
+    m_Data: {r: 0.8481132, g: 0.4389708, b: 0.4624215, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -11149,7 +11149,7 @@ MonoBehaviour:
   lastWall: {fileID: 5237650992077245632}
   startCoin: 800
   waveTime: 10
-  clearTime: 6400000096000000
+  clearTime: 78000000c8000000
   waves:
   - spawnTime: 1
     enemyCnt: 0
@@ -11929,7 +11929,7 @@ Tilemap:
   - m_RefCount: 59
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 1
-    m_Data: {r: 0.8272838, g: 0.5584858, b: 0.60772175, a: 1}
+    m_Data: {r: 0.83422846, g: 0.38340893, b: 0.40374702, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}

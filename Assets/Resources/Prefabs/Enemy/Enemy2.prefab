@@ -188,7 +188,7 @@ MonoBehaviour:
   affection: 20
   attackDmg: 1
   attackSpeed: 1
-  speed: 4
+  speed: 4.5
   hitRange: 0.5
   layerMask:
     serializedVersion: 2
