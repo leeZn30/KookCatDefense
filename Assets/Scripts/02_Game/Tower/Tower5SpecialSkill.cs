@@ -91,6 +91,7 @@ public class Tower5SpecialSkill : MonoBehaviour
         {
             tt.tower = null;
         }
-        transform.parent.GetComponent<Tower>().Startco();
+        if (transform.parent.gameObject.GetComponent<Tower>().isActiveAndEnabled)
+            transform.parent.GetComponent<Tower>().Startco();
     }
 }

@@ -15,45 +15,22 @@ public class Tower3SpecialSkill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        attack();
+        //attack();
+        Destroy(gameObject, 1f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
-            collEnemys.Add(collision.gameObject);
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        foreach (GameObject go in collEnemys)
-        {
-            if (go == collision.gameObject)
-            {
-                collEnemys.Remove(go);
-                break;
-            }
-        }
-    }
-
-    void attack()
-    {
         SoundManager.Instance.PlayGameSFX(GameSFX.CatnipSkill, 0.1f);
-        if (collEnemys.Count > 0)
-        {
-            foreach (GameObject go in collEnemys)
-            {
-                Enemy enemy = go.GetComponent<Enemy>();
-
-                enemy.SpeedDownAndReset(0, 1.5f);
-            }
-        }
-        Destroy(gameObject, 1f);
+        if (collision.tag == "Enemy")
+            collision.transform.GetComponent<Enemy>().SpeedDownAndReset(0, 1.5f);
     }
+    
 
     private void OnDestroy()
     {
-        transform.parent.GetComponent<Tower>().Startco();
+        if (transform.parent.gameObject.GetComponent<Tower>().isActiveAndEnabled)
+            transform.parent.GetComponent<Tower>().Startco();
     }
 
 

@@ -33,6 +33,7 @@ public class Tower4SpecialSkill : MonoBehaviour
 
     private void OnDestroy()
     {
-        transform.parent.GetComponent<Tower>().Startco();
+        if (transform.parent.gameObject.GetComponent<Tower>().isActiveAndEnabled)
+            transform.parent.GetComponent<Tower>().Startco();
     }
 }

@@ -97,7 +97,7 @@ MonoBehaviour:
       \uBA39\uC5EC\uC11C \uC560\uC815\uB3C4\uB97C \uCC44\uC6C1\uB2C8\uB2E4.\n"
     price: 120
   skillGague: 0
-  maxSkillGauge: 200
+  maxSkillGauge: 150
   attackTime: 1
   attackDmg: 2
   baseAttackTime: 0
