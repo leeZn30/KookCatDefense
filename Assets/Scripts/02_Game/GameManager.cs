@@ -151,13 +151,14 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitForSeconds(0.1f);
     }
     public void UpdateEnemyDeath(Enemy enemy)
-    {
+    { 
         coin += enemy.coin;
         enemyCnt--;
         SoundManager.Instance.PlayGameSFX(GameSFX.CatHappy);
         if (isWaveFinish == true && enemyCnt<=0)
         {
-            ClearGame();
+            if(isGameOver==false)
+                ClearGame();
         }
         else if (enemyCnt <= 0)
         {
