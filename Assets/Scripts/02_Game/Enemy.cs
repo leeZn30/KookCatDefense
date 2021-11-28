@@ -42,6 +42,8 @@ public class Enemy : MonoBehaviour
 
     private Wall attackTarget;
 
+    private IEnumerator coroutine;
+
     public float AttackSpeed
     {
         set => currentAtkSpeed = Mathf.Max(0, value);
@@ -55,7 +57,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        
+        coroutine = Move();
     }
     void Update()
     {
@@ -121,7 +123,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    IEnumerator Move()
+    public IEnumerator Move()
     {
         while (currentWayPointIdx < wayPoints.Count)
         {
@@ -153,11 +155,27 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
     }
 
-    /*public IEnumerator MoveToTarget(GameObject targetPosition)
+    public void MoveToTarget(GameObject targetPosition)
     {
-        transform.position = Vector3.MoveTowards(gameObject.transform.position, targetPosition.transform.position, speed);
-        yield return new WaitForSeconds(0.1f);        
-    }*/
+        Vector3 dir = (targetPosition.transform.position - gameObject.transform.position).normalized;
+        animator.SetFloat("MoveX", dir.x);
+        animator.SetFloat("MoveY", dir.y);
+        //Debug.Log("Done");
+
+        gameObject.transform.position += currentSpeed * dir * Time.deltaTime;
+        /*transform.position = Vector3.MoveTowards(gameObject.transform.position, targetPosition.transform.position, speed);*/
+
+        if (Vector3.Distance(gameObject.transform.position, targetPosition.transform.position) < 0.02f * currentSpeed)
+            {
+                currentSpeed = 0.0f;
+            }
+    }
+
+    public void test()
+    {
+        StopCoroutine(coroutine);
+        Debug.Log("Done");
+    }
 
 
     private void AttackEvent()
