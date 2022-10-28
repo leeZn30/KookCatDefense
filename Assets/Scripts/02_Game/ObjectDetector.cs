@@ -29,10 +29,10 @@ public class ObjectDetector : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (EventSystem.current.IsPointerOverGameObject() == true)
+        /*if (EventSystem.current.IsPointerOverGameObject() == true)
         {
             return;
-        }
+        }*/
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -68,6 +68,11 @@ public class ObjectDetector : MonoBehaviour
 
         else if (Input.GetMouseButtonUp(0))
         {
+            if (EventSystem.current.IsPointerOverGameObject() == true)
+            {
+                return;
+            }
+
             if (hitTransform == null || hitTransform.CompareTag("Tower") == false)
             {
                 towerDataViewer.OffPanel();

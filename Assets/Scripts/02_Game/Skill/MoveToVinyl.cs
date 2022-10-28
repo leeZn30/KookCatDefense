@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MoveToVinyl : MonoBehaviour
 {
+    IEnumerator coroutine;
     public List<Enemy> collidedEnemy = new List<Enemy>();
     // Start is called before the first frame update
     void Start()
@@ -14,7 +15,13 @@ public class MoveToVinyl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (collidedEnemy != null){
+            //Enemy[] slowEnemyArr = ToArray();
+            for (int i=0; i<collidedEnemy.Count; i++){
+                if(collidedEnemy[i]!=null)
+                    collidedEnemy[i].MoveToTarget(gameObject);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -28,8 +35,10 @@ public class MoveToVinyl : MonoBehaviour
 
         collidedEnemy.Add(enemy);
 
-        //StopCoroutine(enemy.Move());
-        //StartCoroutine(enemy.MoveToTarget(gameObject));
+        enemy.StopAllCoroutines();
+        //coroutine = enemy.Move();
+        //StopCoroutine(coroutine);
+        //enemy.StartCoroutine(enemy.MoveToTarget(gameObject));
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -39,8 +48,16 @@ public class MoveToVinyl : MonoBehaviour
             return;
         }
 
-        collision.GetComponent<Enemy>().ResetMoveSpeed();
+        //collision.GetComponent<Enemy>().ResetMoveSpeed();  
+    }
 
-        
+    void OnDestroy(){
+        if (collidedEnemy != null){
+            //Enemy[] slowEnemyArr = ToArray();
+            for (int i=0; i<collidedEnemy.Count; i++){
+                collidedEnemy[i].ResetMoveSpeed();
+                collidedEnemy[i].StartCoroutine(collidedEnemy[i].Move());
+            }
+        }
     }
 }

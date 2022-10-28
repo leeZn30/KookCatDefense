@@ -48,3 +48,7 @@ MonoBehaviour:
   selectedStage: -1
   selectedTowers: ffffffffffffffffffffffffffffffff
   selectedSkills: ffffffffffffffffffffffffffffffff
+  width: 0
+  height: 0
+  isFull: 0
+  isResolutionChanged: 0

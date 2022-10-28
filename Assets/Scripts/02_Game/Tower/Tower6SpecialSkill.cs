@@ -128,7 +128,8 @@ public class Tower6SpecialSkill : MonoBehaviour
 
     private void OnDestroy()
     {
-        transform.parent.GetComponent<Tower>().Startco();
+        if (transform.parent.gameObject.GetComponent<Tower>().isActiveAndEnabled)
+            transform.parent.GetComponent<Tower>().Startco();
         if (tower != null) tower.onSpecialSkillMode();
     }
 
